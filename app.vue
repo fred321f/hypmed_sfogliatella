@@ -4,6 +4,9 @@
       <nav>
         <NuxtLink to="/">Home</NuxtLink> | 
         <NuxtLink to="/about">About</NuxtLink>
+        <NuxtLink to="/teachers">Teachers</NuxtLink>
+        <NuxtLink to="/activities">Activities</NuxtLink>
+        <NuxtLink to="/highlights">Highlights</NuxtLink>
         <NuxtLink to="/example">Example</NuxtLink>
       </nav>
     </header>
