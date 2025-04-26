@@ -1,80 +1,31 @@
-<script setup>
-const { data, pending, error } = useFetch('/api/teachers', {
-  onResponse({ response }) {
-    console.log('API Response:', response._data);
-  },
-  onResponseError({ response }) {
-    console.error('API Error:', response._data);
-  }
-});
-</script>
-
 <template>
-  <div>
-
-    <button type="button" class="btn btn-primary">Primary</button>
-
-    <!-- Alert from bootstrap -->
-    <div class="alert alert-info" role="alert">
-      This is a Bootstrap alert example.
+    <div class="header-line">
+        <h1 class="header-title">Yogatella</h1>
     </div>
-
     <div class="container">
-      <h1>Teachers List</h1>
-      <div class="row">
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/dpba22oef/image/upload/v1738671482/cld-sample-5.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/dpba22oef/image/upload/v1738671482/cld-sample-5.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card" style="width: 18rem;">
-            <img class="card-img-top"
-              src="https://res.cloudinary.com/dpba22oef/image/upload/v1738671482/cld-sample-5.jpg" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                card's
-                content.</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
+        <h2>
+            Welcome to a space where mind, body, and soul come together.
+            Discover balance, strength, and serenity at our yoga center.
+        </h2>
+        <p>
+            Yogatella is a well-established yoga center that has been offering the highest quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence, we provide a welcoming space for all to explore the transformative power of yoga.
+        </p>
+        <button type="button" class="btn btn-primary">Learn more about the center</button>
     </div>
-  </div>
-
-  <div v-if="pending">Loading...</div>
-  <div v-if="error">
-    <p>Error: {{ error.message }}</p>
-    <p v-if="error.data">Details: {{ error.data.message }}</p>
-  </div>
-  <div v-else-if="data">
-    <ul v-if="data.success && data.data.length">
-      <li v-for="teacher in data.data" :key="teacher._id">{{ teacher.name }}</li>
-    </ul>
-    <p v-else-if="data.error">No teachers found</p>
-    <p v-else>Failed to load teachers: {{ data.message }}</p>
-  </div>
+  
 </template>
+
+<style scoped>
+.header-line {
+  width: 100%;
+  background-color: #d2f4ea; /* cambia il colore che vuoi */
+  padding: 20px 0; /* spazio sopra e sotto il titolo */
+  text-align: center;
+}
+
+.header-title {
+  color: black; /* colore del testo */
+  margin: 0;
+  font-size: 2rem;
+}
+</style>
