@@ -9,7 +9,7 @@ let db: any; // Store the database instance
 export async function connectDB() {
     if (!db) {
         await client.connect();
-        db = client.db('studio'); // Replace with your DB name
+        db = client.db('yogatella'); // Replace with your DB name
         console.log('✅ Connected to MongoDB');
     }
     return db;

@@ -1,3 +1,13 @@
+<script setup>
+import Teachers from '~/components/TeachersList.vue';
+</script>
+
 <template>
-    
+    <div class="container">
+        <h1 class="my-5 text-center display-2">Teachers</h1>
+        <p class="mb-5 text-center lead">Meet our dedicated and experienced teachers who are passionate about sharing
+            their knowledge and skills with you.
+        </p>
+        <Teachers />
+    </div>
 </template>
