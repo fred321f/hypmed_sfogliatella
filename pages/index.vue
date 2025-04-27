@@ -1,4 +1,16 @@
 <template>
+    <div class="container">
+        <h1 class="my-5 text-center display-2">YogaTella</h1>
+        <h2 class="mb-3 text-center lead">Welcome to a space where mind, body, and soul come together.
+            Discover balance, strength, and serenity at our yoga center.
+        </h2>
+        <p class="mb-3 text-center">Yogatella is a well-established yoga center that has been offering the highest quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence, we provide a welcoming space for all to explore the transformative power of yoga.
+        </p>
+    </div>
+</template>
+
+<!-- 
+<template>
     <div class="header-line">
         <h1 class="header-title">Yogatella</h1>
     </div>
@@ -73,3 +85,4 @@
   font-size: 1.5rem;
 }
 </style>
+-->
