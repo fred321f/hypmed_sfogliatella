@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="mb-3 text-center container">
         <h1 class="my-5 text-center display-2">YogaTella</h1>
         <h2 class="mb-3 text-center lead">Welcome to a space where mind, body, and soul come together.
             Discover balance, strength, and serenity at our yoga center.
@@ -9,8 +9,6 @@
         <div class="mb-3 text-center">
             <a href="/about" type="button" class="btn btn-primary" >Learn more about the center</a>
         </div>
-        
-
         <div class="card mb-3" >
             <div class="row g-0">
                 <div class="col-md-4">
@@ -42,4 +40,3 @@
 
     </div>
 </template>
-
