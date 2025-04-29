@@ -1,3 +1,17 @@
+<!-- To add in a page you need to add:
+<script setup>
+    import CoursesList from '~/components/CoursesList.vue';
+</script>
+
+<template>
+    ...
+    <CoursesList type="Yoga" />
+    ...
+</template>
+
+N.B. Remember also to change the realated server/api/courses.ts if needed
+-->
+
 <template>
   <div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
