@@ -1,18 +1,21 @@
 <template>
     <div class="mb-3 text-center container">
         <h1 class="my-5 text-center display-2">YogaTella</h1>
-        <h2 class="mb-3 text-center lead">Welcome to a space where mind, body, and soul come together.
+        <h2 class="my-3 text-center lead">Welcome to a space where mind, body, and soul come together.
             Discover balance, strength, and serenity at our yoga center.
         </h2>
-        <p class="mb-3 text-center">Yogatella is a well-established yoga center that has been offering the highest quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence, we provide a welcoming space for all to explore the transformative power of yoga.
+        <img src="https://res.cloudinary.com/dpba22oef/image/upload/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg" class="img-fluid rounded" alt="People doing yoga">
+        <p class="my-3 text-center">Yogatella is a well-established yoga center that has been offering the highest quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence, we provide a welcoming space for all to explore the transformative power of yoga.
         </p>
-        <div class="mb-3 text-center">
+        <div class="my-3 text-center">
             <a href="/about" type="button" class="btn btn-primary" >Learn more about the center</a>
         </div>
+    </div>
+    <div class="my-5 container">
         <div class="card mb-3" >
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="https://www.yoss.it/wp-content/uploads/2020/03/ro147-scaled-1440x809.jpg" class="img-fluid rounded-start" alt="Person doing yoga">
+                <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill,g_auto/v1745953332/ro147-scaled-1440x809-2_ygeojc.jpg" class="img-fluid rounded-start" alt="Person doing yoga">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body ms-3">
@@ -26,7 +29,7 @@
         <div class="card mb-3" >
             <div class="row g-0">
                 <div class="col-md-4">
-                <img src="https://gorgeoustip.com/wp-content/uploads/2025/02/Yoga-teacher-training.jpg" class="img-fluid rounded-start" alt="Group of yoga teachers">
+                <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill/v1745953300/Yoga-teacher-training-2_ryrg6y.jpg" class="img-fluid rounded-start" alt="Group of yoga teachers">
                 </div>
                 <div class="col-md-8">
                   <div class="card-body ms-3">
@@ -37,6 +40,23 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="mb-5 container">
+        <h2 class="my-3 display-4">JOIN US!</h2>
+        <p class="my-3 lead">What are you waiting for?</p>
+        <p class="my-3">Come visit us at Via Ponzo 7, Milan, and experience the peaceful atmosphere of Yogatella</p>
+        <div class="container">
+            <div class="row text-center align-items-center">
+                <div class="col-sm">
+                    <p>Via Ponzio, 7<br />
+                    20131, Milano MI<br />
+                    Italia</p>
+                    <a href="..." type="button" class="btn btn-primary" >Contact us</a>
+                </div>
+                <div class="col-sm">
+                    <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_400/v1745955854/Screenshot_2025-04-18_alle_13.03.26_lwidg0.png" class="img-fluid rounded" alt="map">
+                </div>
+            </div>
+        </div>
     </div>
 </template>
