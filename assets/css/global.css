@@ -23,3 +23,118 @@ body {
         background-position: 0% 50%;
     }
 }
+.navbar-black {
+    background-color: #bbffe5 !important;
+  }
+.navbar {
+    transition: all 0.3s ease;
+  }
+  
+  /* Navbar Background Styles */
+  .bg-gradient-pastel {
+    background: linear-gradient(to right, rgba(143, 255, 221, 0.8), rgba(32, 201, 151, 0.6));
+  }
+  
+  .bg-light-pastel {
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(5px);
+  }
+  
+  /* Navigation Links */
+  .nav-link {
+    color: #1e8a6e;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    padding: 0.5rem 0;
+  }
+  
+  .nav-link:hover {
+    color: #20c997;
+  }
+  
+  .nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #20c997;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .nav-link:hover::after,
+  .active-link::after {
+    width: 100%;
+  }
+  
+  .active-link {
+    color: #20c997;
+  }
+  
+  /* Button Styles */
+  .btn-primary {
+    background-color: #20c997;
+    border-color: #20c997;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1ba584;
+    border-color: #1ba584;
+  }
+  
+  /* Logo Styling */
+  .navbar-brand img {
+    height: 60px;
+    width: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .navbar-brand:hover img {
+    transform: scale(1.05);
+  }
+  
+  .navbar-brand span {
+    color: #1e8a6e;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-brand:hover span {
+    color: #20c997;
+  }
+  
+  /* Mobile Styles */
+  @media (max-width: 991px) {
+    .nav-link {
+      padding: 0.75rem 0;
+    }
+    
+    .nav-link::after {
+      display: none;
+    }
+    
+    .navbar-brand img {
+      height: 50px; /* Slightly smaller on mobile */
+    }
+  }
+  
+  /* Main Content Spacing */
+  .radial-bg {
+    min-height: 100vh;
+    padding-top: 90px; /* Adjust based on your navbar height */
+  }
+  
+  @media (max-width: 991px) {
+    .radial-bg {
+      padding-top: 80px; /* Smaller padding for mobile */
+    }
+  }
+
+  .navbar .nav-link {
+    font-size: 1.5rem;
+  }
+  /* Cambia colore dell'icona hamburger */
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(32, 201, 151)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
