@@ -54,8 +54,13 @@ const getCoursesForSlot = (day, time) => {
               :key="course.name"
               :class="['course-box', course.type === 'Yoga' ? 'yoga' : 'meditation']"
             >
-              <strong>{{ course.name }}</strong><br />
-              <em>{{ course.type }}</em>
+              <!-- Structural Link To the related card -->
+              <a :href="'#' + course.name.replace(/\s+/g, '-').toLowerCase()" style="text-decoration: none; color: inherit;">
+                <strong>{{ course.name }}</strong>
+                <br />
+                <em>{{ course.type }}</em>
+              </a>
+
             </div>
           </td>
         </tr>

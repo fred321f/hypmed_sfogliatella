@@ -1,6 +1,5 @@
 <script setup>
-import CoursesList from '~/components/CoursesList.vue';
-import Teachers from '~/components/TeachersList.vue';
+import CoursesList from '~/components/CoursesListTest.vue';
 
 import Calendar from '~/components/WeekCalendar.vue';
 </script>
