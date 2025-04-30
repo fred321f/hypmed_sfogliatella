@@ -6,8 +6,59 @@ body {
 	height: 100vh; */
 
     background: #ffffff;
-    background: linear-gradient(324deg, rgba(255, 255, 255, 0) 0%, rgba(143, 255, 221, 0.02) 62%, rgba(32, 201, 151, 0.1) 100%);
+    background: linear-gradient(324deg, rgba(32, 201, 151, 0.1) 20%, rgba(143, 255, 221, 0.02) 42%, rgba(32, 201, 151, 0.1) 100%);
+
     background-repeat: no-repeat;
+    background-size: 400% 400%;
+}
+
+h1.display-1 {
+    text-decoration: underline;
+    text-decoration-color: #20c997;
+    text-underline-offset: 15px;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: auto;
+
+    /* length of line */
+
+}
+
+/*  */
+.navbar-brand {
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+    color: #20c997 !important;
+}
+
+/* Animated hovering */
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #20c997;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+}
+
+.hover-underline-animation.left::after {
+    transform-origin: bottom right;
+}
+
+.hover-underline-animation.left:hover::after {
+    transform-origin: bottom left;
 }
 
 @keyframes gradient {
