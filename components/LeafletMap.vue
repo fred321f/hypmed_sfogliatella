@@ -1,5 +1,6 @@
 <template>
     <client-only>
+        <div class="border border-2 border-primary overflow-hidden ">
       <LMap
         :zoom="13"
         :center="[45.4753931, 9.2298680]"
@@ -13,6 +14,7 @@
           <LPopup>YogaTella</LPopup>
         </LMarker>
       </LMap>
+      </div>
     </client-only>
   </template>
   
@@ -22,7 +24,6 @@
   import { LMap, LTileLayer, LMarker, LPopup } from '@vue-leaflet/vue-leaflet'
   
   onMounted(async () => {
-    // Import dinamico: eseguito solo lato client
     const L = await import('leaflet')
   
     delete L.Icon.Default.prototype._getIconUrl
@@ -33,3 +34,5 @@
     })
   })
   </script>
+
+
