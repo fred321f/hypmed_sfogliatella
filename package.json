@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@vue-leaflet/vue-leaflet": "^0.10.1",
     "bootstrap": "^5.3.5",
     "dotenv": "^16.4.7",
     "mongodb": "^6.15.0",

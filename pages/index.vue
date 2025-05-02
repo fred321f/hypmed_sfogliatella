@@ -1,3 +1,7 @@
+<script setup>
+import LeafletMap from '~/components/LeafletMap.vue'
+</script>
+
 <template>
     <div class="mb-3 text-center container">
         <h1 class="my-5 text-center display-1">YogaTella</h1>
@@ -47,14 +51,14 @@
         <p class="my-3">Come visit us at Via Ponzo 7, Milan, and experience the peaceful atmosphere of Yogatella</p>
         <div class="container">
             <div class="align-items-center text-center row">
-                <div class="col-sm">
+                <div class="col-sm-4">
                     <p>Via Ponzio, 7<br />
                     20131, Milano MI<br />
                     Italia</p>
                     <a href="..." type="button" class="btn btn-primary" >Contact us</a>
                 </div>
-                <div class="col-sm">
-                    <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_400/v1745955854/Screenshot_2025-04-18_alle_13.03.26_lwidg0.png" class="rounded img-fluid" alt="map">
+                <div class="col-sm-8">
+                    <LeafletMap />
                 </div>
             </div>
         </div>
