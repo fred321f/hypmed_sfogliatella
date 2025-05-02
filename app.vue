@@ -8,16 +8,22 @@ import './assets/css/custom-bootstrap.scss';
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>
     <header>
-      <nav class="bg-transparent mt-3 mb-2 navbar navbar-light navbar-expand-lg">
+      <nav class="bg-dark mb-2 navbar navbar-dark navbar-expand-lg">
         <div class="container">
+
           <span class="mb-0 navbar-brand h1">
-            <NuxtLink to="/" class="navbar-brand">YogaTella</NuxtLink>
+            <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
+              <img src="/img/YogatellaLogo.png" alt="YogaTella Logo" class="myLogo me-4" />
+              YogaTella
+            </NuxtLink>
           </span>
+
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
+
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="ms-auto mb-2 mb-lg-0 navbar-nav">
               <li class="nav-item">
@@ -31,6 +37,7 @@ import './assets/css/custom-bootstrap.scss';
               </li>
             </ul>
           </div>
+          
         </div>
       </nav>
     </header>

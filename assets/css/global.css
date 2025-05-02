@@ -23,11 +23,21 @@ h1.display-1 {
 }
 
 /*  */
+.nav-link {
+    color: #20c997 !important;
+    font-size: 1.8rem !important;
+}
+.myLogo {
+    height: 60px; 
+    width: auto;
+}
+
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     color: #20c997 !important;
+    font-size: 1.8rem !important;
 }
 
 /* Animated hovering */
@@ -57,6 +67,15 @@ h1.display-1 {
 }
 
 .hover-underline-animation.left:hover::after {
+    transform-origin: bottom left;
+}
+.router-link-exact-active.hover-underline-animation::after,
+.router-link-active.hover-underline-animation::after {
+    transform: scaleX(1);
+}
+
+.router-link-exact-active.hover-underline-animation.left::after,
+.router-link-active.hover-underline-animation.left::after {
     transform-origin: bottom left;
 }
 
