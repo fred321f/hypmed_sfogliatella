@@ -46,8 +46,58 @@ import './assets/css/custom-bootstrap.scss';
       <NuxtPage />
     </main>
 
-    <footer>
-      <!-- To be implemented -->
+    
+    <footer class="bg-dark text-light py-5">
+      <div class="container text-center">
+
+        <!-- Social Icons con Founder -->
+        <div class="mb-5">
+          <h5 class=" mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
+          
+          <div class="row justify-content-center">
+            
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/frederick.nielsen" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Frederick Nielsen</div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/sveva_zanetti" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Sveva Zanetti</div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/gian_betto" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Gianluca Bettoni</div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/hyperzhp" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Haipeng Zhu</div>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div>
+          <p class="mb-1">&copy; 2025 <strong>YogaTella</strong>. Tutti i diritti riservati.</p>
+        </div>
+
+      </div>
+
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </footer>
+    
+    
   </div>
 </template>
+

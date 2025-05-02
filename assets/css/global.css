@@ -92,3 +92,18 @@ h1.display-1 {
         background-position: 0% 50%;
     }
 }
+
+/* FOOTER */
+.ig-profile {
+    color: #20c997;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .ig-profile:hover {
+    color: #17a589; /* variante più scura opzionale */
+  }
+   
+  .ig-profile div { 
+    font-weight: 500;
+  }
