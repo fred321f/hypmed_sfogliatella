@@ -12,7 +12,7 @@
 N.B. Remember also to change the realated server/api/courses.ts if needed
 -->
 
-<template>
+<template>  <!-- THIS VERSION ADD STRUCTURAL LINKS ####################### -->
   <div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     
@@ -27,7 +27,8 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
             alt="Course Image" 
           />
           <div class="card-body">
-            <h5 class="card-title">{{ course.name }}</h5>
+            <h4 class="card-title">{{ course.name }}</h4>
+            <h6 class="card-title">Taught by {{ course.taught_by }}</h6>  <!-- ADD RELATED LINK!!!!!!!! -->
             <p class="card-text">{{ course.description }}</p>
             <div class="gap-2 d-grid">
               <button class="btn btn-primary" type="link">Read more</button>
@@ -46,12 +47,14 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 <script setup>
 import { ref, onMounted } from 'vue';
 
+
 const props = defineProps({
   type: {
     type: String,
     default: ''
   }
 });
+
 
 const courses = ref([]);
 const error = ref(null);
@@ -78,7 +81,9 @@ const getCourseImage = (course) => {
 
 onMounted(async () => {
   try {
-    let url = '/api/courses'; // Default API endpoint
+
+    let url = '/api/courses'; // Default API endpoint 
+
     if (props.type) {
       url += `?type=${props.type}`; // Add type filter
     }
