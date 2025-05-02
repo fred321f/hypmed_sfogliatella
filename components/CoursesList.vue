@@ -12,22 +12,24 @@
 N.B. Remember also to change the realated server/api/courses.ts if needed
 -->
 
-<template>
+<template>  <!-- THIS VERSION ADD STRUCTURAL LINKS ####################### -->
   <div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     
     <div class="row">
       <div class="col-md-4" v-for="course in courses" :key="course.id">
-        <div class="mb-3 card">
-          <!-- Image for each course with conditional default image based on type -->
+        <!-- ID for the Structural Link from calendar -->
+        <div class="mb-3 card" :id="course.name.replace(/\s+/g, '-').toLowerCase()">
+           <!-- Image for each course with conditional default image based on type -->
           <img 
             :src="getCourseImage(course)" 
             class="card-img-top" 
             alt="Course Image" 
           />
           <div class="card-body">
-            <h5 class="card-title">{{ course.name }}</h5>
+            <h4 class="card-title">{{ course.name }}</h4>
             <p class="card-text">{{ course.description }}</p>
+            <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
             <div class="gap-2 d-grid">
               <button class="btn btn-primary" type="link">Read more</button>
             </div>
@@ -45,12 +47,14 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 <script setup>
 import { ref, onMounted } from 'vue';
 
+
 const props = defineProps({
   type: {
     type: String,
     default: ''
   }
 });
+
 
 const courses = ref([]);
 const error = ref(null);
@@ -77,7 +81,9 @@ const getCourseImage = (course) => {
 
 onMounted(async () => {
   try {
-    let url = '/api/courses'; // Default API endpoint
+
+    let url = '/api/courses'; // Default API endpoint 
+
     if (props.type) {
       url += `?type=${props.type}`; // Add type filter
     }

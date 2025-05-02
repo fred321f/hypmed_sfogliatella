@@ -1,6 +1,6 @@
 <!-- To add in a page you need to add:
 <script setup>
-    import Calendar from '~/components/WeekCalendar.vue';
+    import Calendar from '~/components/coursesCalendar.vue';
 </script>
 
 <template>
@@ -74,7 +74,7 @@ const getCoursesForSlot = (day, time) =>
 
   onMounted(async () => {
   try {
-    let url = '/api/coursesFilters'; // URL dell'API per ottenere i corsi filtrati
+    let url = '/api/coursesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
     const params = new URLSearchParams();
 
     // Costruisce dinamicamente i filtri dalla props (tipo, livello, etc.)
