@@ -1,5 +1,6 @@
 <script setup>
 import LeafletMap from '~/components/LeafletMap.vue'
+import InputMessage from '~/components/InputMessage.vue'
 </script>
 
 <template>
@@ -27,4 +28,5 @@ import LeafletMap from '~/components/LeafletMap.vue'
         <p class="my-3">You can send call as at <strong>+39 333 444 5555</strong> during our opening hours</p>
         <p class="my-3">For facilitating the process, we prepareed the following form, you just need to insert your email and the message you want to send us, and we will reply in your inbox</p>
     </div>
+    <InputMessage />
 </template>
