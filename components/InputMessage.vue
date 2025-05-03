@@ -29,6 +29,7 @@
             type="button"
             class="btn btn-primary"
             @click="handleSend"
+            :disabled="isSent"
         >
             {{ buttonText }}
         </button>
@@ -49,6 +50,7 @@
         message: '',
         buttonText: 'Send Message',
         showAlert: false,
+        isSent: false,
       };
     },
     computed: {
@@ -67,6 +69,7 @@
         this.email = '';
         this.message = '';
         this.showAlert = false;
+        this.isSent = true;
       },
     },
   };
