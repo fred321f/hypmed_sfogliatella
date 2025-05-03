@@ -28,7 +28,6 @@
         <button
             type="button"
             class="btn btn-primary"
-            :disabled="!isFormValid"
             @click="handleSend"
         >
             {{ buttonText }}
