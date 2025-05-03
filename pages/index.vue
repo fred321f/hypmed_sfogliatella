@@ -48,14 +48,14 @@ import LeafletMap from '~/components/LeafletMap.vue'
     <div class="mb-5 container">
         <h2 class="my-3 display-4">JOIN US!</h2>
         <p class="my-3 lead">What are you waiting for?</p>
-        <p class="my-3">Come visit us at Via Ponzo 7, Milan, and experience the peaceful atmosphere of Yogatella</p>
+        <p class="my-3">Come visit us at Via Ponzo 7, Milan, and experience the peaceful atmosphere of Yogatella.</p>
         <div class="container">
             <div class="align-items-center text-center row">
                 <div class="col-sm-4">
                     <p>Via Ponzio, 7<br />
                     20131, Milano MI<br />
                     Italia</p>
-                    <a href="..." type="button" class="btn btn-primary" >Contact us</a>
+                    <a href="/contact" type="button" class="btn btn-primary" >Contact us</a>
                 </div>
                 <div class="col-sm-8">
                     <LeafletMap />

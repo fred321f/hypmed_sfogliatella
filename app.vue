@@ -35,6 +35,9 @@ import './assets/css/custom-bootstrap.scss';
               <li class="nav-item">
                 <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
               </li>
+              <li class="nav-item">
+                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact Us</NuxtLink>
+              </li>
             </ul>
           </div>
           
