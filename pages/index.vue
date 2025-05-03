@@ -55,7 +55,7 @@ import LeafletMap from '~/components/LeafletMap.vue'
                     <p>Via Ponzio, 7<br />
                     20131, Milano MI<br />
                     Italia</p>
-                    <a href="..." type="button" class="btn btn-primary" >Contact us</a>
+                    <a href="/contact" type="button" class="btn btn-primary" >Contact us</a>
                 </div>
                 <div class="col-sm-8">
                     <LeafletMap />
