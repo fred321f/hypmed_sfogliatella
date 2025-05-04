@@ -1,5 +1,10 @@
 <!-- Fetching from the db -->
+<script setup>
+import Button from '~/components/btns/readMore.vue';
+</script>
+
 <script>
+
 export default {
     data() {
         return {
@@ -36,7 +41,7 @@ export default {
                     <h5 class="card-title">{{ teacher.name }}</h5>
                     <p class="card-text">{{ teacher.description }}</p>
                     <div class="gap-2 d-grid">
-                        <router-link :to="`/teachers/${teacher.name}`" class="text-light btn btn-primary">Read more</router-link>
+                        <Button url="/teachers/{{ teacher.name }}" text="Read more" />
                     </div>
                 </div>
             </div>

@@ -28,8 +28,25 @@ onMounted(async () => {
 <template>
     <div class="container" v-if="teacher">
         <h1 class="my-5 text-center display-1">{{ teacher.name }}</h1>
-        <img :src="teacher.imageUrl" alt="{{ teacher.name }}" class="mb-4 img-fluid" />
-        <p class="lead">{{ teacher.description }}</p>
+
+        <div class="row">
+            <div class="col">
+                <p class="lead">{{ teacher.description }}</p>
+            </div>
+            <div class="col">
+                <img :src="teacher.imageUrl" alt="{{ teacher.name }}" class="mb-4 img-fluid image-container" />
+            </div>
+        </div>
+        <div class="row">
+            <h2 class="my-3 display-4">Join my classes</h2>
+            <!-- Classes list -->
+        </div>
+
+        <div class="row">
+            <h2 class="my-3 display-4">My other activities</h2>
+            <!-- List of other activities -->
+        </div>
+
     </div>
     <div v-else-if="error" class="text-center">
         <p class="text-danger">{{ error }}</p>
