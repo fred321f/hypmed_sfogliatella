@@ -1,9 +1,19 @@
 <script>
 import './assets/css/custom-bootstrap.scss';
+
+import { useRouter } from 'vue-router';
+
+const routes = [
+  { path: '/', component: () => import('./pages/index.vue') },
+  { path: '/teachers', component: () => import('./pages/teachers/index.vue') },
+
+];
+
 </script>
 
 <template>
   <div>
+
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>

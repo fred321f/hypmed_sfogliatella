@@ -36,7 +36,7 @@ export default {
                     <h5 class="card-title">{{ teacher.name }}</h5>
                     <p class="card-text">{{ teacher.description }}</p>
                     <div class="gap-2 d-grid">
-                        <button class="btn btn-primary" type="link">Read more</button>
+                        <router-link :to="`/teachers/${teacher.name}`" class="text-light btn btn-primary">Read more</router-link>
                     </div>
                 </div>
             </div>
