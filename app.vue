@@ -13,7 +13,7 @@ import './assets/css/custom-bootstrap.scss';
 
           <span class="mb-0 navbar-brand h1">
             <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
-              <img src="/img/YogatellaLogo.png" alt="YogaTella Logo" class="myLogo me-4" />
+              <img src="/img/YogaTella.png" alt="YogaTella Logo" class="myLogo me-4" />
               YogaTella
             </NuxtLink>
           </span>
@@ -34,6 +34,9 @@ import './assets/css/custom-bootstrap.scss';
               </li>
               <li class="nav-item">
                 <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
+              </li>
+              <li class="nav-item">
+                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact Us</NuxtLink>
               </li>
             </ul>
           </div>

@@ -1,20 +1,20 @@
 <template>
     <client-only>
         <div class="border border-2 border-primary overflow-hidden ">
-      <LMap
-        :zoom="13"
-        :center="[45.4753931, 9.2298680]"
-        style="height: 300px; width: 100%"
-      >
-        <LTileLayer
-          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          attribution="&copy; OpenStreetMap contributors"
-        />
-        <LMarker :lat-lng="[45.4753931, 9.2298680]">
-          <LPopup>YogaTella</LPopup>
-        </LMarker>
-      </LMap>
-      </div>
+          <LMap
+            :zoom="13"
+            :center="[45.4753931, 9.2298680]"
+            style="height: 300px; width: 100%"
+          >
+          <LTileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution="&copy; OpenStreetMap contributors"
+            />
+            <LMarker :lat-lng="[45.4753931, 9.2298680]">
+              <LPopup>YogaTella</LPopup>
+            </LMarker>
+          </LMap>
+        </div>
     </client-only>
   </template>
   
