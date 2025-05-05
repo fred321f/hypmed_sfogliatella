@@ -1,67 +1,46 @@
-<!-- <script>
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+<script>
+import './assets/css/custom-bootstrap.scss';
+</script>
 
-export default {
-  name: 'App',
-};
-</script> -->
 <template>
   <div>
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>
     <header>
-      <nav class="navbar navbar-expand-lg py-3 transition-all navbar-black" 
-          :class="{'navbar-black shadow-sm': scrolled, 'bg-light': !scrolled}">
-      
+      <nav class="bg-dark mb-2 navbar navbar-dark navbar-expand-lg">
         <div class="container">
-          <!-- Logo and Brand Name -->
-          <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
-            <img src="/img/YogatellaLogo.png" alt="YogaTella Logo" class="me-2" style="height: 60px; width: auto;" />
-          </NuxtLink>
-          <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
-            <span class="fw-bold ">YogaTella</span>
-          </NuxtLink>
 
-          <!-- Mobile Toggle Button -->
-          <button 
-            class="navbar-toggler border-0" 
-            type="button" 
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" 
-            aria-controls="navbarSupportedContent" 
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+          <span class="mb-0 navbar-brand h1">
+            <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
+              <img src="/img/YogaTella.png" alt="YogaTella Logo" class="myLogo me-4" />
+              YogaTella
+            </NuxtLink>
+          </span>
+
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
-          <!-- Nav Links -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
-              <li class="nav-item mx-lg-2">
-                <NuxtLink to="/teachers" class="nav-link position-relative" :class="{'active-link': currentRoute === '/teachers'}">
-                  Teachers
-                </NuxtLink>
+            <ul class="ms-auto mb-2 mb-lg-0 navbar-nav">
+              <li class="nav-item">
+                <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
               </li>
-              <li class="nav-item mx-lg-2">
-                <NuxtLink to="/activities" class="nav-link position-relative" :class="{'active-link': currentRoute === '/activities'}">
-                  Activities
-                </NuxtLink>
+              <li class="nav-item">
+                <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
               </li>
-              <li class="nav-item mx-lg-2">
-                <NuxtLink to="/about" class="nav-link position-relative" :class="{'active-link': currentRoute === '/about'}">
-                  About
-                </NuxtLink>
+              <li class="nav-item">
+                <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
               </li>
-              <li class="nav-item ms-lg-3 mt-3 mt-lg-0">
-                <NuxtLink to="/contact" class="btn btn-primary rounded-pill px-4">
-                  Contact Us
-                </NuxtLink>
+              <li class="nav-item">
+                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact Us</NuxtLink>
               </li>
             </ul>
           </div>
+          
         </div>
       </nav>
     </header>
@@ -70,37 +49,57 @@ export default {
       <NuxtPage />
     </main>
 
-    <footer>
-      <!-- To be implemented -->
+    
+    <footer class="bg-dark text-light py-5">
+      <div class="container text-center">
+
+        <!-- Social Icons con Founder -->
+        <div class="mb-5">
+          <h5 class=" mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
+          
+          <div class="row justify-content-center">
+            
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/frederick.nielsen" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Frederick Nielsen</div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/sveva_zanetti" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Sveva Zanetti</div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/gian_betto" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Gianluca Bettoni</div>
+              </a>
+            </div>
+
+            <div class="col-6 col-md-3 mb-4 mt-4">
+              <a href="https://www.instagram.com/hyperzhp" target="_blank" class="ig-profile d-block">
+                <i class="fab fa-instagram fa-2x mb-2"></i>
+                <div>Haipeng Zhu</div>
+              </a>
+            </div>
+            
+          </div>
+        </div>
+
+        <!-- Copyright -->
+        <div>
+          <p class="mb-1">&copy; 2025 <strong>YogaTella</strong>. Tutti i diritti riservati.</p>
+        </div>
+
+      </div>
+
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </footer>
+    
+    
   </div>
 </template>
-
-
-
-<script setup>
-import { ref, onMounted, computed } from 'vue';
-import { useRoute } from 'vue-router';
-
-const scrolled = ref(false);
-const route = useRoute();
-
-// Compute current route for active link styling
-const currentRoute = computed(() => route.path);
-
-// Change navbar style on scroll
-const handleScroll = () => {
-  scrolled.value = window.scrollY > 50;
-};
-
-onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-  // Check initial scroll position
-  handleScroll();
-  
-  // Clean up event listener when component is unmounted
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-});
-</script>
