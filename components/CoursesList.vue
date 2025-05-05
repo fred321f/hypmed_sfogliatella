@@ -16,22 +16,28 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
   <div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     
-    <div class="row">
+    <div class="row g-5">
       <div class="col-md-4" v-for="course in courses" :key="course.id">
         <!-- ID for the Structural Link from calendar -->
-        <div class="mb-3 card" :id="course.name.replace(/\s+/g, '-').toLowerCase()">
-           <!-- Image for each course with conditional default image based on type -->
-          <img 
-            :src="getCourseImage(course)" 
-            class="card-img-top" 
-            alt="Course Image" 
-          />
-          <div class="card-body">
+        <div class="my-4 card activity-card border-0 shadow-lg w-100 rounded-4 overflow-hidden"
+          :id="course.name.replace(/\s+/g, '-').toLowerCase()" >
+          
+          <!-- Image for each course with conditional default image based on type -->
+          <div class="overflow-hidden">
+            <img 
+              :src="getCourseImage(course)" 
+              class="card-img-top activity-img" 
+              alt="Course Image" 
+            />
+          </div>
+
+          <div class="card-body d-flex flex-column">
             <h4 class="card-title">{{ course.name }}</h4>
             <p class="card-text">{{ course.description }}</p>
-            <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
-            <div class="gap-2 d-grid">
-              <button class="btn btn-primary" type="link">Read more</button>
+            <p class="card-text">Suitable for <strong>{{ course.level }}</strong>.</p>
+            <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}.</strong></h6>
+            <div class="mt-auto">
+              <button class="btn btn-primary w-100 rounded-3" style="height: 45px">Read more</button>
             </div>
           </div>
         </div>

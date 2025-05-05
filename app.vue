@@ -98,7 +98,7 @@ import './assets/css/custom-bootstrap.scss';
 
         <!-- Copyright -->
         <div>
-          <p class="mb-1">&copy; 2025 <strong>YogaTella</strong>. Tutti i diritti riservati.</p>
+          <p class="mb-1">&copy;  2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
         </div>
 
       </div>
