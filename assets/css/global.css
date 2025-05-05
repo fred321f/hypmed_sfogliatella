@@ -25,7 +25,7 @@ h1.display-1 {
 /*  */
 .nav-link {
     color: #20c997 !important;
-    font-size: 1.8rem !important;
+    font-size: 1.3rem !important;
 }
 .myLogo {
     height: 60px; 
@@ -37,7 +37,7 @@ h1.display-1 {
     letter-spacing: 0.1rem;
     text-transform: uppercase;
     color: #20c997 !important;
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
 }
 
 /* Animated hovering */

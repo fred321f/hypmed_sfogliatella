@@ -7,10 +7,13 @@ import './assets/css/custom-bootstrap.scss';
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>
+
+    <!-- NAV-BAR -->
     <header>
       <nav class="bg-dark mb-2 navbar navbar-dark navbar-expand-lg">
         <div class="container">
 
+          <!-- LOGO AND TITLE -->
           <span class="mb-0 navbar-brand h1">
             <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
               <img src="/img/YogaTella.png" alt="YogaTella Logo" class="myLogo me-4" />
@@ -18,25 +21,27 @@ import './assets/css/custom-bootstrap.scss';
             </NuxtLink>
           </span>
 
+          <!-- BUTTON FOR SMARTPHONE -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
 
+          <!-- LINKS -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="ms-auto mb-2 mb-lg-0 navbar-nav">
               <li class="nav-item">
-                <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
+                <NuxtLink class="left mx-2 hover-underline-animation nav-link" to="/teachers">Teachers</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
+                <NuxtLink class="left mx-2 hover-underline-animation nav-link" to="/activities">Activities</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
+                <NuxtLink class="left mx-2 hover-underline-animation nav-link" to="/about">About</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact Us</NuxtLink>
+                <NuxtLink class="left mx-2 hover-underline-animation nav-link" to="/contact">Contact Us</NuxtLink>
               </li>
             </ul>
           </div>
@@ -45,11 +50,12 @@ import './assets/css/custom-bootstrap.scss';
       </nav>
     </header>
 
+    <!-- CONTENT -->
     <main class="radial-bg">
       <NuxtPage />
     </main>
 
-    
+    <!-- FOOTER -->
     <footer class="bg-dark text-light py-5">
       <div class="container text-center">
 
