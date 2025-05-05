@@ -124,16 +124,34 @@ const getCoursesForSlot = (day, time) =>
 
 .schedule-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
   margin-top: 20px;
+  border: none; /* Rimuove bordo esterno */
 }
 
 .schedule-table th,
 .schedule-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; /* Solo bordo interno */
   padding: 10px;
   vertical-align: top;
   text-align: center;
+  overflow: hidden; /* Supporta angoli arrotondati */
+  background-clip: padding-box;
+}
+
+/* Angoli arrotondati */
+.schedule-table thead tr:first-child th:first-child {
+  border-top-left-radius: 12px;
+}
+.schedule-table thead tr:first-child th:last-child {
+  border-top-right-radius: 12px;
+}
+.schedule-table tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 12px;
+}
+.schedule-table tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 12px;
 }
 
 .schedule-table th {
@@ -148,9 +166,15 @@ const getCoursesForSlot = (day, time) =>
 .course-box {
   margin: 5px 0;
   padding: 8px;
-  border-radius: 6px;
+  border-radius: 10px; /* Arrotondato più moderno */
   color: #333;
   font-size: 0.9rem;
+}
+
+.course-box a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
 }
 
 .yoga {
@@ -162,4 +186,17 @@ const getCoursesForSlot = (day, time) =>
   background-color: #d0f0ff; /* Light blue */
   border-left: 4px solid #2196f3;
 }
+
+.text-center {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #777;
+}
+
+.text-danger {
+  color: #e53935;
+  font-weight: 500;
+}
+
+
 </style>
