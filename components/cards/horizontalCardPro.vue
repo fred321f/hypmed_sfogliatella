@@ -5,16 +5,16 @@
     import HorizontalCard from "@/components/cards/horizontalCard.vue";
 </script>
 
-// ADD THE CARD INSIDE THE PAGE
+// ADD THE CARD INSIDE THE PAGE and Change TEACHER to what you need
 <div class="d-flex justify-content-center col-12">
     <HorizontalCard 
-        :title="teacher.name" 
-        :description="teacher.overview" 
-        :imageUrl="teacher.imageUrl"
+        :title="TEACHER.name" 
+        :description="TEACHER.overview" 
+        :imageUrl="TEACHER.imageUrl"
         :buttonText="'Read more'" 
-        :linkUrl="'/teachers/' + teacher.name" 
+        :linkUrl="'/TEACHERs/' + TEACHER.name" 
 
-        :id="teacher.name.replace(/\s+/g, '-').toLowerCase()"
+        :id="TEACHER.name.replace(/\s+/g, '-').toLowerCase()"
     />
 </div>
 
@@ -37,6 +37,8 @@ import Button from '@/components/btns/mainBtn.vue';
 
             <p v-if="level" class="text-muted mb-2">Level: {{ level }}</p>
             <p v-if="teacher" class="text-muted mb-2">Taught by: <strong>{{ teacher }}</strong></p>
+            
+            <!-- ADD MORE HERE (remember to use v-if) -->
             
             <div class="d-flex justify-content-center mt-auto">
                 <Button :text="this.buttonText" :url="this.linkUrl" class="w-100" />
@@ -87,6 +89,7 @@ export default {
             required: false,
             default: null
         }
+        // ADD MORE HERE
     }
 }
 </script>

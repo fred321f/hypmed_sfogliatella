@@ -1,6 +1,6 @@
 <!-- Fetching from the db -->
 <script setup>
-import Button from '~/components/btns/mainBtn.vue';
+// import Button from '~/components/btns/mainBtn.vue';
 import HorizontalCard from "@/components/cards/horizontalCard.vue";
 
 </script>
@@ -52,8 +52,14 @@ export default {
 
             <!-- Wrap HorizontalCard in a Bootstrap column for proper alignment -->
             <div class="d-flex justify-content-center col-12">
-                <HorizontalCard :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
-                    :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+                <HorizontalCard 
+                    :title="teacher.name" 
+                    :description="teacher.overview" 
+                    :imageUrl="teacher.imageUrl"
+                    :linkUrl="'/teachers/' + teacher.name" 
+                    :buttonText="'Read more'" 
+                    :id="teacher.name.replace(/\s+/g, '-').toLowerCase()"
+                />
             </div>
 
         </div>
