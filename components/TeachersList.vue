@@ -1,5 +1,12 @@
 <!-- Fetching from the db -->
+<script setup>
+
+import HorizontalCard from "@/components/cards/horizontalCard.vue";
+
+</script>
+
 <script>
+
 export default {
     data() {
         return {
@@ -30,7 +37,7 @@ export default {
 <template>
     <div class="row">
         <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
-            <div class="mb-3 card">
+            <!-- <div class="mb-3 card">
                 <img :src="teacher.imageUrl" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ teacher.name }}</h5>
@@ -39,7 +46,11 @@ export default {
                         <button class="btn btn-primary" type="link">Read more</button>
                     </div>
                 </div>
-            </div>
+            </div> -->
+
+            <HorizontalCard :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
+                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+
         </div>
     </div>
     <div v-if="!teachers.length" class="text-center">
