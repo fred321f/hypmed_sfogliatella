@@ -11,27 +11,45 @@ body {
     background-size: 400% 400%;
 }
 
+/* Buttons */
+.btn-main {
+    background-color: #20c997;
+    color: #ffffff;
+
+    padding: 0.5rem 1rem;
+
+    border: none;
+    border-radius: 0.5rem;
+    border-color: #20c997;
+    font-weight: 700;
+    /* box-shadow: 0 0 10px rgba(32, 201, 151, 0.5); */
+}
+
+.btn-second {
+    background-color: #ffffff;
+    color: #20c997;
+    padding: 0.5rem 1rem;
+    border: 2px solid #20c997;
+    border-radius: 0.5rem;
+    font-weight: 700;
+}
+
+/* Headings */
 h1.display-1 {
     text-decoration: underline;
     text-decoration-color: #20c997;
     text-underline-offset: 15px;
     text-decoration-thickness: 2px;
     text-decoration-skip-ink: auto;
-
-    /* length of line */
-
 }
 
-/*  */
-.nav-link {
-    color: #20c997 !important;
-    font-size: 1.8rem !important;
-}
-.myLogo {
-    height: 60px; 
-    width: auto;
+/* rounded corner image container */
+.image-container {
+    border-radius: 1rem;
+    overflow: hidden;
 }
 
+/* Custom navbar brand */
 .navbar-brand {
     font-weight: 700;
     letter-spacing: 0.1rem;
