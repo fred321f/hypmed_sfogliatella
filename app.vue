@@ -68,32 +68,20 @@ const routes = [
 
           <div class="justify-content-center row">
 
-            <div class="mt-4 mb-4 col-6 col-md-3">
-              <a href="https://www.instagram.com/frederick.nielsen" target="_blank" class="d-block ig-profile">
-                <i class="mb-2 fab fa-instagram fa-2x"></i>
-                <div>Frederick Nielsen</div>
-              </a>
+            <div class="my-4 col-md-2">
+              <div class="d-block ig-profile">Frederick Nielsen</div>
             </div>
 
-            <div class="mt-4 mb-4 col-6 col-md-3">
-              <a href="https://www.instagram.com/sveva_zanetti" target="_blank" class="d-block ig-profile">
-                <i class="mb-2 fab fa-instagram fa-2x"></i>
-                <div>Sveva Zanetti</div>
-              </a>
+            <div class="mt-4 mb-4  col-md-2">
+              <div class="d-block ig-profile">Sveva Zanetti</div>
             </div>
 
-            <div class="mt-4 mb-4 col-6 col-md-3">
-              <a href="https://www.instagram.com/gian_betto" target="_blank" class="d-block ig-profile">
-                <i class="mb-2 fab fa-instagram fa-2x"></i>
-                <div>Gianluca Bettoni</div>
-              </a>
+            <div class="mt-4 mb-4 col-md-2">
+              <div class="d-block ig-profile">Gianluca Bettoni</div>
             </div>
 
-            <div class="mt-4 mb-4 col-6 col-md-3">
-              <a href="https://www.instagram.com/hyperzhp" target="_blank" class="d-block ig-profile">
-                <i class="mb-2 fab fa-instagram fa-2x"></i>
-                <div>Haipeng Zhu</div>
-              </a>
+            <div class="mt-4 mb-4 col-md-2">
+              <div class="d-block ig-profile">Haipeng Zhu</div>
             </div>
 
           </div>
@@ -101,7 +89,7 @@ const routes = [
 
         <!-- Copyright -->
         <div>
-          <p class="mb-1">&copy; 2025 <strong>YogaTella</strong>. Tutti i diritti riservati.</p>
+          <p class="mb-1">&copy;  2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
         </div>
 
       </div>
