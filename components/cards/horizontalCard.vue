@@ -11,7 +11,7 @@ import Button from '@/components/btns/mainBtn.vue';
         </div>
         <div class="d-flex flex-column card-body">
             <h5 class="card-title fs-4 fw-bold">{{ this.title }}</h5>
-            <p class="text-secondary card-text" style="font-size: 16px; line-height: 2em">{{ this.description }}</p>
+            <p class="card-text" style="font-size: 16px; line-height: 2em">{{ this.description }}</p>
             <div class="d-flex justify-content-center mt-auto">
 
                 <Button :url="this.linkUrl" :text="this.buttonText" class="w-100" />
