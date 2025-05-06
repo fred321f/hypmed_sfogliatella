@@ -34,7 +34,6 @@ body {
     font-weight: 700;
 }
 
-/* Headings */
 h1.display-1 {
     text-decoration: underline;
     text-decoration-color: #20c997;
@@ -87,6 +86,7 @@ h1.display-1 {
 .hover-underline-animation.left:hover::after {
     transform-origin: bottom left;
 }
+
 .router-link-exact-active.hover-underline-animation::after,
 .router-link-active.hover-underline-animation::after {
     transform: scaleX(1);
@@ -109,4 +109,20 @@ h1.display-1 {
     100% {
         background-position: 0% 50%;
     }
+}
+
+/* FOOTER */
+.ig-profile {
+    color: #20c997;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.ig-profile:hover {
+    color: #17a589;
+    /* variante più scura opzionale */
+}
+
+.ig-profile div {
+    font-weight: 500;
 }

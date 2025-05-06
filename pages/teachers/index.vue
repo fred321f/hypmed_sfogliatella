@@ -20,8 +20,5 @@ import Button from '~/components/btns/mainBtn.vue';
         > -->
         
         <Teachers />
-        <h2 class="my-3 display-4">
-            Meet the team
-        </h2>
     </div>
 </template>
