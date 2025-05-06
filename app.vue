@@ -18,12 +18,12 @@ const routes = [
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>
     <header>
-      <nav class="bg-dark mb-2 navbar navbar-dark navbar-expand-lg">
+      <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
         <div class="container">
 
           <span class="mb-0 navbar-brand h1">
-            <NuxtLink to="/" class="navbar-brand d-flex align-items-center">
-              <img src="/img/YogaTella.png" alt="YogaTella Logo" class="myLogo me-4" />
+            <NuxtLink to="/" class="d-flex align-items-center navbar-brand">
+              <!-- <img src="/img/YogaTella.png" alt="YogaTella Logo" class="me-4 myLogo" /> -->
               YogaTella
             </NuxtLink>
           </span>
@@ -60,39 +60,39 @@ const routes = [
     </main>
 
     
-    <footer class="bg-dark text-light py-5">
-      <div class="container text-center">
+    <footer class="bg-dark py-5 text-light">
+      <div class="text-center container">
 
         <!-- Social Icons con Founder -->
         <div class="mb-5">
-          <h5 class=" mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
+          <h5 class="mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
           
-          <div class="row justify-content-center">
+          <div class="justify-content-center row">
             
-            <div class="col-6 col-md-3 mb-4 mt-4">
-              <a href="https://www.instagram.com/frederick.nielsen" target="_blank" class="ig-profile d-block">
-                <i class="fab fa-instagram fa-2x mb-2"></i>
+            <div class="mt-4 mb-4 col-6 col-md-3">
+              <a href="https://www.instagram.com/frederick.nielsen" target="_blank" class="d-block ig-profile">
+                <i class="mb-2 fab fa-instagram fa-2x"></i>
                 <div>Frederick Nielsen</div>
               </a>
             </div>
 
-            <div class="col-6 col-md-3 mb-4 mt-4">
-              <a href="https://www.instagram.com/sveva_zanetti" target="_blank" class="ig-profile d-block">
-                <i class="fab fa-instagram fa-2x mb-2"></i>
+            <div class="mt-4 mb-4 col-6 col-md-3">
+              <a href="https://www.instagram.com/sveva_zanetti" target="_blank" class="d-block ig-profile">
+                <i class="mb-2 fab fa-instagram fa-2x"></i>
                 <div>Sveva Zanetti</div>
               </a>
             </div>
 
-            <div class="col-6 col-md-3 mb-4 mt-4">
-              <a href="https://www.instagram.com/gian_betto" target="_blank" class="ig-profile d-block">
-                <i class="fab fa-instagram fa-2x mb-2"></i>
+            <div class="mt-4 mb-4 col-6 col-md-3">
+              <a href="https://www.instagram.com/gian_betto" target="_blank" class="d-block ig-profile">
+                <i class="mb-2 fab fa-instagram fa-2x"></i>
                 <div>Gianluca Bettoni</div>
               </a>
             </div>
 
-            <div class="col-6 col-md-3 mb-4 mt-4">
-              <a href="https://www.instagram.com/hyperzhp" target="_blank" class="ig-profile d-block">
-                <i class="fab fa-instagram fa-2x mb-2"></i>
+            <div class="mt-4 mb-4 col-6 col-md-3">
+              <a href="https://www.instagram.com/hyperzhp" target="_blank" class="d-block ig-profile">
+                <i class="mb-2 fab fa-instagram fa-2x"></i>
                 <div>Haipeng Zhu</div>
               </a>
             </div>
