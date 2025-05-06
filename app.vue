@@ -1,19 +1,29 @@
 <script>
 import './assets/css/custom-bootstrap.scss';
+
+import { useRouter } from 'vue-router';
+
+const routes = [
+  { path: '/', component: () => import('./pages/index.vue') },
+  { path: '/teachers', component: () => import('./pages/teachers/index.vue') },
+
+];
+
 </script>
 
 <template>
   <div>
+
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>
     <header>
-      <nav class="bg-dark mb-2 navbar navbar-dark navbar-expand-lg">
+      <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
         <div class="container">
 
           <span class="mb-0 navbar-brand h1">
             <NuxtLink to="/" class="d-flex align-items-center navbar-brand">
-              <img src="/img/YogaTella.png" alt="YogaTella Logo" class="me-4 myLogo" />
+              <!-- <img src="/img/YogaTella.png" alt="YogaTella Logo" class="me-4 myLogo" /> -->
               YogaTella
             </NuxtLink>
           </span>
