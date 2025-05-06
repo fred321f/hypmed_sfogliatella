@@ -75,7 +75,6 @@
           </div> -->
 
           <div class="col">
-
             <HorizontalCard :title="card.title" :description="card.description" :imageUrl="card.image" :linkUrl="card.link" :buttonText="'Read more'" />
           </div>
 
@@ -157,23 +156,5 @@ const activityCards = [
   font-size: 16px;
 }
 
-.activity-card {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.activity-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
-}
-
-.activity-img {
-  transition: transform 0.5s ease;
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
-}
-
-.activity-card:hover .activity-img {
-  transform: scale(1.05);
-}
 </style>
