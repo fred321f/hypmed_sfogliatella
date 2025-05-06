@@ -1,6 +1,6 @@
 <!-- Fetching from the db -->
 <script setup>
-import Button from '~/components/btns/readMore.vue';
+import Button from '~/components/btns/mainBtn.vue';
 </script>
 
 <script>
@@ -33,15 +33,17 @@ export default {
 </script>
 
 <template>
+
     <div class="row">
         <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
             <div class="mb-3 card">
                 <img :src="teacher.imageUrl" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{ teacher.name }}</h5>
-                    <p class="card-text">{{ teacher.description }}</p>
+                    <p class="card-text">{{ teacher.overview }}</p>
                     <div class="gap-2 d-grid">
-                        <Button url="/teachers/{{ teacher.name }}" text="Read more" />
+
+                        <Button :url="`/teachers/${teacher.name}`" :text="'Read more'" />
                     </div>
                 </div>
             </div>

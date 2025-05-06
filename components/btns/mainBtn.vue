@@ -1,5 +1,5 @@
 <template>
-    <button class="btn-main" :href="url">
+    <button class="btn-main" @click="navigate">
         {{ text }}
     </button>
 </template>
@@ -14,6 +14,11 @@ export default {
         text: {
             type: String,
             default: 'Read more'
+        }
+    },
+    methods: {
+        navigate() {
+            window.location.href = this.url;
         }
     }
 };
