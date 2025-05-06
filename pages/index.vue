@@ -1,5 +1,6 @@
 <script setup>
 import LeafletMap from '~/components/LeafletMap.vue'
+import HorizontalCard from '~/components/cards/horizontalCard.vue'
 </script>
 
 <template>
@@ -16,7 +17,7 @@ import LeafletMap from '~/components/LeafletMap.vue'
         </div>
     </div>
     <div class="my-5 container">
-        <div class="mb-3 card" >
+        <!-- <div class="mb-3 card" >
             <div class="row g-0">
                 <div class="col-md-4">
                 <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill,g_auto/v1745953332/ro147-scaled-1440x809-2_ygeojc.jpg" class="rounded-start img-fluid" alt="Person doing yoga">
@@ -29,8 +30,11 @@ import LeafletMap from '~/components/LeafletMap.vue'
                   </div>
                 </div>
             </div>
-        </div>
-        <div class="mb-3 card" >
+        </div> -->
+
+        <HorizontalCard title="Activities" description="We offer a wide variety of activities, ranging from yoga and meditation courses, retreats, seminars and workshops" imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill,g_auto/v1745953332/ro147-scaled-1440x809-2_ygeojc.jpg" linkUrl="/activities" :buttonText="'Read more'" />
+        
+        <!-- <div class="mb-3 card" >
             <div class="row g-0">
                 <div class="col-md-4">
                 <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill/v1745953300/Yoga-teacher-training-2_ryrg6y.jpg" class="rounded-start img-fluid" alt="Group of yoga teachers">
@@ -43,7 +47,10 @@ import LeafletMap from '~/components/LeafletMap.vue'
                   </div>
                 </div>
             </div>
-        </div>
+        </div> -->
+
+        <HorizontalCard title="Teachers" description="Meet the team! They are all certified and ready to welcome you in the yoga community" imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill/v1745953300/Yoga-teacher-training-2_ryrg6y.jpg" linkUrl="/teachers" :buttonText="'Read more'" />
+
     </div>
     <div class="mb-5 container">
         <h2 class="my-3 display-4">JOIN US!</h2>

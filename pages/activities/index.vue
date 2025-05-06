@@ -75,7 +75,7 @@
           </div> -->
 
           <div class="col">
-            <HorizontalCard :title="card.title" :description="card.description" :imageUrl="card.image" :linkUrl="card.link" :buttonText="'Read more'" />
+            <VerticalCard :title="card.title" :description="card.description" :imageUrl="card.image" :linkUrl="card.link" :buttonText="'Read more'" />
           </div>
 
 
@@ -103,7 +103,7 @@
 </template>
 
 <script setup>
-import HorizontalCard from "@/components/cards/horizontalCard.vue";
+import VerticalCard from "~/components/cards/verticalCard.vue";
 
 // Navigation bar data
 const navItems = [

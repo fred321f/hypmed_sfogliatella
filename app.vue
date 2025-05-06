@@ -16,6 +16,9 @@ const routes = [
 
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
     </Head>
     <header>
       <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
