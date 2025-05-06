@@ -23,7 +23,6 @@ const routes = [
 
           <span class="mb-0 navbar-brand h1">
             <NuxtLink to="/" class="d-flex align-items-center navbar-brand">
-              <img src="/img/YogaTella.png" alt="YogaTella Logo" class="me-4 myLogo" />
               YogaTella
             </NuxtLink>
           </span>
@@ -50,7 +49,7 @@ const routes = [
               </li>
             </ul>
           </div>
-          
+
         </div>
       </nav>
     </header>
@@ -59,16 +58,16 @@ const routes = [
       <NuxtPage />
     </main>
 
-    
+
     <footer class="bg-dark py-5 text-light">
       <div class="text-center container">
 
         <!-- Social Icons con Founder -->
         <div class="mb-5">
           <h5 class="mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
-          
+
           <div class="justify-content-center row">
-            
+
             <div class="mt-4 mb-4 col-6 col-md-3">
               <a href="https://www.instagram.com/frederick.nielsen" target="_blank" class="d-block ig-profile">
                 <i class="mb-2 fab fa-instagram fa-2x"></i>
@@ -96,7 +95,7 @@ const routes = [
                 <div>Haipeng Zhu</div>
               </a>
             </div>
-            
+
           </div>
         </div>
 
@@ -109,8 +108,7 @@ const routes = [
 
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     </footer>
-    
-    
+
+
   </div>
 </template>
-

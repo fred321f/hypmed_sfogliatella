@@ -34,30 +34,6 @@ body {
     font-weight: 700;
 }
 
-/* Buttons */
-.btn-main {
-    background-color: #20c997;
-    color: #ffffff;
-
-    padding: 0.5rem 1rem;
-
-    border: none;
-    border-radius: 0.5rem;
-    border-color: #20c997;
-    font-weight: 700;
-    /* box-shadow: 0 0 10px rgba(32, 201, 151, 0.5); */
-}
-
-.btn-second {
-    background-color: #ffffff;
-    color: #20c997;
-    padding: 0.5rem 1rem;
-    border: 2px solid #20c997;
-    border-radius: 0.5rem;
-    font-weight: 700;
-}
-
-/* Headings */
 h1.display-1 {
     text-decoration: underline;
     text-decoration-color: #20c997;

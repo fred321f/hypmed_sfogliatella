@@ -1,10 +1,6 @@
 <!-- Fetching from the db -->
 <script setup>
 import Button from '~/components/btns/mainBtn.vue';
-</script>
-
-<script setup>
-
 import HorizontalCard from "@/components/cards/horizontalCard.vue";
 
 </script>
@@ -40,7 +36,6 @@ export default {
 </script>
 
 <template>
-
     <div class="row">
         <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
             <!-- <div class="mb-3 card">
@@ -55,8 +50,11 @@ export default {
                 </div>
             </div> -->
 
-            <HorizontalCard :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
-                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+            <!-- Wrap HorizontalCard in a Bootstrap column for proper alignment -->
+            <div class="d-flex justify-content-center col-12">
+                <HorizontalCard :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
+                    :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+            </div>
 
         </div>
     </div>

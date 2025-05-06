@@ -74,7 +74,10 @@
             </div>
           </div> -->
 
-          <HorizontalCard :title="card.title" :description="card.description" :imageUrl="card.image" :linkUrl="card.link" :buttonText="'Read more'" />
+          <div class="col">
+
+            <HorizontalCard :title="card.title" :description="card.description" :imageUrl="card.image" :linkUrl="card.link" :buttonText="'Read more'" />
+          </div>
 
 
 
