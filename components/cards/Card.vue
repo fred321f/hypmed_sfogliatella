@@ -93,7 +93,6 @@ export default {
     transform: translateY(-8px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
 }
-
 .activity-img {
     transition: transform 0.5s ease;
     width: 100%;
@@ -101,10 +100,20 @@ export default {
     object-fit: cover;
 }
 
+.vertiCard .activity-img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover;
+}
+
+.horiCard .activity-img {
+    width: 300px; 
+    height: 150px; 
+    object-fit: cover;
+}
 
 .card-img-left {
     width: 300px;
-    /* Increased width for a larger image */
     height: auto;
     object-fit: cover;
 }
