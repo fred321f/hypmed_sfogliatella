@@ -66,8 +66,8 @@
               <p class="card-text text-secondary" style="font-size: 16px; line-height: 2em">{{ card.description }}</p>
               <div class="mt-auto">
                 <NuxtLink :to="card.link">
-                  <button class="btn btn-success w-100 rounded-3" style="height: 45px">
-                    Learn more
+                    <button class="btn-main w-100" @click="navigate">
+                    learn more
                   </button>
                 </NuxtLink>
               </div>
