@@ -18,7 +18,7 @@ const routes = [
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     </Head>
     <header>
-      <nav class="bg-dark mb-2 navbar navbar-dark navbar-expand-lg">
+      <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
         <div class="container">
 
           <span class="mb-0 navbar-brand h1">
