@@ -17,10 +17,23 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     
     <div class="row">
-      <div class="col-md-4" v-for="course in courses" :key="course.id">
-        <!-- ID for the Structural Link from calendar -->
+      <div class="col-md-4 mb-4" v-for="course in courses" :key="course.id">
+
+        <Card 
+          :type="'vertical'" 
+          :title="course.name" 
+          :description="course.description" 
+          :imageUrl="getCourseImage(course)"
+          :buttonText="'Read more'" 
+          :linkUrl="'/courses/' + course.name" 
+
+          :level="course.level"
+          :taughtBy="course.taught_by"
+          :id="course.name.replace(/\s+/g, '-').toLowerCase()"
+        />
+
+        <!-- <div class="mb-3 card"
         <div class="mb-3 card" :id="course.name.replace(/\s+/g, '-').toLowerCase()">
-           <!-- Image for each course with conditional default image based on type -->
           <img 
             :src="getCourseImage(course)" 
             class="card-img-top" 
@@ -29,13 +42,14 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
           <div class="card-body">
             <h4 class="card-title">{{ course.name }}</h4>
             <p class="card-text">{{ course.description }}</p>
-            <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
+            <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}</strong></h6> 
 
             <div class="gap-2 d-grid">
               <button class="btn btn-primary" type="link">Read more</button>
             </div>
           </div>
-        </div>
+        </div>  -->
+        
       </div>
     </div>
 
@@ -46,6 +60,8 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 </template>
 
 <script setup>
+import Card from "@/components/cards/Card.vue";
+
 import { ref, onMounted } from 'vue';
 
 
