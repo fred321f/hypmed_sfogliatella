@@ -85,22 +85,25 @@ import Button from '@/components/btns/mainBtn.vue';
                         <Button :url="this.linkUrl" :text="this.buttonText" class="w-100" />
                     </div>
                 </div>
-    <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card horizCard" :id="this.id">
-        <div class="overflow-hidden">
-            <img :src="this.imageUrl" class="card-img-top activity-img" />
-        </div>
-        <div class="d-flex flex-column card-body">
+                <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card horizCard" :id="this.id">
+                    <div class="overflow-hidden">
+                        <img :src="this.imageUrl" class="card-img-top activity-img" />
+                    </div>
+                    <div class="d-flex flex-column card-body">
 
-            <h5 class="card-title fs-4 fw-bold">{{ this.title }}</h5>
-            <p class="card-text">{{ this.description }}</p>
+                        <h5 class="card-title fs-4 fw-bold">{{ this.title }}</h5>
+                        <p class="card-text">{{ this.description }}</p>
 
-            <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
-            <p v-if="teacher" class="mb-2 text-muted">Taught by: <strong>{{ teacher }}</strong></p>
-            
-            <div class="d-flex justify-content-center mt-auto">
-                <Button :text="this.buttonText" :url="this.linkUrl" class="w-100" />
+                        <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
+                        <p v-if="teacher" class="mb-2 text-muted">Taught by: <strong>{{ teacher }}</strong></p>
+
+                        <div class="d-flex justify-content-center mt-auto">
+                            <Button :text="this.buttonText" :url="this.linkUrl" class="w-100" />
+                        </div>
+
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
 </template>
@@ -163,7 +166,7 @@ export default {
 }
 
 .horizCard {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .horiCard:hover {
