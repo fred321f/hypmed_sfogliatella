@@ -12,6 +12,7 @@
   "dependencies": {
     "@vue-leaflet/vue-leaflet": "^0.10.1",
     "bootstrap": "^5.3.5",
+    "bootstrap-icons": "^1.12.1",
     "dotenv": "^16.4.7",
     "mongodb": "^6.16.0",
     "nuxt": "^3.16.2",
