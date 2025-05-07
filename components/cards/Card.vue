@@ -52,7 +52,7 @@ import Button from '@/components/btns/mainBtn.vue';
 <script>
 // Props
 export default {
-    name: 'HorizontalCard',
+    name: 'Card',
     props: {
         type: {
             type: String,
@@ -100,6 +100,7 @@ export default {
     height: 100%;
     object-fit: cover;
 }
+
 
 .card-img-left {
     width: 300px;

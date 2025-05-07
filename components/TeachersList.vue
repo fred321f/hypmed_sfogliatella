@@ -54,12 +54,8 @@ export default {
 
             <!-- Wrap VerticalCard in a Bootstrap column for proper alignment -->
 
-            <VerticalCard :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
-                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
-
             <Card :type="'vertical'" :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
-                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" :showDifficulty="'true'" :difficulty="'Easy'" />
-
+                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
 
         </div>
     </div>
