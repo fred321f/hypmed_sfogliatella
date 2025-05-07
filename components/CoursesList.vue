@@ -30,6 +30,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
             <h4 class="card-title">{{ course.name }}</h4>
             <p class="card-text">{{ course.description }}</p>
             <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
+
             <div class="gap-2 d-grid">
               <button class="btn btn-primary" type="link">Read more</button>
             </div>
