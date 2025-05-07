@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex flex-column bg-white min-vh-100">
+  <div class="d-flex flex-column min-vh-100 bg-white">
     <!-- Navigation Bar -->
-    <!-- <header class="bg-primary border-4 border-bottom">
-      <div class="d-flex align-items-center py-4 container">
-        <h1 class="me-auto text-white" style="font-size: 40px">Yogatella</h1>
+    <!-- <header class="bg-primary border-bottom border-4">
+      <div class="container d-flex align-items-center py-4">
+        <h1 class="text-white me-auto" style="font-size: 40px">Yogatella</h1>
         <nav class="d-flex gap-2">
           <button v-for="(item, index) in navItems" :key="index" class="btn"
             :class="item.active ? 'btn-outline-light bg-light text-dark border-4' : 'btn-outline-light text-white'"
@@ -15,26 +15,26 @@
     </header> -->
 
     <!-- Status Bar -->
-    <section class="bg-status shadow-sm px-4 py-2 text-white">
-      <div class="d-flex align-items-center justify-content-between container">
+    <section class="bg-status text-white py-2 px-4 shadow-sm">
+      <div class="container d-flex justify-content-between align-items-center">
         <span class="fw-medium">
           🧘 You're viewing: <strong>Activities</strong>
         </span>
-        <span class="d-md-inline text-white-50 text-end d-none" style="font-size: 14px">
+        <span class="text-end d-none d-md-inline text-white-50" style="font-size: 14px">
           Explore yoga, retreats & workshops offered by Yogatella
         </span>
       </div>
     </section>
 
     <!-- Breadcrumb -->
-    <section class="bg-light py-3 border-bottom">
+    <section class="bg-light border-bottom py-3">
       <div class="container">
         <nav aria-label="breadcrumb">
-          <ol class="mb-0 breadcrumb">
+          <ol class="breadcrumb mb-0">
             <li class="breadcrumb-item">
-              <NuxtLink to="/" class="text-primary text-decoration-none fw-medium">Home</NuxtLink>
+              <NuxtLink to="/" class="text-decoration-none text-primary fw-medium">Home</NuxtLink>
             </li>
-            <li class="text-dark breadcrumb-item active fw-bold" aria-current="page">Activities</li>
+            <li class="breadcrumb-item active text-dark fw-bold" aria-current="page">Activities</li>
           </ol>
         </nav>
       </div>
@@ -46,39 +46,33 @@
     </section>
 
     <!-- Introduction Text -->
-    <section class="my-5 container">
-      <p class="text-secondary text-justify fs-4" style="line-height: 2em">
+    <section class="container my-5">
+      <p class="text-secondary fs-4 text-justify" style="line-height: 2em">
         At Yogatella Yoga Center, we offer a diverse range of activities designed to support your physical, mental, and
         spiritual well-being. Our offerings are thoughtfully grouped into three main categories:
       </p>
     </section>
 
     <!-- Activity Cards -->
-    <section class="mb-5 container">
+    <section class="container mb-5">
       <div class="row g-4">
-        <div class="d-flex col-md-4" v-for="(card, index) in activityCards" :key="index">
-          <!-- <div class="shadow-lg border-0 rounded-4 w-100 overflow-hidden card activity-card">
+        <div class="col-md-4 d-flex" v-for="(card, index) in activityCards" :key="index">
+          <div class="card activity-card border-0 shadow-lg w-100 rounded-4 overflow-hidden">
             <div class="overflow-hidden">
               <img :src="card.image" :alt="card.alt" class="card-img-top activity-img" />
             </div>
-            <div class="d-flex flex-column card-body">
+            <div class="card-body d-flex flex-column">
               <h5 class="card-title fs-4 fw-bold">{{ card.title }}</h5>
-              <p class="text-secondary card-text" style="font-size: 16px; line-height: 2em">{{ card.description }}</p>
+              <p class="card-text text-secondary" style="font-size: 16px; line-height: 2em">{{ card.description }}</p>
               <div class="mt-auto">
                 <NuxtLink :to="card.link">
-                  <button class="rounded-3 w-100 btn btn-success" style="height: 45px">
+                  <button class="btn btn-success w-100 rounded-3" style="height: 45px">
                     Learn more
                   </button>
                 </NuxtLink>
               </div>
             </div>
-          </div> -->
-
-          <div class="col">
-            <HorizontalCard :title="card.title" :description="card.description" :imageUrl="card.image" :linkUrl="card.link" :buttonText="'Read more'" />
           </div>
-
-
 
         </div>
       </div>
@@ -86,9 +80,9 @@
 
     <!-- Footer -->
     <!-- <footer class="bg-primary mt-auto py-5">
-      <div class="text-white container">
+      <div class="container text-white">
         <h3 class="mb-4" style="font-size: 30px">Contact Us</h3>
-        <hr class="opacity-75 border-white" />
+        <hr class="border-white opacity-75" />
         <p style="font-size: 18px">
           📍 Address: 123 Zen Lane, Wellness City, EU<br />
           📧 Email: hello@yogatella.com<br />
@@ -103,8 +97,6 @@
 </template>
 
 <script setup>
-import HorizontalCard from "@/components/cards/horizontalCard.vue";
-
 // Navigation bar data
 const navItems = [
   { name: "About us", active: false },
@@ -156,5 +148,23 @@ const activityCards = [
   font-size: 16px;
 }
 
+.activity-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
+.activity-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.activity-img {
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.activity-card:hover .activity-img {
+  transform: scale(1.05);
+}
 </style>
