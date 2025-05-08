@@ -3,7 +3,7 @@
 import { MongoClient } from 'mongodb';
 
 // Replace the following with your MongoDB connection string
-const uri = process.env.MONGO_URI; // or your Atlas URI
+const uri = process.env.MONGO_DB; // or your Atlas URI
 
 // Database and collection names
 const dbName = 'yogatella'; // <- change this to your DB name

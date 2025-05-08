@@ -6,7 +6,7 @@
 
 const { MongoClient } = require('mongodb');
 
-const uri = process.env.MONGO_URI;
+const uri = process.env.MONGO_DB;
 const dbName = 'yogatella'; // Replace with your database name
 const collectionName = 'teachers'; // Replace with your collection name
 
