@@ -4,12 +4,12 @@ import InputMessage from '~/components/InputMessage.vue'
 </script>
 
 <template>
-    <div class="mb-3 text-center container">
-        <h1 class="my-5 text-center display-1">Contact us</h1>
-        <h2 class="my-3 text-center lead">Here are all the ways in which you can contact us to book your class, or just to get more information about the center or the activities we offer.</h2>
+    <div class="text-center container">
+        <h1 class="my-5  display-1">Contact us</h1>
+        <h2 class="my-5  lead">Here are all the ways in which you can contact us to book your class, or just to get more information about the center or the activities we offer.</h2>
     </div>
     <div class="mb-5 container">
-        <h3 class="my-3 display-6">MEET US IN PERSON!</h3>
+        <h3 class="my-3 display-4">MEET US IN PERSON!</h3>
         <p class="my-3">Visit our center in Milan, the receptionist will be ready to answer all of your questions and enroll you in your favourite activity. </p>
         <div class="align-items-center text-center row">
             <div class="col-sm-4">
@@ -23,7 +23,7 @@ import InputMessage from '~/components/InputMessage.vue'
                 <LeafletMap />
             </div>
         </div>
-        <h3 class="my-3 display-6">ONLINE</h3>
+        <h3 class="my-3 display-4">ONLINE</h3>
         <p class="my-3">You can send an email at <strong>yogatella@mail.it</strong> and we will reply as soon as possible.</p>
         <p class="my-3">You can call as at <strong>+39 333 444 5555</strong> during our opening hours from Monday to Friday from 8:00 to 19:00.</p>
         <p class="my-3">For facilitating the process, we prepared the following form, you just need to insert your email and the message you want to send us, and we will reply in your inbox.</p>

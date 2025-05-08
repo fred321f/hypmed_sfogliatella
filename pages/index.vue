@@ -5,18 +5,18 @@ import Button from '~/components/btns/mainBtn.vue'
 </script>
 
 <template>
-    <div class="mb-3 text-center container">
-        <h1 class="my-5 text-center display-1">YogaTella</h1>
-        <h2 class="my-3 text-center lead">Welcome to a space where mind, body, and soul come together.
+    <div class="text-center container">
+        <h1 class="my-5 display-1">YogaTella</h1>
+        <h2 class="my-5 lead">Welcome to a space where mind, body, and soul come together.
             Discover balance, strength, and serenity at our yoga center.
         </h2>
         <img src="https://res.cloudinary.com/dpba22oef/image/upload/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg"
             class="rounded img-fluid" alt="People doing yoga">
-        <p class="my-3 text-center">Yogatella is a well-established yoga center that has been offering the highest
+        <p class="my-5">Yogatella is a well-established yoga center that has been offering the highest
             quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence,
             we provide a welcoming space for all to explore the transformative power of yoga.
         </p>
-        <div class="my-3 text-center">
+        <div >
             <Button :url="'/about'" :text="'About YogaTella'" />
         </div>
     </div>

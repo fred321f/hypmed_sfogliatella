@@ -1,7 +1,7 @@
 <template>
-    <div>
-        <h1>About Us</h1>
-        <p>This is the about page of our Nuxt application.</p>
-        <p>We are dedicated to providing the best experience for our users.</p>
+    <div class="text-center container">
+        <h1 class="my-5 display-1">About Us</h1>
+        <h2 class="my-5 lead"> Here you find a bit more about the history of the center...
+        </h2>
     </div>
 </template>
