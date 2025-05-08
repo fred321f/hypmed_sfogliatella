@@ -135,7 +135,7 @@ const activityCards = [
     description:
       "Escape the noise and reconnect with yourself through our transformative yoga retreats, held in serene natural settings. Whether it's a weekend getaway or a week-long immersion, our retreats combine daily yoga and meditation sessions with nourishing meals, nature excursions, and time for reflection.",
     alt: "Yoga retreat with people practicing in a scenic location",
-    link: "/seminars",
+    link: "/retreats",
   },
   {
     title: "Seminars and workshops",
@@ -143,7 +143,7 @@ const activityCards = [
     description:
       "Expand your knowledge and skills with our seminars and workshops, led by experts in yoga, wellness, and holistic health. Topics range from anatomy and alignment to nutrition and personal development. These events are open to practitioners and professionals alike, providing a rich learning environment and opportunities for personal growth.",
     alt: "Yoga workshop session",
-    link: "/courses",
+    link: "/seminars",
   },
 ];
 </script>
