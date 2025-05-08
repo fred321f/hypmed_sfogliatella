@@ -22,7 +22,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
         <Card 
           :type="'vertical'" 
           :title="course.name" 
-          :description="course.description" 
+          :description="course.overview" 
           :imageUrl="getCourseImage(course)"
           :buttonText="'Read more'" 
           :linkUrl="'/courses/' + course.name" 

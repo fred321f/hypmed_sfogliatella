@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
     // If type is provided, filter by type
     const filter = type ? { type } : {};
 
-    const courses = await db.collection('courses').find(filter).toArray(); // Apply the filter
+    const courses = await db.collection('activities').find(filter).toArray(); // Apply the filter
     console.log(`Fetched ${type ? type : 'all'} courses:`, courses);
     
     return { success: true, data: courses };
