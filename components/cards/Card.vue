@@ -138,10 +138,6 @@
  }
  </script>
  
- 
- 
- 
- 
  <style scoped>
  .mainCard {
      transition: transform 0.3s ease, box-shadow 0.3s ease;
