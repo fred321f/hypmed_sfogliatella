@@ -32,26 +32,26 @@
  
  <template>
      <!-- Cards for teacher and activities -->
-     <div v-if="this.type === 'vertical'" :id="this.id">
+     <div v-if="type === 'vertical'" :id="id">
          <div class="d-flex justify-content-center col-12">
              <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card vertiCard">
                  
                  <div class="overflow-hidden">
-                     <img :src="this.imageUrl" class="card-img-top activity-img" />
+                     <img :src="imageUrl" class="card-img-top activity-img" />
                  </div>
  
                  <div class="d-flex flex-column card-body">
  
-                     <h5 class="card-title fs-4 fw-bold">{{ this.title }}</h5>
-                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ this.description }}</p>
+                     <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
+                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
  
-                     <p v-if="level" class="text-muted mb-2">Level: {{ level }}</p>
-                     <p v-if="taughtBy" class="text-muted mb-2">Taught by: <strong>{{ taughtBy }}</strong></p>
+                     <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
+                     <p v-if="taughtBy" class="mb-2 text-muted">Taught by: <strong>{{ taughtBy }}</strong></p>
                      
                      <!-- ADD MORE HERE (remember to use v-if) -->
              
                      <div class="d-flex justify-content-center mt-auto">
-                         <Button :url="this.linkUrl" :text="this.buttonText" class="w-100" />
+                         <Button :url="linkUrl" :text="buttonText" class="w-100" />
                      </div>
  
                  </div>
@@ -60,23 +60,23 @@
      </div>
  
      <!-- Cards for the home page -->
-     <div v-else-if="this.type === 'horizontal'">
-         <a :href="this.linkUrl" class="text-dark text-decoration-none">
+     <div v-else-if="type === 'horizontal'">
+         <a :href="linkUrl" class="text-dark text-decoration-none">
              <div class="d-flex justify-content-center col-12">
                  <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card horiCard">
                      <div class="d-flex">
                          <div class="flex-shrink-0 overflow-hidden">
-                             <img :src="this.imageUrl" class="card-img-left activity-img" />
+                             <img :src="imageUrl" class="card-img-left activity-img" />
                          </div>
                          <div class="d-flex flex-column card-body">
-                             <h5 class="card-title fs-4 fw-bold">{{ this.title }}</h5>
-                             <p class="card-text" style="font-size: 16px; line-height: 2em">{{ this.description }}</p>
+                             <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
+                             <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
                              <div class="justify-content-center mt-auto row">
                                  <div class="col"></div>
                                  <div class="col"></div>
                                  <div class="d-flex justify-content-center mr-5 col">
-                                     <a :href="this.linkUrl" class="my-link">
-                                         {{ this.buttonText }} <i class="bi-arrow-right bi"></i>
+                                     <a :href="linkUrl" class="my-link">
+                                         {{ buttonText }} <i class="bi-arrow-right bi"></i>
                                      </a>
                                  </div>
                              </div>
