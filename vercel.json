@@ -1,6 +1,8 @@
 {
     "build": {
-      
+      "env": {
+        "MONGO_DB": "@MONGO_DB"
+      }
     }
   }
 
