@@ -78,21 +78,7 @@
       </div>
     </section>
 
-    <!-- Footer -->
-    <!-- <footer class="bg-primary mt-auto py-5">
-      <div class="container text-white">
-        <h3 class="mb-4" style="font-size: 30px">Contact Us</h3>
-        <hr class="border-white opacity-75" />
-        <p style="font-size: 18px">
-          📍 Address: 123 Zen Lane, Wellness City, EU<br />
-          📧 Email: hello@yogatella.com<br />
-          ☎️ Phone: +39 123 456 7890
-        </p>
-        <p class="mt-4">
-          © 2025 Developed by <strong>Sfogliatella Team</strong> — All rights reserved.
-        </p>
-      </div>
-    </footer> -->
+
   </div>
 </template>
 
