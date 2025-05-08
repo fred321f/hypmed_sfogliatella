@@ -1,5 +1,5 @@
 <script setup>
-import CoursesList from '~/components/CoursesList.vue';
+import CoursesList from '~/components/ActivitiesList.vue';
 
 import Calendar from '~/components/coursesCalendar.vue';
 </script>

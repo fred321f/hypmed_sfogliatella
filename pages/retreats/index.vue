@@ -14,9 +14,6 @@ import ActivitiesList from '~/components/ActivitiesList.vue';
       We also offer multi-day retreats and structured programs that provide a deeper dive into your personal practice, helping you reconnect, recharge, and grow both on and off the mat.
     </p>
 
-    <Calendar />  <!-- filter example: type="Meditation" day="Monday" time="09:00" 
-    all other filters [name type taught_by	level	description	day	time] -->
-
     <h2 class="my-5 text-center display-4">Retreats</h2>
     <ActivitiesList type="Retreat"/>
 

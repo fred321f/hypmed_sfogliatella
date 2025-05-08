@@ -27,8 +27,10 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
           :buttonText="'Read more'" 
           :linkUrl="'/activities/' + activity.name" 
 
-          :level="activity.location"
-          :taughtBy="activity.taught_by"
+          :taughtBy="activity.teacher"
+          :guest="activity.guest"
+          :location="activity.location"
+          :id="activity.name.replace(/\s+/g, '-').toLowerCase()"
         />
         
       </div>

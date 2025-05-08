@@ -42,11 +42,13 @@
  
                  <div class="d-flex flex-column card-body">
  
-                     <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
-                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
- 
-                     <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
-                     <p v-if="taughtBy" class="mb-2 text-muted">Taught by: <strong>{{ taughtBy }}</strong></p>
+                    <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
+                    <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
+
+                    <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
+                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by: <strong>{{ taughtBy }}</strong></p>
+                    <p v-if="guest" class="mb-2 text-muted">Special guest: <strong>{{ guest }}</strong></p>
+                    <p v-if="location" class="mb-2 text-muted">In <strong>{{ location }}</strong></p>
                      
                      <!-- ADD MORE HERE (remember to use v-if) -->
              
@@ -124,6 +126,16 @@
              default: null
          },
          taughtBy: {
+             type: String,
+             required: false,
+             default: null
+         },
+         location: {
+             type: String,
+             required: false,
+             default: null
+         },
+         guest: {
              type: String,
              required: false,
              default: null
