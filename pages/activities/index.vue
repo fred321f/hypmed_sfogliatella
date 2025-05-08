@@ -41,6 +41,9 @@
     </section>-->
 
     <!-- Page Title -->
+    <!-- <section class="py-4"> -->
+    <h1 class="my-5 text-center display-1">Activities</h1>
+    <!-- </section> -->
 
     <!-- Introduction Text -->
     <section class="my-5 container">
