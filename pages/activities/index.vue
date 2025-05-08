@@ -41,9 +41,6 @@
     </section>-->
 
     <!-- Page Title -->
-    <section class="py-5">
-      <h2 class="text-center" style="font-size: 50px; font-weight: 600">Activities</h2>
-    </section>
 
     <!-- Introduction Text -->
     <section class="my-5 container">
@@ -55,7 +52,7 @@
 
     <!-- Activity Cards -->
     <section class="container mb-5">
-      <div class="row g-4">
+      <div class="row g-4 d-flex justify-content-center">
         <div class="col-md-4 d-flex" v-for="(card, index) in activityCards" :key="index">
           <div class="card activity-card border-0 shadow-lg w-100 rounded-4 overflow-hidden">
             <div class="overflow-hidden">
@@ -63,18 +60,18 @@
             </div>
             <div class="card-body d-flex flex-column">
               <h5 class="card-title fs-4 fw-bold">{{ card.title }}</h5>
-              <p class="card-text text-secondary" style="font-size: 16px; line-height: 2em">{{ card.description }}</p>
+              <p class="card-text " style="font-size: 16px; line-height: 2em">{{ card.description }}</p>
               <div class="mt-auto">
                 <NuxtLink :to="card.link">
-                    <button class="btn-main w-100" @click="navigate">
+                  <button class="btn-main w-100" @click="navigate">
                     learn more
                   </button>
                 </NuxtLink>
               </div>
             </div>
-          </div> -->
+          </div>
 
-          <div class="col">
+          <!-- <div class="col">
             <Card 
               :title="card.title" 
               :description="card.description" 
@@ -82,13 +79,13 @@
               :linkUrl="card.link" 
               :buttonText="'Read more'" 
             />
-          </div>
+          </div> -->
 
         </div>
       </div>
     </section>
 
-
+    <Chatbot />
   </div>
 </template>
 
@@ -166,3 +163,4 @@ const activityCards = [
   transform: scale(1.05);
 }
 </style>
+
