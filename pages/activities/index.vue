@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column min-vh-100 bg-white">
+  <div class="d-flex flex-column min-vh-100">
     <!-- Navigation Bar -->
     <!-- <header class="bg-primary border-bottom border-4">
       <div class="container d-flex align-items-center py-4">
@@ -14,9 +14,9 @@
       </div>
     </header> -->
 
-    <!-- Status Bar -->
-    <section class="bg-status text-white py-2 px-4 shadow-sm">
-      <div class="container d-flex justify-content-between align-items-center">
+    <!-- Status Bar 
+    <section class="bg-status shadow-sm px-4 py-2 text-white">
+      <div class="d-flex align-items-center justify-content-between container">
         <span class="fw-medium">
           🧘 You're viewing: <strong>Activities</strong>
         </span>
@@ -24,10 +24,10 @@
           Explore yoga, retreats & workshops offered by Yogatella
         </span>
       </div>
-    </section>
+    </section>-->
 
-    <!-- Breadcrumb -->
-    <section class="bg-light border-bottom py-3">
+    <!-- Breadcrumb 
+    <section class="bg-light py-3 border-bottom">
       <div class="container">
         <nav aria-label="breadcrumb">
           <ol class="breadcrumb mb-0">
@@ -38,16 +38,16 @@
           </ol>
         </nav>
       </div>
-    </section>
+    </section>-->
 
     <!-- Page Title -->
-    <section class="bg-light py-5">
+    <section class="py-5">
       <h2 class="text-center" style="font-size: 50px; font-weight: 600">Activities</h2>
     </section>
 
     <!-- Introduction Text -->
-    <section class="container my-5">
-      <p class="text-secondary fs-4 text-justify" style="line-height: 2em">
+    <section class="my-5 container">
+      <p class="text-center text-justify fs-4" style="line-height: 2em">
         At Yogatella Yoga Center, we offer a diverse range of activities designed to support your physical, mental, and
         spiritual well-being. Our offerings are thoughtfully grouped into three main categories:
       </p>
@@ -72,6 +72,16 @@
                 </NuxtLink>
               </div>
             </div>
+          </div> -->
+
+          <div class="col">
+            <Card 
+              :title="card.title" 
+              :description="card.description" 
+              :imageUrl="card.image" 
+              :linkUrl="card.link" 
+              :buttonText="'Read more'" 
+            />
           </div>
 
         </div>
@@ -83,6 +93,8 @@
 </template>
 
 <script setup>
+import Card from "~/components/cards/Card.vue";
+
 // Navigation bar data
 const navItems = [
   { name: "About us", active: false },
@@ -107,7 +119,7 @@ const activityCards = [
     description:
       "Escape the noise and reconnect with yourself through our transformative yoga retreats, held in serene natural settings. Whether it's a weekend getaway or a week-long immersion, our retreats combine daily yoga and meditation sessions with nourishing meals, nature excursions, and time for reflection.",
     alt: "Yoga retreat with people practicing in a scenic location",
-    link: "/courses",
+    link: "/seminars",
   },
   {
     title: "Seminars and workshops",
