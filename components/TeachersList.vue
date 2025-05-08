@@ -1,14 +1,9 @@
 <!-- Fetching from the db -->
 <script setup>
-import Button from '~/components/btns/mainBtn.vue';
-import VerticalCard from "~/components/cards/verticalCard.vue";
-
 import Card from "~/components/cards/Card.vue";
-
 </script>
 
 <script>
-
 
 export default {
     data() {
