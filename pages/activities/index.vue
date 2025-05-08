@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex flex-column min-vh-100">
+
     <!-- Navigation Bar -->
     <!-- <header class="bg-primary border-4 border-bottom">
       <div class="d-flex align-items-center py-4 container">
@@ -41,18 +41,14 @@
     </section>-->
 
     <!-- Page Title -->
-    <section class="py-5">
-      <h2 class="text-center" style="font-size: 50px; font-weight: 600">Activities</h2>
-    </section>
-
-    <!-- Introduction Text -->
-    <section class="my-5 container">
-      <p class="text-center text-justify fs-4" style="line-height: 2em">
-        At Yogatella Yoga Center, we offer a diverse range of activities designed to support your physical, mental, and
-        spiritual well-being. Our offerings are thoughtfully grouped into three main categories:
-      </p>
-    </section>
-
+    <div class="text-center container">
+        <h1 class="my-5  display-1">Activities</h1>
+            <!-- Introduction Text -->
+        <h2 class="my-5  lead">At Yogatella Yoga Center, we offer a diverse range of activities designed to support your physical, mental, and
+          spiritual well-being. Our offerings are thoughtfully grouped into three main categories:
+        </h2>
+    </div>
+  <div class="d-flex flex-column min-vh-100">
     <!-- Activity Cards -->
     <section class="mb-5 container">
       <div class="row g-4">
