@@ -1,4 +1,7 @@
 import { MongoClient } from 'mongodb';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from .env file
 
 const uri = process.env.MONGO_DB;
 if (!uri) throw new Error('MONGO_DB is missing in .env');
