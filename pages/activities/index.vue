@@ -130,14 +130,6 @@ const activityCards = [
     link: "/courses",
   },
   {
-    title: "Retreats",
-    image: "https://res.cloudinary.com/dpba22oef/image/upload/v1746227126/retreats_aknjvd.png",
-    description:
-      "Escape the noise and reconnect with yourself through our transformative yoga retreats, held in serene natural settings. Whether it's a weekend getaway or a week-long immersion, our retreats combine daily yoga and meditation sessions with nourishing meals, nature excursions, and time for reflection.",
-    alt: "Yoga retreat with people practicing in a scenic location",
-    link: "/retreats",
-  },
-  {
     title: "Seminars and workshops",
     image: "https://res.cloudinary.com/dpba22oef/image/upload/v1746227629/semi_uh0ioh.png",
     description:
@@ -145,6 +137,14 @@ const activityCards = [
     alt: "Yoga workshop session",
     link: "/seminars",
   },
+  {
+    title: "Retreats",
+    image: "https://res.cloudinary.com/dpba22oef/image/upload/v1746227126/retreats_aknjvd.png",
+    description:
+      "Escape the noise and reconnect with yourself through our transformative yoga retreats, held in serene natural settings. Whether it's a weekend getaway or a week-long immersion, our retreats combine daily yoga and meditation sessions with nourishing meals, nature excursions, and time for reflection.",
+    alt: "Yoga retreat with people practicing in a scenic location",
+    link: "/retreats",
+  }
 ];
 </script>
 
