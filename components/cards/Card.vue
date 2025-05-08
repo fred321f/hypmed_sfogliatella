@@ -36,16 +36,18 @@
          <div class="d-flex justify-content-center col-12">
              <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card vertiCard">
                  
-                 <div class="overflow-hidden">
-                     <img :src="imageUrl" class="card-img-top activity-img" />
-                 </div>
+                 <!-- Image with type overlay -->
+                <div class="overflow-hidden position-relative">
+                    <img :src="imageUrl" class="card-img-top activity-img" />
+                    <span v-if="activityType" class="type-overlay">{{ activityType }}</span>
+                </div>
  
                  <div class="d-flex flex-column card-body">
  
                     <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
 
-                    <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
+                    <p v-if="level" class="mb-2 text-muted">Suitable for <strong>{{ level }}</strong></p>
                     <p v-if="taughtBy" class="mb-2 text-muted">Taught by: <strong>{{ taughtBy }}</strong></p>
                     <p v-if="guest" class="mb-2 text-muted">Special guest: <strong>{{ guest }}</strong></p>
                     <p v-if="location" class="mb-2 text-muted">In <strong>{{ location }}</strong></p>
@@ -140,6 +142,11 @@
              required: false,
              default: null
          },
+         activityType: {
+             type: String,
+             required: false,
+             default: null
+         },
          id: {                   // for structural link
              type: String,
              required: false,
@@ -166,7 +173,22 @@
      text-decoration: none; 
      color: #20c997;
  }
- 
+ .type-overlay {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #20c997;
+  color: white;
+  padding: 6px 12px;
+  font-weight: bold;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  z-index: 2;
+}
+
+
  
  .vertiCard {
      transition: transform 0.3s ease, box-shadow 0.3s ease;

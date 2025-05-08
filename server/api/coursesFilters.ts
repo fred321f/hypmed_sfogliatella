@@ -25,16 +25,16 @@ export default defineEventHandler(async (event) => {
     }
 
     // Query with filters and optional sorting based on the 'sort' parameter
-    const courses = await db.collection('courses').find(filter).sort(sortOption).toArray();
+    const activities = await db.collection('activities').find(filter).sort(sortOption).toArray();
 
-    console.log(`Fetched ${courses.length} course(s) with filter:`, filter);
+    console.log(`Fetched ${activities.length} course(s) with filter:`, filter);
 
-    return { success: true, data: courses };
+    return { success: true, data: activities };
   } catch (error) {
-    console.error('Error fetching courses:', error);
+    console.error('Error fetching activities:', error);
     return {
       success: false,
-      message: 'Failed to fetch courses',
+      message: 'Failed to fetch activities',
       error: (error as Error).message
     };
   }

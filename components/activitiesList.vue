@@ -31,6 +31,8 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
           :guest="activity.guest"
           :location="activity.location"
           :id="activity.name.replace(/\s+/g, '-').toLowerCase()"
+          :level="activity.level"
+          :activityType="activity.type"
         />
         
       </div>
@@ -44,10 +46,9 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 
 <script setup>
 import Card from "@/components/cards/Card.vue";
+import { ref, watch, onMounted } from 'vue';
 
-import { ref, onMounted } from 'vue';
-
-// for FILTERING
+// Accept the type as a prop for filtering
 const props = defineProps({
   type: {
     type: String,
@@ -55,39 +56,21 @@ const props = defineProps({
   }
 });
 
-
 const activities = ref([]);
 const error = ref(null);
 
-// Function to determine the image URL based on course type and availability
-const getCourseImage = (activity) => {
-  // CORRECT imageUrl IMG
-  if (activity.imageUrl) {
-    return activity.imageUrl;
-  }
-
-  // DEFAULT TYPE IMAGE
-  if (activity.type === 'Yoga') {
-    return 'https://cdn.yogaacademy.it/wp-content/uploads/2022/10/DSC00991-scaled.jpeg';
-  }
-  if (activity.type === 'Meditation') {
-    return 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
-  }
-
-  // General DEFAULT IMAGE
-  return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png'; // generic default image
-};
-
-onMounted(async () => {
+// ⬇️ Extracted fetch function to be reused in both onMounted and watch
+const fetchActivities = async () => {
   try {
-
-    let url = '/api/activities'; // Default API endpoint 
+    let url = '/api/activities';
 
     if (props.type) {
-      url += `?type=${props.type}`; // Add type filter
+      url += `?type=${encodeURIComponent(props.type)}`;
     }
+
     const response = await fetch(url);
     const result = await response.json();
+
     if (result.success) {
       activities.value = result.data;
     } else {
@@ -96,5 +79,27 @@ onMounted(async () => {
   } catch (err) {
     error.value = err.message;
   }
-});
+};
+
+// Fetch on initial load
+onMounted(fetchActivities);
+
+// Reactively refetch when `type` prop changes
+watch(() => props.type, fetchActivities);
+
+// 🔁 Utility to get an image URL for each activity
+const getCourseImage = (activity) => {
+  if (activity.imageUrl) return activity.imageUrl;
+
+  if (activity.type === 'Yoga') {
+    return 'https://cdn.yogaacademy.it/wp-content/uploads/2022/10/DSC00991-scaled.jpeg';
+  }
+
+  if (activity.type === 'Meditation') {
+    return 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+  }
+
+  return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png';
+};
 </script>
+
