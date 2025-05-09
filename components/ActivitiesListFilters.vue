@@ -39,33 +39,65 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     </div>
 
     <div v-if="!activities.length && !error" class="text-center">
-      <p class="text-danger">No activities available at the moment.</p>
+      <p>No results found for your search. Try something else.</p>
     </div>
   </div>
 </template>
+
+
 
 <script setup>
 import Card from "@/components/cards/Card.vue";
 import { ref, watch, onMounted } from 'vue';
 
-// Accept the type as a prop for filtering
+// Accept various filters as props
 const props = defineProps({
-  type: {
-    type: String,
-    default: ''
+  name: String,
+  type: String,
+  types: String,         // space-separated types (e.g. "Yoga Meditation")
+  teacher: String,
+  level: String,
+  description: String,
+  overview: String,
+  day: String,
+  time: String,
+  sort: {
+    type: Boolean,
+    default: false
   }
 });
 
 const activities = ref([]);
 const error = ref(null);
 
-// ⬇️ Extracted fetch function to be reused in both onMounted and watch
+// Build dynamic query string from props
+const buildQuery = () => {
+  const params = new URLSearchParams();
+
+  if (props.name) params.append('name', props.name);
+  if (props.type) params.append('type', props.type);
+  if (props.teacher) params.append('teacher', props.teacher);
+  if (props.level) params.append('level', props.level);
+  if (props.description) params.append('description', props.description);
+  if (props.day) params.append('day', props.day);
+  if (props.time) params.append('time', props.time);
+  if (props.sort) params.append('sort', 'true');
+
+  if (props.types) {
+    props.types.split(' ').forEach(t => {
+      if (t.trim()) params.append('type', t.trim());
+    });
+  }
+  
+  return params.toString();
+};
+
 const fetchActivities = async () => {
   try {
-    let url = '/api/activities';
-
-    if (props.type) {
-      url += `?type=${encodeURIComponent(props.type)}`;
+    let url = '/api/activitiesFilters'; // API endpoint for fetching activities
+    const query = buildQuery();
+    if (query) {
+      url += `?${query}`;
     }
 
     const response = await fetch(url);
@@ -84,10 +116,9 @@ const fetchActivities = async () => {
 // Fetch on initial load
 onMounted(fetchActivities);
 
-// Reactively refetch when `type` prop changes
-watch(() => props.type, fetchActivities);
+// Reactively refetch when any prop changes
+watch(() => ({ ...props }), fetchActivities, { deep: true });
 
-// 🔁 Utility to get an image URL for each activity
 const getCourseImage = (activity) => {
   if (activity.imageUrl) return activity.imageUrl;
 
@@ -102,4 +133,5 @@ const getCourseImage = (activity) => {
   return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png';
 };
 </script>
+
 
