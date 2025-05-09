@@ -20,7 +20,7 @@ import Overview from '~/components/ActivitiesOverview.vue';
     <ActivitiesList type="Retreat"/>
 
     <h1 class="my-5 text-center display-1">Other activities</h1>
-    <Overview />
+    <Overview hide="Retreats"/>
 
   </div>
 </template>

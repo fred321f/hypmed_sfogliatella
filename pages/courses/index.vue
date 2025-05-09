@@ -27,7 +27,7 @@ import Overview from '~/components/ActivitiesOverview.vue';
     <ActivitiesList type="Meditation" />
 
     <h1 class="my-5 text-center display-1">Other activities</h1>
-    <Overview />
+    <Overview hide="Yoga and meditation courses"/>
 
   </div>
 </template>

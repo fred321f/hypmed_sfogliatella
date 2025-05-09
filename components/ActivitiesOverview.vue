@@ -7,7 +7,7 @@
     </div>
     
     <div class="row g-4">
-      <div class="d-flex col-md-4" v-for="(card, index) in activityCards" :key="index">
+      <div class="d-flex col-md-4" v-for="(card, index) in filteredCards" :key="index">
         <div class="col">
           <Card 
             :title="card.title" 
@@ -27,6 +27,18 @@
 
 <script setup>
 import Card from "~/components/cards/Card.vue";
+import { computed } from 'vue';
+
+const props = defineProps({
+  hide: {
+    type: String,
+    default: ''
+  }
+});
+
+const filteredCards = computed(() => {
+  return activityCards.filter(card => card.title !== props.hide);
+});
 
 // Activity cards data
 const activityCards = [
