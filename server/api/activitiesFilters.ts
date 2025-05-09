@@ -11,12 +11,15 @@ export default defineEventHandler(async (event) => {
     const filter: any = {};
 
     if (query.name) filter.name = query.name;
-    if (query.type) filter.type = query.type;
     if (query.teacher) filter.teacher = query.teacher;
     if (query.level) filter.level = query.level;
     if (query.overview) filter.overview = query.overview;
     if (query.day) filter.day = query.day;
     if (query.time) filter.time = query.time;
+    if (query.type) {
+      const types = Array.isArray(query.type) ? query.type : [query.type];
+      filter.type = { $in: types };
+    }
     if (query.description) {
       const regex = { $regex: query.description, $options: 'i' };
       filter.$or = [

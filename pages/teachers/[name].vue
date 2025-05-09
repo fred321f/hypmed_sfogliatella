@@ -1,4 +1,6 @@
 <script setup>
+import ActivitiesList from '~/components/ActivitiesListFilters.vue';
+
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
@@ -41,11 +43,13 @@ onMounted(async () => {
         <div class="row">
             <h2 class="my-3 display-4">Join my classes</h2>
             <!-- Classes list -->
+            <ActivitiesList :teacher="teacher.name" types="Yoga Meditation" />
         </div>
 
         <div class="row">
             <h2 class="my-3 display-4">My other activities</h2>
             <!-- List of other activities -->
+            <ActivitiesList :teacher="teacher.name" types="Seminar Workshop Retreat" />
         </div>
 
     </div>

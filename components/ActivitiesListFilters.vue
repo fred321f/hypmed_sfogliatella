@@ -54,6 +54,7 @@ import { ref, watch, onMounted } from 'vue';
 const props = defineProps({
   name: String,
   type: String,
+  types: String,         // space-separated types (e.g. "Yoga Meditation")
   teacher: String,
   level: String,
   description: String,
@@ -82,6 +83,12 @@ const buildQuery = () => {
   if (props.time) params.append('time', props.time);
   if (props.sort) params.append('sort', 'true');
 
+  if (props.types) {
+    props.types.split(' ').forEach(t => {
+      if (t.trim()) params.append('type', t.trim());
+    });
+  }
+  
   return params.toString();
 };
 
