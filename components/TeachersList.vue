@@ -1,10 +1,6 @@
 <!-- Fetching from the db -->
 <script setup>
-import Button from '~/components/btns/mainBtn.vue';
-import VerticalCard from "~/components/cards/verticalCard.vue";
-
 import Card from "~/components/cards/Card.vue";
-
 </script>
 
 <script>
@@ -40,8 +36,14 @@ export default {
 <template>
     <div class="row">
         <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
-            <Card :type="'vertical'" :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
-                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+            <Card 
+                :type="'vertical'" 
+                :title="teacher.name" 
+                :description="teacher.overview" 
+                :imageUrl="teacher.imageUrl"
+                :buttonText="'Read more'" 
+                :linkUrl="'/teachers/' + teacher.name" 
+            />
         </div>
     </div>
     <div v-if="!teachers.length" class="text-center">

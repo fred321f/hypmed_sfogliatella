@@ -48,7 +48,9 @@
                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
 
                     <p v-if="level" class="mb-2 text-muted">Suitable for <strong>{{ level }}</strong></p>
-                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by: <strong>{{ taughtBy }}</strong></p>
+                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by: 
+                        <a :href="`/teachers/${taughtBy}`" class="text-decoration-none text-dark fw-bold">{{ taughtBy }}</a>
+                    </p>
                     <p v-if="guest" class="mb-2 text-muted">Special guest: <strong>{{ guest }}</strong></p>
                     <p v-if="location" class="mb-2 text-muted">In <strong>{{ location }}</strong></p>
                      
