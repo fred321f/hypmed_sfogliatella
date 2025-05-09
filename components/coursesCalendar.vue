@@ -106,7 +106,7 @@ const getCoursesForSlot = (day, time) =>
 
   onMounted(async () => {
   try {
-    let url = '/api/coursesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
+    let url = '/api/activitiesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
     const params = new URLSearchParams();
 
     // Costruisce dinamicamente i filtri dalla props (tipo, livello, etc.)

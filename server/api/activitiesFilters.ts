@@ -12,11 +12,21 @@ export default defineEventHandler(async (event) => {
 
     if (query.name) filter.name = query.name;
     if (query.type) filter.type = query.type;
-    if (query.taught_by) filter.taught_by = query.taught_by;
+    if (query.teacher) filter.teacher = query.teacher;
     if (query.level) filter.level = query.level;
-    if (query.description) filter.description = { $regex: query.description, $options: 'i' }; // text search for description
+    if (query.overview) filter.overview = query.overview;
     if (query.day) filter.day = query.day;
     if (query.time) filter.time = query.time;
+    if (query.description) {
+      const regex = { $regex: query.description, $options: 'i' };
+      filter.$or = [
+        { name: regex },
+        { type: regex },
+        { overview: regex },
+        { description: regex },
+        { teacher: regex }
+      ];
+    }
 
     // Check if the query parameter 'sort' is present and equals 'true'
     let sortOption = {};

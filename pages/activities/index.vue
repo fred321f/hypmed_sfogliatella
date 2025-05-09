@@ -2,14 +2,14 @@
 import Overview from '~/components/ActivitiesOverview.vue';
 
 import { ref } from 'vue';
-import ActivitiesList from '~/components/ActivitiesList.vue';
+import ActivitiesList from '~/components/ActivitiesListFilters.vue';
 
 const userQuery = ref('')
-const searchType  = ref('')
+const searchDescription  = ref('')
 
 // Function to trigger the search
 const runSearch = () => {
-  searchType.value = userQuery.value.trim();
+  searchDescription.value = userQuery.value.trim();
 };
 </script>
 
@@ -38,7 +38,7 @@ const runSearch = () => {
       <button @click="runSearch" class="search-button">Search</button>
     </div>
 
-    <ActivitiesList :type="searchType" />
+    <ActivitiesList :description="searchDescription" />
   </div>
 </template>
 

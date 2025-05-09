@@ -21,11 +21,11 @@ import Button from '~/components/btns/mainBtn.vue'
         </div>
     </div>
     <div class="my-5 container">
-        <Card styleType="horizontal" title="Activities"
+        <Card type="horizontal" title="Activities"
             description="We offer a wide variety of activities, ranging from yoga and meditation courses, retreats, seminars and workshops"
             imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill,g_auto/v1745953332/ro147-scaled-1440x809-2_ygeojc.jpg"
             linkUrl="/activities" :buttonText="'Read more'" />
-        <Card styleType="horizontal" title="Teachers"
+        <Card type="horizontal" title="Teachers"
             description="Meet the team! They are all certified and ready to welcome you in the yoga community"
             imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill/v1745953300/Yoga-teacher-training-2_ryrg6y.jpg"
             linkUrl="/teachers" :buttonText="'Read more'" />
