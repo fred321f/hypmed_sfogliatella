@@ -20,6 +20,7 @@ const routes = [
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     </Head>
+
     <header>
       <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
         <div class="container">
@@ -75,7 +76,7 @@ const routes = [
               <div class="d-block ig-profile">Frederick Nielsen</div>
             </div>
 
-            <div class="mt-4 mb-4  col-md-2">
+            <div class="mt-4 mb-4 col-md-2">
               <div class="d-block ig-profile">Sveva Zanetti</div>
             </div>
 
