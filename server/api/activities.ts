@@ -11,15 +11,15 @@ export default defineEventHandler(async (event) => {
     // If type is provided, filter by type
     const filter = type ? { type } : {};
 
-    const courses = await db.collection('activities').find(filter).toArray(); // Apply the filter
-    console.log(`Fetched ${type ? type : 'all'} courses:`, courses);
+    const activities = await db.collection('activities').find(filter).toArray(); // Apply the filter
+    console.log(`Fetched ${type ? type : 'all'} activities:`, activities);
     
-    return { success: true, data: courses };
+    return { success: true, data: activities };
   } catch (error) {
-    console.error('Error fetching courses:', error);
+    console.error('Error fetching activities:', error);
     return {
       success: false,
-      message: 'Failed to fetch courses',
+      message: 'Failed to fetch activities',
       error: (error as Error).message
     };
   }
