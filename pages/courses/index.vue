@@ -1,14 +1,15 @@
 <script setup>
-import CoursesList from '~/components/CoursesList.vue';
-
 import Calendar from '~/components/coursesCalendar.vue';
+import ActivitiesList from '~/components/ActivitiesList.vue';
+
+import Overview from '~/components/ActivitiesOverview.vue';
 </script>
 
 
 
 <template>
   <div class="container">
-    <h1 class="my-5 text-center display-2">Courses</h1>
+    <h1 class="my-5 text-center display-1">Courses</h1>
     <p class="mb-5 text-center lead">
       Our offering include a variety of yoga and meditation courses suitable for all levels:
       from complete beginners to seasoned practitioners. Each class is guided by experienced instructors.
@@ -20,10 +21,13 @@ import Calendar from '~/components/coursesCalendar.vue';
     all other filters [name type taught_by	level	description	day	time] -->
 
     <h2 class="my-5 text-center display-4">Yoga Courses</h2>
-    <CoursesList type="Yoga" />
+    <ActivitiesList type="Yoga" />
 
     <h2 class="my-5 text-center display-4">Meditation Courses</h2>
-    <CoursesList type="Meditation" />
+    <ActivitiesList type="Meditation" />
+
+    <h1 class="my-5 text-center display-1">Other activities</h1>
+    <Overview hide="Yoga and meditation courses"/>
 
   </div>
 </template>

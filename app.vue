@@ -20,6 +20,7 @@ const routes = [
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 
     </Head>
+
     <header>
       <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
         <div class="container">
@@ -39,10 +40,10 @@ const routes = [
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="ms-auto mb-2 mb-lg-0 navbar-nav">
               <li class="nav-item">
-                <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
+                <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
+                <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
               </li>
               <li class="nav-item">
                 <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
@@ -62,7 +63,7 @@ const routes = [
     </main>
 
 
-    <footer class="bg-dark py-5 text-light">
+    <footer class="bg-dark py-5 text-light mt-5">
       <div class="text-center container">
 
         <!-- Social Icons con Founder -->
@@ -75,7 +76,7 @@ const routes = [
               <div class="d-block ig-profile">Frederick Nielsen</div>
             </div>
 
-            <div class="mt-4 mb-4  col-md-2">
+            <div class="mt-4 mb-4 col-md-2">
               <div class="d-block ig-profile">Sveva Zanetti</div>
             </div>
 

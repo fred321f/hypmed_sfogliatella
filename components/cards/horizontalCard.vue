@@ -1,26 +1,3 @@
-<!-- HOW TO USE THIS COMPONENT
-
-// ADD THIS TO THE TOP OF THE PAGE
-<script setup>
-    import HorizontalCard from "@/components/cards/horizontalCard.vue";
-</script>
-
-// ADD THE CARD INSIDE THE PAGE
-<div class="d-flex justify-content-center col-12">
-    <HorizontalCard 
-        :title="teacher.name" 
-        :description="teacher.overview" 
-        :imageUrl="teacher.imageUrl"
-        :buttonText="'Read more'" 
-        :linkUrl="'/teachers/' + teacher.name" 
-
-        :id="teacher.name.replace(/\s+/g, '-').toLowerCase()"
-    />
-</div>
-
- -->
-
-
 <script setup>
 import Button from '@/components/btns/mainBtn.vue';
 </script>
