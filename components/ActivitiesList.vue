@@ -62,8 +62,8 @@ const error = ref(null);
 // Function to determine the image URL based on course type and availability
 const getCourseImage = (activity) => {
   // CORRECT imageUrl IMG
-  if (activity.imageUrl) {
-    return activity.imageUrl;
+  if (activity.imgURL) {
+    return 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/'+activity.imgURL;
   }
 
   // DEFAULT TYPE IMAGE
