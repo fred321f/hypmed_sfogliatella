@@ -89,7 +89,7 @@ watch(() => props.type, fetchActivities);
 
 // 🔁 Utility to get an image URL for each activity
 const getCourseImage = (activity) => {
-  if (activity.imageUrl) return activity.imageUrl;
+  if (activity.imgURL) return activity.imgURL;
 
   if (activity.type === 'Yoga') {
     return 'https://cdn.yogaacademy.it/wp-content/uploads/2022/10/DSC00991-scaled.jpeg';
