@@ -6,8 +6,25 @@ import Button from '~/components/btns/mainBtn.vue'
 
 <template>
     <div class="my-4 text-center container">
+        <div class="row"></div>
+        <div class="row hero-container">
+            <div class="col-sm-6">
+                <h1 class="font-bold display-4 hero-header">At <span class="inline-brand">YogaTella</span>, we specialize in all types of yoga where you're in focus.</h1>
+                <!-- <h2 class="lead hero-paragraph">At the space where mind, body, and soul come together. Offering the
+                    highest quality services in Milan, we teach and host welfare events with a burning passion, where
+                    you are in the middle.</h2> -->
+            </div>
+            <div class="d-sm-block sm-display--block col-sm-6 d-none">
+                <img src="../assets/img/main_homepage-copy.jpg" class="rounded img-fluid hero-img"
+                    alt="People doing yoga">
+            </div>
+        </div>
+        <div class="row"></div>
 
-        <h1 class="my-5 text-center display-1">YogaTella</h1>
+
+
+
+        <!-- <h1 class="my-5 text-center display-1">YogaTella</h1>
         <h2 class="my-3 text-center lead">Welcome to a space where mind, body, and soul come together.
             Discover balance, strength, and serenity at our yoga center.
         </h2>
@@ -19,7 +36,7 @@ import Button from '~/components/btns/mainBtn.vue'
         </p>
         <div class="my-3 text-center">
             <Button :url="'/about'" :text="'About YogaTella'" />
-        </div>
+        </div> -->
     </div>
     <div class="my-5 container">
         <Card type="horizontal" title="Activities"
