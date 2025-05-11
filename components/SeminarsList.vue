@@ -12,30 +12,33 @@
 
 <template>
   <div>
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
-
-    <div class="row">
-      <div class="col-md-4" v-for="seminar in seminars" :key="seminar.id">
-        <div class="mb-3 card">
-          <img 
-            :src="getSeminarImage(seminar)" 
-            class="card-img-top" 
-            alt="Seminar Image" 
-          />
-          <div class="card-body">
-            <h5 class="card-title">{{ seminar.name }}</h5>
-            <p class="card-text">{{ seminar.description }}</p> 
-            <h6 class="text-muted">Led by: <strong>{{ seminar.heldBy }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
-            <div class="gap-2 d-grid">
-              <button class="btn btn-primary">Read more</button>
+    <div v-if="loading" class="text-center">
+      <loadingSpinner label="Loading seminars..." />
+    </div>
+    <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
+    <div v-else>
+      <div class="row">
+        <div class="col-md-4" v-for="seminar in seminars" :key="seminar.id">
+          <div class="mb-3 card">
+            <img 
+              :src="getSeminarImage(seminar)" 
+              class="card-img-top" 
+              alt="Seminar Image" 
+            />
+            <div class="card-body">
+              <h5 class="card-title">{{ seminar.name }}</h5>
+              <p class="card-text">{{ seminar.description }}</p> 
+              <h6 class="text-muted">Led by: <strong>{{ seminar.heldBy }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
+              <div class="gap-2 d-grid">
+                <button class="btn btn-primary">Read more</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div v-if="!seminars.length && !error" class="text-center">
-      <p class="text-danger">No seminars available at the moment.</p>
+      <div v-if="!seminars.length" class="text-center">
+        <p class="text-danger">No seminars available at the moment.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +48,7 @@ import { ref, onMounted } from 'vue';
 
 const seminars = ref([]);
 const error = ref(null);
+const loading = ref(true);
 
 const getSeminarImage = (seminar) => {
   return seminar.imageUrl || 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png';
@@ -61,6 +65,8 @@ onMounted(async () => {
     }
   } catch (err) {
     error.value = err.message;
+  } finally {
+    loading.value = false;
   }
 });
 </script>

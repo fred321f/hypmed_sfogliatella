@@ -14,45 +14,35 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 
 <template> <!-- THIS VERSION ADD STRUCTURAL LINKS ####################### -->
   <div>
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
-
-    <div class="row">
-      <div class="mb-4 col-md-4" v-for="course in courses" :key="course.id">
-
-        <Card :type="'vertical'" :title="course.name" :description="course.description"
-          :imageUrl="getCourseImage(course)" :buttonText="'Read more'" :linkUrl="'/courses/' + course.name"
-          :level="course.level" :taughtBy="course.teacher?.name || 'Unknown'"
-          :id="course.name.replace(/\s+/g, '-').toLowerCase()" />
-
-        <!-- <div class="mb-3 card"
-        <div class="mb-3 card" :id="course.name.replace(/\s+/g, '-').toLowerCase()">
-          <img 
-            :src="getCourseImage(course)" 
-            class="card-img-top" 
-            alt="Course Image" 
-          />
-          <div class="card-body">
-            <h4 class="card-title">{{ course.name }}</h4>
-            <p class="card-text">{{ course.description }}</p>
-            <h6 class="text-muted">Led by: <strong>{{ course.taught_by }}</strong></h6> 
-
-            <div class="gap-2 d-grid">
-              <button class="btn btn-primary" type="link">Read more</button>
-            </div>
-          </div>
-        </div>  -->
-
-      </div>
+    <div v-if="loading" class="text-center">
+      <loadingSpinner label="Loading courses..." />
+    </div>
+    <div v-else-if="error" class="text-center">
+      <p class="text-danger">Failed to load courses. Please try again later.</p>
     </div>
 
-    <div v-if="!courses.length && !error" class="text-center">
-      <p class="text-danger">No courses available at the moment.</p>
+    <div v-else>
+      <div class="row">
+        <div class="mb-4 col-md-4" v-for="course in courses" :key="course.id">
+
+          <Card :type="'vertical'" :title="course.name" :description="course.description"
+            :imageUrl="getCourseImage(course)" :buttonText="'Read more'" :linkUrl="'/courses/' + course.name"
+            :level="course.level" :taughtBy="course.teacher?.name || 'Unknown'"
+            :id="course.name.replace(/\s+/g, '-').toLowerCase()" />
+
+        </div>
+      </div>
+
+      <div v-if="!courses.length" class="text-center">
+        <p class="text-danger">No courses available at the moment.</p>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import Card from "@/components/cards/Card.vue";
+import loadingSpinner from "@/components/loadingSpinner.vue";
 
 import { ref, onMounted } from 'vue';
 
@@ -67,6 +57,7 @@ const props = defineProps({
 
 const courses = ref([]);
 const error = ref(null);
+const loading = ref(true);
 
 // Function to determine the image URL based on course type and availability
 const getCourseImage = (course) => {
@@ -105,6 +96,8 @@ onMounted(async () => {
     }
   } catch (err) {
     error.value = err.message;
+  } finally {
+    loading.value = false;
   }
 });
 </script>
