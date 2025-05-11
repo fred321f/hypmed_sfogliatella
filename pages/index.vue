@@ -20,6 +20,7 @@ import Button from '~/components/btns/mainBtn.vue'
         <div class="my-5">
             <Button :url="'/about'" :text="'About YogaTella'" />
         </div>
+        <div class="row"></div>
     </div>
     <div class="my-5 container">
         <Card type="horizontal" title="Activities"
