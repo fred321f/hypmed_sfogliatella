@@ -2,19 +2,19 @@
 <script setup>
 import Button from '~/components/btns/mainBtn.vue';
 import VerticalCard from "~/components/cards/verticalCard.vue";
+import loadingSpinner from './loadingSpinner.vue';
 
 import Card from "~/components/cards/Card.vue";
 
 </script>
 
 <script>
-
-
 export default {
     data() {
         return {
             teachers: [],
             error: null, // Add an error state
+            loading: true // Add a loading state
         };
     },
     async created() {
@@ -32,37 +32,29 @@ export default {
         } catch (error) {
             console.error(error);
             this.error = error.message; // Set the error state
+        } finally {
+            this.loading = false; // Set loading to false after fetching
         }
     }
 };
 </script>
 
 <template>
-    <div class="row">
-        <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
-            <!-- <div class="mb-3 card">
-                <img :src="teacher.imageUrl" class="card-img-top" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">{{ teacher.name }}</h5>
-                    <p class="card-text">{{ teacher.overview }}</p>
-                    <div class="gap-2 d-grid">
-
-                        <Button :url="`/teachers/${teacher.name}`" :text="'Read more'" />
-                    </div>
-                </div>
-            </div> -->
-
-            <!-- Wrap VerticalCard in a Bootstrap column for proper alignment -->
-
-            <Card :type="'vertical'" :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
-                :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
-
-        </div>
-    </div>
-    <div v-if="!teachers.length" class="text-center">
-        <p class="text-danger">No teachers available at the moment.</p>
+    <div v-if="loading" class="text-center">
+        <loadingSpinner label="Loading teachers..." />
     </div>
     <div v-else-if="error" class="text-center">
         <p class="text-danger">Failed to load teachers. Please try again later.</p>
+    </div>
+    <div v-else>
+        <div class="row">
+            <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
+                <Card :type="'vertical'" :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
+                    :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+            </div>
+        </div>
+        <div v-if="!teachers.length" class="text-center">
+            <p class="text-danger">No teachers available at the moment.</p>
+        </div>
     </div>
 </template>

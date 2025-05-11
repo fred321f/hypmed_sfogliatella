@@ -4,8 +4,6 @@ import CoursesList from '~/components/CoursesList.vue';
 import Calendar from '~/components/coursesCalendar.vue';
 </script>
 
-
-
 <template>
   <div class="container">
     <h1 class="my-5 text-center display-2">Courses</h1>
