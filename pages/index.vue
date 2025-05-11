@@ -6,6 +6,7 @@ import Button from '~/components/btns/mainBtn.vue'
 
 <template>
     <div class="my-4 text-center container">
+
         <h1 class="my-5 text-center display-1">YogaTella</h1>
         <h2 class="my-3 text-center lead">Welcome to a space where mind, body, and soul come together.
             Discover balance, strength, and serenity at our yoga center.
