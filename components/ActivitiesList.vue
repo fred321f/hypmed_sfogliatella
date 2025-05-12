@@ -44,29 +44,27 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 
 <script setup>
 import Card from "@/components/cards/Card.vue";
-
 import { ref, onMounted } from 'vue';
 
-// for FILTERING
 const props = defineProps({
   type: {
     type: String,
     default: ''
+  },
+  highlights: {
+    type: Boolean,
+    default: null // accetta true, false o null
   }
 });
-
 
 const activities = ref([]);
 const error = ref(null);
 
-// Function to determine the image URL based on course type and availability
 const getCourseImage = (activity) => {
-  // CORRECT imageUrl IMG
   if (activity.imgURL) {
-    return 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/'+activity.imgURL;
+    return 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/' + activity.imgURL;
   }
 
-  // DEFAULT TYPE IMAGE
   if (activity.type === 'Yoga') {
     return 'https://cdn.yogaacademy.it/wp-content/uploads/2022/10/DSC00991-scaled.jpeg';
   }
@@ -74,20 +72,29 @@ const getCourseImage = (activity) => {
     return 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
   }
 
-  // General DEFAULT IMAGE
-  return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png'; // generic default image
+  return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png';
 };
 
 onMounted(async () => {
   try {
-
-    let url = '/api/activities'; // Default API endpoint 
+    let url = '/api/activities';
+    const params = [];
 
     if (props.type) {
-      url += `?type=${props.type}`; // Add type filter
+      params.push(`type=${encodeURIComponent(props.type)}`);
     }
+
+    if (props.highlights !== null) {
+      params.push(`highlights=${props.highlights}`);
+    }
+
+    if (params.length) {
+      url += `?${params.join('&')}`;
+    }
+
     const response = await fetch(url);
     const result = await response.json();
+
     if (result.success) {
       activities.value = result.data;
     } else {
