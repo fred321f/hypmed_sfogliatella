@@ -43,6 +43,9 @@ const routes = [
                 <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
               </li>
               <li class="nav-item">
+                <NuxtLink to="/highlights" class="left mx-3 hover-underline-animation nav-link">Highligths</NuxtLink>
+              </li>
+              <li class="nav-item">
                 <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
               </li>
               <li class="nav-item">
