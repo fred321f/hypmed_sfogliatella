@@ -20,7 +20,6 @@ export default defineEventHandler(async (event) => {
     } else if (highlightsParam === 'false') {
       filter.highlights = false;
     }
-    // Se highlightsParam è undefined o un valore non valido, lo ignori
 
     const activities = await db.collection('activities').find(filter).toArray();
     console.log(`Fetched activities with filter`, filter, activities);
