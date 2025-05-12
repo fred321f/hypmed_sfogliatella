@@ -1,6 +1,5 @@
 
 <script setup>
-    import Button from '~/components/btns/mainBtn.vue'
     import ActivitiesList from '~/components/ActivitiesList.vue';
 </script>
 
