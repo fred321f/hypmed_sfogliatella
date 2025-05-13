@@ -79,9 +79,9 @@ const getImage = (activity) => {
       </div>
     </div>
 
-    <!-- Teacher Section -->
+    <!-- TEACHER Section -->
     <div v-if="activity.teacher" class="mt-5">
-      <h2 class="display-5 text-center text-md-start">Meet The Teacher: {{ activity.teacher.name }}</h2>
+      <h2 class="display-5 text-center text-md-start">Meet The Teacher:</h2>
 
       <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
         <!-- Teacher Image on the left -->
@@ -97,6 +97,7 @@ const getImage = (activity) => {
         <!-- Teacher Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
+            <h2 class="display-8 bold">{{ activity.teacher.name }}</h2>
             <p class="lead mb-0">{{ activity.teacher.description }}</p>
           </div>
         </div>
@@ -105,9 +106,7 @@ const getImage = (activity) => {
 
     <!-- Guest Section -->
     <div v-if="activity.guest" class="mt-5">
-      <h2 class="display-5 mb-4 text-center text-md-start">
-        Special Guest: {{ activity.guest.name }}
-      </h2>
+      <h2 class="display-5 text-center text-md-start">Special Guest:</h2>
 
       <div class="row align-items-center shadow-lg rounded-4 bg-white p-0">
         <!-- Guest Image on the left, with no padding or margin -->
@@ -123,6 +122,7 @@ const getImage = (activity) => {
         <!-- Guest Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
+            <h2 class="display-8 bold">{{ activity.guest.name }}</h2>
             <p class="lead mb-0">{{ activity.guest.description }}</p>
           </div>
         </div>

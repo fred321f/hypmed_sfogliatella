@@ -1,6 +1,6 @@
 <script setup>
 import Calendar from '~/components/coursesCalendar.vue';
-import ActivitiesList from '~/components/ActivitiesList.vue';
+import ActivitiesList from '~/components/ActivitiesListFilters.vue';
 
 import Overview from '~/components/ActivitiesOverview.vue';
 </script>

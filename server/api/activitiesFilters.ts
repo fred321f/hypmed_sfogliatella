@@ -48,21 +48,29 @@ export default defineEventHandler(async (event) => {
     // Fetch activities
     const activities = await db.collection('activities').find(filter).sort(sortOption).toArray();
 
-    // Get all teacherIDs
+    // Get all teacherIDs and guestIDs
     const teacherIDs = [...new Set(activities.map(a => a.teacherID?.toString()).filter(Boolean))];
+    const guestIDs = [...new Set(activities.map(a => a.guestID?.toString()).filter(Boolean))];
 
     // Fetch matching teachers
     const teachers = await db.collection('teachers')
       .find({ _id: { $in: teacherIDs.map(id => new ObjectId(id)) } })
       .toArray();
 
-    // Map teachers by ID
-    const teacherMap = new Map(teachers.map(t => [t._id.toString(), t.name]));
+    // Fetch matching guests
+    const guests = await db.collection('guests')
+      .find({ _id: { $in: guestIDs.map(id => new ObjectId(id)) } })
+      .toArray();
 
-    // Enrich activities with teacher name
+    // Map teachers and guests by ID
+    const teacherMap = new Map(teachers.map(t => [t._id.toString(), t.name]));
+    const guestMap = new Map(guests.map(g => [g._id.toString(), g.name]));
+
+    // Enrich activities with teacher and guest names
     const enrichedActivities = activities.map(a => ({
       ...a,
-      teacher: teacherMap.get(a.teacherID?.toString()) || 'Unknown'
+      teacher: teacherMap.get(a.teacherID?.toString()) || 'Unknown',
+      guest: guestMap.get(a.guestID?.toString()) || '' // Leave guest as empty string if not found
     }));
 
     return { success: true, data: enrichedActivities };
