@@ -42,6 +42,36 @@ h1.display-1 {
     text-decoration-skip-ink: auto;
 }
 
+.inline-brand {
+    text-decoration: underline;
+    text-decoration-color: #20c997;
+    text-underline-offset: 5px;
+    text-decoration-thickness: 2px;
+    text-decoration-skip-ink: auto;
+}
+
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 0;
+}
+
+.hero-header {
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 700;
+}
+
+.hero-paragraph {
+    text-align: left;
+}
+
+.hero-img {
+    mask-image: radial-gradient(ellipse, black,rgb(0, 0, 0) 25%, transparent 65%);
+    /* 25, 65 */
+}
+
 /* rounded corner image container */
 .image-container {
     border-radius: 1rem;

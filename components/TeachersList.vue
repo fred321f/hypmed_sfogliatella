@@ -1,15 +1,19 @@
 <!-- Fetching from the db -->
 <script setup>
+import Button from '~/components/btns/mainBtn.vue';
+import VerticalCard from "~/components/cards/verticalCard.vue";
+import loadingSpinner from './loadingSpinner.vue';
+
 import Card from "~/components/cards/Card.vue";
 </script>
 
 <script>
-
 export default {
     data() {
         return {
             teachers: [],
             error: null, // Add an error state
+            loading: true // Add a loading state
         };
     },
     async created() {
@@ -27,28 +31,29 @@ export default {
         } catch (error) {
             console.error(error);
             this.error = error.message; // Set the error state
+        } finally {
+            this.loading = false; // Set loading to false after fetching
         }
     }
 };
 </script>
 
 <template>
-    <div class="row">
-        <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
-            <Card 
-                :type="'vertical'" 
-                :title="teacher.name" 
-                :description="teacher.overview" 
-                :imageUrl="teacher.imageUrl"
-                :buttonText="'Read more'" 
-                :linkUrl="'/teachers/' + teacher.name" 
-            />
-        </div>
-    </div>
-    <div v-if="!teachers.length" class="text-center">
-        <p class="text-danger">No teachers available at the moment.</p>
+    <div v-if="loading" class="text-center">
+        <loadingSpinner label="Loading teachers..." />
     </div>
     <div v-else-if="error" class="text-center">
         <p class="text-danger">Failed to load teachers. Please try again later.</p>
+    </div>
+    <div v-else>
+        <div class="row">
+            <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
+                <Card :type="'vertical'" :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
+                    :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
+            </div>
+        </div>
+        <div v-if="!teachers.length" class="text-center">
+            <p class="text-danger">No teachers available at the moment.</p>
+        </div>
     </div>
 </template>

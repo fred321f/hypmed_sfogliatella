@@ -5,8 +5,6 @@ import ActivitiesList from '~/components/ActivitiesList.vue';
 import Overview from '~/components/ActivitiesOverview.vue';
 </script>
 
-
-
 <template>
   <div class="container">
     <h1 class="my-5 text-center display-1">Courses</h1>

@@ -34,13 +34,13 @@
      <!-- Cards for teacher and activities -->
      <div v-if="type === 'vertical'" :id="id">
          <div class="d-flex justify-content-center col-12">
-             <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card vertiCard">
+             <div class="d-flex flex-column shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card">
                  
                  <div class="overflow-hidden">
                      <img :src="imageUrl" class="card-img-top activity-img" />
                  </div>
  
-                 <div class="d-flex flex-column card-body">
+                 <div class="d-flex flex-column justify-content-between card-body">
  
                     <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
@@ -67,22 +67,21 @@
      <div v-else-if="type === 'horizontal'">
          <a :href="linkUrl" class="text-dark text-decoration-none">
              <div class="d-flex justify-content-center col-12">
-                 <div class="shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card horiCard">
-                     <div class="d-flex">
-                         <div class="flex-shrink-0 overflow-hidden">
-                             <img :src="imageUrl" class="card-img-left activity-img" />
-                         </div>
-                         <div class="d-flex flex-column card-body">
-                             <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
-                             <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
-                             <div class="justify-content-center mt-auto row">
-                                 <div class="col"></div>
-                                 <div class="col"></div>
-                                 <div class="d-flex justify-content-center mr-5 col">
-                                     <a :href="linkUrl" class="my-link">
-                                         {{ buttonText }} <i class="bi-arrow-right bi"></i>
-                                     </a>
-                                 </div>
+                 <div class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card">
+                     <div class="flex-shrink-0 overflow-hidden">
+                         <img :src="imageUrl" class="card-img-top activity-img d-sm-none" />
+                         <img :src="imageUrl" class="d-sm-block card-img-left activity-img d-none" />
+                     </div>
+                     <div class="d-flex flex-column justify-content-between card-body">
+                         <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
+                         <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
+                         <div class="justify-content-center mt-auto row">
+                             <div class="col-4"></div>
+                             <div class="col-4"></div>
+                             <div class="d-flex justify-content-center mr-5 col-4">
+                                 <a :href="linkUrl" class="my-link">
+                                     {{ buttonText }} <i class="bi-arrow-right bi"></i>
+                                 </a>
                              </div>
                          </div>
                      </div>
@@ -152,10 +151,6 @@
  }
  </script>
  
- 
- 
- 
- 
  <style scoped>
  .mainCard {
      transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -164,7 +159,6 @@
  }
  
  .my-link {
-     height: 45px; 
      text-decoration: none; 
      color: #20c997;
  }
@@ -211,11 +205,13 @@
      object-fit: cover;
  }
  
- 
  .card-img-left {
      width: 300px;
-     /* Increased width for a larger image */
      height: auto;
      object-fit: cover;
+ }
+ 
+ .card:hover .activity-img {
+     transform: scale(1.05);
  }
  </style>

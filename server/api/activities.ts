@@ -5,14 +5,24 @@ export default defineEventHandler(async (event) => {
     const db = await connectDB();
     console.log('Successfully connected to MongoDB');
     
-    const query = getQuery(event); // Get query parameters from the URL
-    const type = query.type; // Get the 'type' parameter (Yoga, Meditation, etc.)
-    
-    // If type is provided, filter by type
-    const filter = type ? { type } : {};
+    const query = getQuery(event);
+    const type = query.type;
+    const highlightsParam = query.highlights;
 
-    const activities = await db.collection('activities').find(filter).toArray(); // Apply the filter
-    console.log(`Fetched ${type ? type : 'all'} activities:`, activities);
+    const filter: any = {};
+
+    if (type) {
+      filter.type = type;
+    }
+
+    if (highlightsParam === 'true') {
+      filter.highlights = true;
+    } else if (highlightsParam === 'false') {
+      filter.highlights = false;
+    }
+
+    const activities = await db.collection('activities').find(filter).toArray();
+    console.log(`Fetched activities with filter`, filter, activities);
     
     return { success: true, data: activities };
   } catch (error) {

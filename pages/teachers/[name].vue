@@ -4,9 +4,12 @@ import ActivitiesList from '~/components/ActivitiesListFilters.vue';
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
+import loadingSpinner from '@/components/loadingSpinner.vue';
+
 const route = useRoute();
 const teacher = ref(null);
 const error = ref(null);
+const loading = ref(true); // Add a loading state
 
 onMounted(async () => {
     try {
@@ -23,12 +26,20 @@ onMounted(async () => {
     } catch (err) {
         console.error(err);
         error.value = err.message;
+    } finally {
+        loading.value = false; // Set loading to false after fetching
     }
 });
 </script>
 
 <template>
-    <div class="container" v-if="teacher">
+    <div v-if="loading" class="text-center">
+        <loadingSpinner />
+    </div>
+    <div v-else-if="error" class="text-center">
+        <p class="text-danger">{{ error }}</p>
+    </div>
+    <div v-else class="container">
         <h1 class="my-5 text-center display-1">{{ teacher.name }}</h1>
 
         <div class="row">
@@ -51,12 +62,5 @@ onMounted(async () => {
             <!-- List of other activities -->
             <ActivitiesList :teacher="teacher.name" types="Seminar Workshop Retreat" />
         </div>
-
-    </div>
-    <div v-else-if="error" class="text-center">
-        <p class="text-danger">{{ error }}</p>
-    </div>
-    <div v-else class="text-center">
-        <p>Loading...</p>
     </div>
 </template>
