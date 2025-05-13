@@ -11,25 +11,12 @@ export default defineEventHandler(async (event) => {
     const filter: any = {};
 
     if (query.name) filter.name = query.name;
-    if (query.teacher) filter.teacher = query.teacher;
+    if (query.type) filter.type = query.type;
+    if (query.taught_by) filter.taught_by = query.taught_by;
     if (query.level) filter.level = query.level;
-    if (query.overview) filter.overview = query.overview;
+    if (query.description) filter.description = { $regex: query.description, $options: 'i' }; // text search for description
     if (query.day) filter.day = query.day;
     if (query.time) filter.time = query.time;
-    if (query.type) {
-      const types = Array.isArray(query.type) ? query.type : [query.type];
-      filter.type = { $in: types };
-    }
-    if (query.description) {
-      const regex = { $regex: query.description, $options: 'i' };
-      filter.$or = [
-        { name: regex },
-        { type: regex },
-        { overview: regex },
-        { description: regex },
-        { teacher: regex }
-      ];
-    }
 
     // Check if the query parameter 'sort' is present and equals 'true'
     let sortOption = {};
@@ -38,16 +25,16 @@ export default defineEventHandler(async (event) => {
     }
 
     // Query with filters and optional sorting based on the 'sort' parameter
-    const activities = await db.collection('activities').find(filter).sort(sortOption).toArray();
+    const courses = await db.collection('courses').find(filter).sort(sortOption).toArray();
 
-    console.log(`Fetched ${activities.length} course(s) with filter:`, filter);
+    console.log(`Fetched ${courses.length} course(s) with filter:`, filter);
 
-    return { success: true, data: activities };
+    return { success: true, data: courses };
   } catch (error) {
-    console.error('Error fetching activities:', error);
+    console.error('Error fetching courses:', error);
     return {
       success: false,
-      message: 'Failed to fetch activities',
+      message: 'Failed to fetch courses',
       error: (error as Error).message
     };
   }

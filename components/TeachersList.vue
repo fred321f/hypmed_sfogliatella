@@ -48,14 +48,8 @@ export default {
     <div v-else>
         <div class="row">
             <div class="col-md-4" v-for="teacher in teachers" :key="teacher.id">
-                <Card 
-                :type="'vertical'" 
-                :title="teacher.name" 
-                :description="teacher.overview" 
-                :imageUrl="teacher.imageUrl"
-                :buttonText="'Read more'" 
-                    :linkUrl="'/teachers/' + teacher.name" 
-            />
+                <Card :type="'vertical'" :title="teacher.name" :description="teacher.overview" :imageUrl="teacher.imageUrl"
+                    :linkUrl="'/teachers/' + teacher.name" :buttonText="'Read more'" />
             </div>
         </div>
         <div v-if="!teachers.length" class="text-center">

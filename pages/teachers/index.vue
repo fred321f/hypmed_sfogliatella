@@ -1,5 +1,7 @@
 <script setup>
 import Teachers from '~/components/TeachersList.vue';
+import Button from '~/components/btns/mainBtn.vue';
+
 </script>
 
 <template>
