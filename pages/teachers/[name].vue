@@ -1,5 +1,5 @@
 <script setup>
-import ActivitiesList from '~/components/ActivitiesListFilters.vue';
+//import ActivitiesList from '~/components/ActivitiesListFilters.vue';
 
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
