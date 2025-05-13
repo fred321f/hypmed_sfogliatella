@@ -27,7 +27,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
           :buttonText="'Read more'" 
           :linkUrl="'/activities/' + activity.name" 
 
-          :taughtBy="activity.teacher"
+          :taughtBy="activity.teacher" 
           :guest="activity.guest"
           :location="activity.location"
           :id="activity.name.replace(/\s+/g, '-').toLowerCase()"
@@ -43,6 +43,8 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     </div>
   </div>
 </template>
+
+
 
 <script setup>
 import Card from "@/components/cards/Card.vue";

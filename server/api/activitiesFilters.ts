@@ -1,15 +1,23 @@
+import { ObjectId } from 'mongodb';
 import { connectDB } from '../utility/db';
 
 export default defineEventHandler(async (event) => {
   try {
     const db = await connectDB();
-    console.log('Successfully connected to MongoDB');
-
     const query = getQuery(event);
 
-    // Dynamically build the filter based on query parameters
     const filter: any = {};
 
+    // Convert teacherID to ObjectId if present
+    if (query.teacherID) {
+      try {
+        filter.teacherID = new ObjectId(query.teacherID);
+      } catch (e) {
+        console.error('Invalid teacherID format');
+      }
+    }
+
+    // Other optional filters
     if (query.name) filter.name = query.name;
     if (query.teacher) filter.teacher = query.teacher;
     if (query.level) filter.level = query.level;
@@ -31,18 +39,33 @@ export default defineEventHandler(async (event) => {
       ];
     }
 
-    // Check if the query parameter 'sort' is present and equals 'true'
+    // Sort logic
     let sortOption = {};
     if (query.sort === 'true') {
-      sortOption = { time: 1 }; // If 'sort=true', sort by time in ascending order
+      sortOption = { time: 1 };
     }
 
-    // Query with filters and optional sorting based on the 'sort' parameter
+    // Fetch activities
     const activities = await db.collection('activities').find(filter).sort(sortOption).toArray();
 
-    console.log(`Fetched ${activities.length} course(s) with filter:`, filter);
+    // Get all teacherIDs
+    const teacherIDs = [...new Set(activities.map(a => a.teacherID?.toString()).filter(Boolean))];
 
-    return { success: true, data: activities };
+    // Fetch matching teachers
+    const teachers = await db.collection('teachers')
+      .find({ _id: { $in: teacherIDs.map(id => new ObjectId(id)) } })
+      .toArray();
+
+    // Map teachers by ID
+    const teacherMap = new Map(teachers.map(t => [t._id.toString(), t.name]));
+
+    // Enrich activities with teacher name
+    const enrichedActivities = activities.map(a => ({
+      ...a,
+      teacher: teacherMap.get(a.teacherID?.toString()) || 'Unknown'
+    }));
+
+    return { success: true, data: enrichedActivities };
   } catch (error) {
     console.error('Error fetching activities:', error);
     return {
