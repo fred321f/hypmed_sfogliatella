@@ -22,18 +22,26 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="time in availableTimes" :key="time">
+        <tr v-for="time in filteredTimes" :key="time">
           <td class="time-cell">{{ time }}</td>
           <td v-for="day in daysOfWeek" :key="day">
-            <div
+            <div 
               v-for="course in getCoursesForSlot(day, time)"
               :key="course.name"
-              :class="['course-box', course.type === 'Yoga' ? 'yoga' : 'meditation']"
             >
-              <a :href="'#' + course.name.replace(/\s+/g, '-').toLowerCase()" style="text-decoration: none; color: inherit;">
-                <strong>{{ course.name }}</strong><br />
-                <em>{{ course.type }}</em>
-              </a>
+              <div
+                v-if="showTypes.includes(course.type.toLowerCase())"
+                :class="['course-box', course.type === 'Yoga' ? 'yoga' : 'meditation']"
+              >
+
+                <a :href="'#' + course.name.replace(/\s+/g, '-').toLowerCase()" 
+                  style="text-decoration: none; color: inherit;">
+
+                  <strong>{{ course.name }}</strong><br />
+                  <em>{{ course.type }}</em>
+                </a>
+              </div>
+
             </div>
           </td>
         </tr>
@@ -57,16 +65,40 @@ const props = defineProps({
   name: String,
   type: String,
   level: String,
-  taught_by: String,
+  teacher: String,
   day: String,
   time: String,
-  description: String
+  description: String,
+  show: {         // to decide which type of course to show in the calendar
+    type: String, // e.g. "yoga meditation"
+    default: ''
+  }
 });
+
+const showTypes = computed(() =>
+  props.show
+    .toLowerCase()
+    .split(' ')
+    .map(type => type.trim())
+    .filter(Boolean)
+);
+
 
 const courses = ref([]);
 const error = ref(null);
 const daysOfWeek = ref([]);
 const availableTimes = ref([]);
+
+const filteredTimes = computed(() => {
+  return availableTimes.value.filter(time =>
+    daysOfWeek.value.some(day =>
+      getCoursesForSlot(day, time).some(course =>
+        showTypes.value.includes(course.type.toLowerCase())
+      )
+    )
+  );
+});
+
 
 // Funzione per filtrare corsi in base a giorno e orario
 const getCoursesForSlot = (day, time) =>
@@ -74,7 +106,7 @@ const getCoursesForSlot = (day, time) =>
 
   onMounted(async () => {
   try {
-    let url = '/api/coursesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
+    let url = '/api/activitiesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
     const params = new URLSearchParams();
 
     // Costruisce dinamicamente i filtri dalla props (tipo, livello, etc.)
