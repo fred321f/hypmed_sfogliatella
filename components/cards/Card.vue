@@ -68,7 +68,6 @@
          <a :href="linkUrl" class="text-dark text-decoration-none">
              <div class="d-flex justify-content-center col-12">
                  <div class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card horiCard">
-
                      <div class="flex-shrink-0 overflow-hidden">
                          <img :src="imageUrl" class="card-img-top activity-img d-sm-none" />
                          <img :src="imageUrl" class="d-sm-block card-img-left activity-img d-none" />
@@ -209,6 +208,8 @@
  .card-img-left {
      width: 300px;
      height: auto;
+     /*max-width: 400px;  Increase this for larger image 
+     height: auto;*/
      object-fit: cover;
  }
  
