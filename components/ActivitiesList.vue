@@ -12,27 +12,18 @@
 N.B. Remember also to change the realated server/api/courses.ts if needed
 -->
 
-<template> 
+<template>
   <div>
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    
+
     <div class="row">
       <div class="col-md-4 mb-4" v-for="activity in activities" :key="activity.id">
 
-        <Card 
-          :type="'vertical'" 
-          :title="activity.name" 
-          :description="activity.overview" 
-          :imageUrl="getCourseImage(activity)"
-          :buttonText="'Read more'" 
-          :linkUrl="'/activities/' + activity.name" 
+        <Card :type="'vertical'" :title="activity.name" :description="activity.overview"
+          :imageUrl="getCourseImage(activity)" :buttonText="'Read more'" :linkUrl="'/activities/' + activity.name"
+          :taughtBy="activity.teacher" :guest="activity.guest" :location="activity.location"
+          :id="activity.name.replace(/\s+/g, '-').toLowerCase()" />
 
-          :taughtBy="activity.teacher"
-          :guest="activity.guest"
-          :location="activity.location"
-          :id="activity.name.replace(/\s+/g, '-').toLowerCase()"
-        />
-        
       </div>
     </div>
 
@@ -63,7 +54,7 @@ const error = ref(null);
 const getCourseImage = (activity) => {
   // CORRECT imageUrl IMG
   if (activity.imgURL) {
-    return 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/'+activity.imgURL;
+    return 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/' + activity.imgURL;
   }
 
   // DEFAULT TYPE IMAGE
@@ -82,6 +73,7 @@ onMounted(async () => {
   try {
 
     let url = '/api/activities'; // Default API endpoint 
+
 
     if (props.type) {
       url += `?type=${props.type}`; // Add type filter
