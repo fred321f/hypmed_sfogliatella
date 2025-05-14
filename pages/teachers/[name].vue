@@ -48,6 +48,7 @@ onMounted(async () => {
             </div>
 
             <div class="col-12 col-md-6">
+                <p class="lead">{{ teacher.overview }}</p>    <!-- Better to remove it? -->
                 <p class="lead">{{ teacher.description }}</p>
             </div>
         </div>
