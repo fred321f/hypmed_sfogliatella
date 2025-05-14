@@ -53,23 +53,21 @@ const getImage = (activity) => {
   </div>
 
   <div v-else class="container my-5">
-    <h1 class="display-3 text-center">{{ activity.name }}</h1>
-    
-    <!-- Activity Section -->
-    <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
-      <!-- Activity Image on the left, with no padding or margin -->
+
+    <!-- ----- ACTIVITY Section ----- -->
+    <div class="row align-items-center p-0">
+      <!-- IMAGE -->
       <div class="col-md-6 p-0 mb-4 mb-md-0">
         <img
           :src="getImage(activity)"
-          class="img-fluid"
-          style="object-fit: cover; width: 100%; max-height: 500px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
+          class="img-fluid shadow-lg "
+          style="object-fit: cover; width: 100%; max-height: 500px; border-radius: 15px;  "
           alt="Activity Image"
         />
       </div>
-
-      <!-- Activity Details on the right with border -->
+      <!-- INFO -->
       <div class="col-md-6 p-0">
-        <div class="p-4">
+        <div class="p-4"><h1 class="display-3">{{ activity.name }}</h1>
           <p v-if="activity.description">{{ activity.description }}</p>
           <p v-if="activity.level"><strong>Level:</strong> {{ activity.level }}</p>
           <p v-if="activity.time"><strong>Time:</strong> {{ activity.time }}</p>
@@ -79,9 +77,9 @@ const getImage = (activity) => {
       </div>
     </div>
 
-    <!-- TEACHER Section -->
+    <!-- ----- TEACHER Section ----- -->
     <div v-if="activity.teacher" class="mt-5">
-      <h2 class="display-5 text-center text-md-start">Meet The Teacher:</h2>
+      <h2 class="display-5 text-md-start">Meet The Teacher:</h2>
 
       <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
         <!-- Teacher Image on the left -->
@@ -97,8 +95,12 @@ const getImage = (activity) => {
         <!-- Teacher Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
-            <h2 class="display-8 bold">{{ activity.teacher.name }}</h2>
+            <h2 class="fs-1">{{ activity.teacher.name }}</h2>
             <p class="lead mb-0">{{ activity.teacher.description }}</p>
+            <a :href="`/teachers/${ activity.teacher.name }`" class="my-link">
+                Learn more <i class="bi-arrow-right bi"></i>
+            </a>
+            <a :href="`/teachers/${ activity.teacher.name }`" class="text-decoration-none text-dark fw-bold"></a>
           </div>
         </div>
       </div>
@@ -109,7 +111,7 @@ const getImage = (activity) => {
       <h2 class="display-5 text-center text-md-start">Special Guest:</h2>
 
       <div class="row align-items-center shadow-lg rounded-4 bg-white p-0">
-        <!-- Guest Image on the left, with no padding or margin -->
+        <!-- Guest Image -->
         <div class="col-md-6 p-0 mb-4 mb-md-0">
           <img
             :src="activity.guest.imageURL"
@@ -122,8 +124,8 @@ const getImage = (activity) => {
         <!-- Guest Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
-            <h2 class="display-8 bold">{{ activity.guest.name }}</h2>
-            <p class="lead mb-0">{{ activity.guest.description }}</p>
+            <h2 class="fs-1">{{ activity.guest.name }}</h2>
+            <p class ="mb-0 lead">{{ activity.guest.description }}</p>
           </div>
         </div>
       </div>
