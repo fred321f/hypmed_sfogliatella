@@ -6,6 +6,7 @@ import ActivitiesList from '~/components/ActivitiesList.vue';
 </script>
 
 <template>
+    <!-- Main page for YogaTella -->
     <div class="my-5 text-center container">
 
         <h1 class="my-5 display-1">YogaTella</h1>
@@ -27,13 +28,17 @@ import ActivitiesList from '~/components/ActivitiesList.vue';
                 class="rounded img-fluid " alt="People doing yoga">
             </div>
         </div>
-        <h2 class="my-5 display-4">Highlights</h2>
+    </div>
+    <!-- Highlights -->
+    <div class="my-5 container">
+        <h2 class="my-5 text-center display-4">Highlights</h2>
         <div class="mx-auto  border border-2 border-primary rounded-2" style="width: 95%;" >
             <div class="mx-auto mt-4 d-flex align-items-center"style="width: 90%;">
                 <ActivitiesList highlights="true"/>
             </div>
         </div>
     </div>
+    <!-- Horizontal cards -->
     <div class="my-5 container">
         <h2 class="my-3 text-center display-4">Activities</h2>
         <Card type="horizontal" title="Activities"
@@ -46,7 +51,7 @@ import ActivitiesList from '~/components/ActivitiesList.vue';
             imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill/v1745953300/Yoga-teacher-training-2_ryrg6y.jpg"
             linkUrl="/teachers" :buttonText="'See all'" />
     </div>
-
+    <!-- Join us -->
     <div class="mb-5 container">
         <h2 class="my-3 display-4">Join us!</h2>
         <p class="my-3 lead">What are you waiting for?</p>

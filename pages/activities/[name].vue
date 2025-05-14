@@ -53,7 +53,7 @@ const getImage = (activity) => {
   </div>
 
   <div v-else class="container my-5">
-
+    <h1 class="my-5 text-center display-1">{{ activity.name }}</h1>
     <!-- ----- ACTIVITY Section ----- -->
     <div class="row align-items-center p-0">
       <!-- IMAGE -->
@@ -67,7 +67,7 @@ const getImage = (activity) => {
       </div>
       <!-- INFO -->
       <div class="col-md-6 p-0">
-        <div class="p-4"><h1 class="display-3">{{ activity.name }}</h1>
+        <div class="p-4">
           <p v-if="activity.description">{{ activity.description }}</p>
           <p v-if="activity.level"><strong>Level:</strong> {{ activity.level }}</p>
           <p v-if="activity.time"><strong>Time:</strong> {{ activity.time }}</p>
