@@ -78,8 +78,8 @@ const getImage = (activity) => {
     </div>
 
     <!-- ----- TEACHER Section ----- -->
-    <div v-if="activity.teacher" class="mt-5">
-      <h2 class="display-5 text-md-start">Meet The Teacher:</h2>
+    <div v-if="activity.teacher" class="mt-5 ">
+      <h2 class="display-5 text-md-start">Meet The Teacher: </h2>
 
       <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
         <!-- Teacher Image on the left -->
@@ -128,6 +128,7 @@ const getImage = (activity) => {
             <p class ="mb-0 lead">{{ activity.guest.description }}</p>
           </div>
         </div>
+        
       </div>
     </div>
 
