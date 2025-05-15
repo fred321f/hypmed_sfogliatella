@@ -15,10 +15,10 @@ import Overview from '~/components/ActivitiesOverview.vue';
       These events are open to practitioners and professionals alike, providing a rich learning environment and opportunities for personal growth.
     </p>
 
-    <h2 class="my-5 text-center display-4">Seminars</h2>
+    <h2 class="my-5 text-center display-4" id="seminars">Seminars</h2>
     <ActivitiesList type="Seminar"/>
 
-    <h2 class="my-5 text-center display-4">Workshops</h2>
+    <h2 class="my-5 text-center display-4" id="workshops">Workshops</h2>
     <ActivitiesList type="Workshop"/>
 
     

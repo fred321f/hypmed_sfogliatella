@@ -2,7 +2,8 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import loadingSpinner from '@/components/loadingSpinner.vue';
-import Card from '~/components/cards/Card.vue'
+import Card from '~/components/cards/Card.vue';
+import { getImage } from '../utility/getImage';  // <-- to load the image from the server
 
 const route = useRoute();
 const activity = ref(null);
@@ -26,22 +27,6 @@ onMounted(async () => {
     loading.value = false;
   }
 }); 
-
-// Helper function to get activity image
-const getImage = (activity) => {
-  if (activity.imgURL) {
-    return `https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/${activity.imgURL}`;
-  }
-
-  switch (activity.type) {
-    case 'Yoga':
-      return 'https://cdn.yogaacademy.it/wp-content/uploads/2022/10/DSC00991-scaled.jpeg';
-    case 'Meditation':
-      return 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop';
-    default:
-      return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png';
-  }
-};
 </script>
 
 <template>
@@ -55,28 +40,31 @@ const getImage = (activity) => {
 
   <div v-else class="container my-5">
     <h1 class="my-5 text-center display-1">{{ activity.name }}</h1>
+
     <!-- ----- ACTIVITY Section ----- -->
-    <div class="row align-items-center p-0">
+    <div class="row align-items-stretch p-0">
       <!-- IMAGE -->
-      <div class="col-md-6 p-0 mb-4 mb-md-0">
+      <div class="col-md-6 p-0 mb-4 mb-md-0 d-flex">
         <img
           :src="getImage(activity)"
-          class="img-fluid shadow-lg "
-          style="object-fit: cover; width: 100%; max-height: 500px; border-radius: 15px;  "
+          class="img-fluid w-100 h-100 shadow-lg"
+          style="object-fit: cover; border-radius: 15px;"
           alt="Activity Image"
         />
       </div>
+
       <!-- INFO -->
-      <div class="col-md-6 p-0">
-        <div class="p-4">
+      <div class="col-md-6 p-0 d-flex align-items-center">
+        <div class="p-4 fs-5 w-100"> <!-- remove fs-5 if text too big -->
           <p v-if="activity.description">{{ activity.description }}</p>
           <p v-if="activity.level"><strong>Level:</strong> {{ activity.level }}</p>
-          <p v-if="activity.time"><strong>Time:</strong> {{ activity.time }}</p>
           <p v-if="activity.day"><strong>Day:</strong> {{ activity.day }}</p>
+          <p v-if="activity.time"><strong>Time:</strong> {{ activity.time }}</p>
           <p v-if="activity.location"><strong>Location:</strong> {{ activity.location }}</p>
         </div>
       </div>
     </div>
+
 
     <!-- ----- TEACHER Section ----- -->
     <div v-if="activity.teacher" class="mt-5 ">

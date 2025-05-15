@@ -20,8 +20,14 @@ import Button from '~/components/btns/mainBtn.vue'
             </div>
         </div>
         <h2 class="my-5 display-4">Booking and prices</h2>
-        <p class="my-5">As explained in <a href="/activities" class="lead">ACTIVITIES</a>, the center offers <a href="/courses" class="lead">courses</a>, <a href="/seminars" class="lead">seminars</a>, <a href="/workshops" class="lead">workshops</a> and <a href="/retreats" class="lead">retreats</a>.
+        <p class="my-5">As explained in <a href="/activities" class="lead">ACTIVITIES</a>, the center offers 
+            <a href="/courses" class="lead">courses</a>, 
+            <a href="/seminars" class="lead">seminars</a>, 
+            <a href="/seminars#workshops" class="lead">workshops</a> and 
+            <a href="/retreats" class="lead">retreats</a>.<br> 
                 Every activity can be booked in person in our facility in Milan, or you can <a href="/contact" class="lead">CONTACT US</a> via mail or cellphone.<br> 
-                Every yoga and meditation course is semestral and they cost 150 euros for each semester. <br> All other activities have a specific cost, <a href="/contact" class="lead">CONTACT US</a> to get more information.</p>
+                Every yoga and meditation course is semestral and they cost 150 euros for each semester. <br> 
+                All other activities have a specific cost, <a href="/contact" class="lead">CONTACT US</a> to get more information.
+            </p>
     </div>
 </template>
