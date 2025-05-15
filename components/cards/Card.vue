@@ -45,8 +45,10 @@
                     <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
 
-                    <p v-if="level" class="mb-2 text-muted">Level: {{ level }}</p>
-                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by: <strong>{{ taughtBy }}</strong></p>
+                    <p v-if="level" class="mb-2 text-muted">Suitable for <strong>{{ level }}</strong></p>
+                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by: 
+                        <a :href="`/teachers/${taughtBy}`" class="text-decoration-none text-dark fw-bold">{{ taughtBy }}</a>
+                    </p>
                     <p v-if="guest" class="mb-2 text-muted">Special guest: <strong>{{ guest }}</strong></p>
                     <p v-if="location" class="mb-2 text-muted">In <strong>{{ location }}</strong></p>
                      
@@ -65,7 +67,7 @@
      <div v-else-if="type === 'horizontal'">
          <a :href="linkUrl" class="text-dark text-decoration-none">
              <div class="d-flex justify-content-center col-12">
-                 <div class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card">
+                 <div class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card  "><!-- horicard -->
                      <div class="flex-shrink-0 overflow-hidden">
                          <img :src="imageUrl" class="card-img-top activity-img d-sm-none" />
                          <img :src="imageUrl" class="d-sm-block card-img-left activity-img d-none" />
@@ -206,6 +208,8 @@
  .card-img-left {
      width: 300px;
      height: auto;
+     /*max-width: 400px;  Increase this for larger image 
+     height: auto;*/
      object-fit: cover;
  }
  
