@@ -67,25 +67,26 @@
      <div v-else-if="type === 'horizontal'">
          <a :href="linkUrl" class="text-dark text-decoration-none">
              <div class="d-flex justify-content-center col-12">
-                 <div class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card  "><!-- horicard -->
+                 <div class="flex-md-row d-flex flex-column align-items-stretch shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card">
                      <div class="flex-shrink-0 overflow-hidden">
-                         <img :src="imageUrl" class="card-img-top activity-img d-sm-none" />
-                         <img :src="imageUrl" class="d-sm-block card-img-left activity-img d-none" />
+                        <!-- versione mobile/tablet sm/md -->
+                         <img :src="imageUrl" class="d-md-none card-img-top activity-img" />
+                         <!-- versione desktop -->
+                         <img :src="imageUrl" class="d-md-block d-none activity-img card-img-left h-100" />
                      </div>
-                     <div class="d-flex flex-column justify-content-between card-body">
+                     <div class="d-flex flex-column justify-content-between card-body h-100">
                          <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
-                         <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
-                         <div class="justify-content-center mt-auto row">
-                             <div class="col-4"></div>
-                             <div class="col-4"></div>
-                             <div class="d-flex justify-content-center mr-5 col-4">
-                                 <a :href="linkUrl" class="my-link">
-                                     {{ buttonText }} <i class="bi-arrow-right bi"></i>
-                                 </a>
-                             </div>
+                         <p class="card-text" style="font-size: 16px; margin-bottom: 0; line-height: 2em;">
+                            {{ description }}
+                         </p>
+                         <div class="d-flex justify-content-end mt-auto">
+                             <a v-if="linkUrl" :href="linkUrl" class="my-link">
+                                {{ buttonText }} <i class="bi-arrow-right bi me-3"></i>
+                             </a>
                          </div>
                      </div>
                  </div>
+
              </div>
          </a>
      </div>
@@ -118,7 +119,7 @@
          },
          linkUrl: {
              type: String,
-             required: true
+             required: false
          },
          // Optional
          level: {

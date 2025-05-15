@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import loadingSpinner from '@/components/loadingSpinner.vue';
+import Card from '~/components/cards/Card.vue'
 
 const route = useRoute();
 const activity = ref(null);
@@ -80,9 +81,29 @@ const getImage = (activity) => {
     <!-- ----- TEACHER Section ----- -->
     <div v-if="activity.teacher" class="mt-5 ">
       <h2 class="display-5 text-md-start">Meet The Teacher: </h2>
+      <Card 
+        type="horizontal" 
+        :title="activity.teacher.name"
+        :description="activity.teacher.overview"
+        :imageUrl="activity.teacher.imageUrl"
+        :linkUrl="`/teachers/${ activity.teacher.name }`" 
+        buttonText="See more" 
+      />
+    </div>
 
+    <!-- ----- Guest Section ----- -->
+    <div v-if="activity.guest" class="mt-5 ">
+      <h2 class="display-5 text-md-start">Special Guest:</h2>
+      <Card 
+        type="horizontal" 
+        :title="activity.guest.name"
+        :description="activity.guest.description"
+        :imageUrl="activity.guest.imageURL"
+      />
+    </div>
+    
+    <!--  <div v-if="activity.teacher" class="mt-5 ">
       <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
-        <!-- Teacher Image on the left -->
         <div class="col-md-6 p-0 mb-4 mb-md-0">
           <img
             :src="activity.teacher.imageUrl"
@@ -91,12 +112,10 @@ const getImage = (activity) => {
             alt="Teacher Image"
           />
         </div>
-
-        <!-- Teacher Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
             <h2 class="fs-1">{{ activity.teacher.name }}</h2>
-            <p class="lead mb-0">{{ activity.teacher.description }}</p>
+            <p class="lead mb-0">{{ activity.teacher.overview }}</p>
             <a :href="`/teachers/${ activity.teacher.name }`" class="my-link">
                 Learn more <i class="bi-arrow-right bi"></i>
             </a>
@@ -104,14 +123,13 @@ const getImage = (activity) => {
           </div>
         </div>
       </div>
-    </div>
+    </div>-->
 
-    <!-- Guest Section -->
+    <!-- Guest Section 
     <div v-if="activity.guest" class="mt-5">
       <h2 class="display-5 text-center text-md-start">Special Guest:</h2>
 
       <div class="row align-items-center shadow-lg rounded-4 bg-white p-0">
-        <!-- Guest Image -->
         <div class="col-md-6 p-0 mb-4 mb-md-0">
           <img
             :src="activity.guest.imageURL"
@@ -121,7 +139,6 @@ const getImage = (activity) => {
           />
         </div>
 
-        <!-- Guest Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
             <h2 class="fs-1">{{ activity.guest.name }}</h2>
@@ -130,7 +147,7 @@ const getImage = (activity) => {
         </div>
         
       </div>
-    </div>
+    </div>-->
 
   </div>
 </template>
