@@ -44,7 +44,7 @@ onMounted(async () => {
     <!-- ----- ACTIVITY Section ----- -->
     <div class="row align-items-stretch p-0">
       <!-- IMAGE -->
-      <div class="col-md-6 p-0 mb-4 mb-md-0 d-flex">
+      <div class="col-md-6 p-0 mb-4 mb-md-0 d-flex p-3">
         <img
           :src="getImage(activity)"
           class="img-fluid w-100 h-100 shadow-lg"
@@ -57,10 +57,12 @@ onMounted(async () => {
       <div class="col-md-6 p-0 d-flex align-items-center">
         <div class="p-4 fs-5 w-100"> <!-- remove fs-5 if text too big -->
           <p v-if="activity.description">{{ activity.description }}</p>
-          <p v-if="activity.level"><strong>Level:</strong> {{ activity.level }}</p>
-          <p v-if="activity.day"><strong>Day:</strong> {{ activity.day }}</p>
-          <p v-if="activity.time"><strong>Time:</strong> {{ activity.time }}</p>
-          <p v-if="activity.location"><strong>Location:</strong> {{ activity.location }}</p>
+          <p v-if="activity.level">Level: <strong>{{ activity.level }}</strong></p>
+          <p v-if="activity.day">Day: <strong>{{ activity.day }}</strong></p>
+          <p v-if="activity.time">Time: <strong>{{ activity.time }}</strong></p>
+          <p v-if="activity.date">The retreat is <strong>{{ activity.date }}</strong></p>
+          <p v-if="activity.duration">For a total duration of <strong>{{ activity.duration }}</strong></p>
+          <p v-if="activity.location">In a beautifull location in <strong>{{ activity.location }}</strong></p>
         </div>
       </div>
     </div>

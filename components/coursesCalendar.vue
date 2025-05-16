@@ -14,39 +14,41 @@
   <div class="container">
     <h2>Yoga and Meditation Schedule</h2>
 
-    <table class="schedule-table">
-      <thead>
-        <tr>
-          <th>Time</th>
-          <th v-for="day in daysOfWeek" :key="day">{{ day }}</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr v-for="time in filteredTimes" :key="time">
-          <td class="time-cell">{{ time }}</td>
-          <td v-for="day in daysOfWeek" :key="day">
-            <div 
-              v-for="course in getCoursesForSlot(day, time)"
-              :key="course.name"
-            >
-              <div
-                v-if="showTypes.includes(course.type.toLowerCase())"
-                :class="['course-box', course.type === 'Yoga' ? 'yoga' : 'meditation']"
+    <div class="schedule-table-wrapper">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Time</th>
+            <th v-for="day in daysOfWeek" :key="day">{{ day }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for="time in filteredTimes" :key="time">
+            <td class="time-cell">{{ time }}</td>
+            <td v-for="day in daysOfWeek" :key="day">
+              <div 
+                v-for="course in getCoursesForSlot(day, time)"
+                :key="course.name"
               >
+                <div
+                  v-if="showTypes.includes(course.type.toLowerCase())"
+                  :class="['course-box', course.type === 'Yoga' ? 'yoga' : 'meditation']"
+                >
 
-                <a :href="'#' + course.name.replace(/\s+/g, '-').toLowerCase()" 
-                  style="text-decoration: none; color: inherit;">
+                  <a :href="'#' + course.name.replace(/\s+/g, '-').toLowerCase()" 
+                    style="text-decoration: none; color: inherit;">
 
-                  <strong>{{ course.name }}</strong><br />
-                  <em>{{ course.type }}</em>
-                </a>
+                    <strong>{{ course.name }}</strong><br />
+                    <em>{{ course.type }}</em>
+                  </a>
+                </div>
+
               </div>
-
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div v-if="!courses.length && !error" class="text-center">
       <p>No courses available.</p>
@@ -194,4 +196,30 @@ const getCoursesForSlot = (day, time) =>
   background-color: #d0f0ff; /* Light blue */
   border-left: 4px solid #2196f3;
 }
+
+
+.schedule-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
+
+
+/* Scrollbar su WebKit (Chrome, Edge, Safari) */
+.schedule-table-wrapper::-webkit-scrollbar {
+  height: 15px; /* Aumenta l'altezza della barra orizzontale */
+}
+
+.schedule-table-wrapper::-webkit-scrollbar-track {
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.schedule-table-wrapper::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border-radius: 10px;
+  border: 3px solid #ffffff; /* Spazio attorno al thumb */
+}
+
 </style>
