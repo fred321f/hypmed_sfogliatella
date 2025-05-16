@@ -1,12 +1,9 @@
 /* HOW TO USE THIS FUNCTION:
 
-1. Import the function in your component:
-<script setup>
+1. Import the function in your component script setup:
 import { getImage } from ''../utility/getImage';  // <-- import the function
-...
-</script>
 
-2. Use the function in your template:
+2. Use the function in your template like:
 <img :src="getImage(activity)" alt="Activity Image">
 */
 
