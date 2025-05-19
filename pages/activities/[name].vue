@@ -1,12 +1,32 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { useHead } from '#app';
 import loadingSpinner from '@/components/loadingSpinner.vue';
 
 const route = useRoute();
 const activity = ref(null);
 const error = ref(null);
 const loading = ref(true);
+
+// Dynamic SEO metadata based on the activity
+const pageTitle = computed(() => {
+  return activity.value ? `${activity.value.name} | YogaTella Activities` : 'Activity | YogaTella';
+});
+
+const pageDescription = computed(() => {
+  return activity.value?.description
+    ? `${activity.value.description.substring(0, 150)}...`
+    : 'Discover our unique activities at YogaTella Yoga Center';
+});
+
+// Set dynamic SEO metadata
+useHead(() => ({
+  title: pageTitle.value,
+  meta: [
+    { name: 'description', content: pageDescription.value }
+  ]
+}));
 
 onMounted(async () => {
   try {
@@ -90,7 +110,8 @@ const getImage = (activity) => {
           <div class="p-4">
             <h2 class="fs-1">{{ activity.teacher.name }}</h2>
             <p class="lead mb-0">{{ activity.teacher.description }}</p>
-            <a :href="`/teachers/${activity.teacher.name}`" class="my-link">
+            <a :href="`/teachers/${activity.teacher.name}`" class="my-link"
+              aria-label="Button to learn more about the teacher">
               Learn more <i class="bi-arrow-right bi"></i>
             </a>
             <a :href="`/teachers/${activity.teacher.name}`" class="text-decoration-none text-dark fw-bold"></a>
