@@ -26,194 +26,223 @@
  -->
 
 
- <script setup>
- import Button from '@/components/btns/mainBtn.vue';
- </script>
- 
- <template>
-     <!-- Cards for teacher and activities -->
-     <div v-if="type === 'vertical'" :id="id">
-         <div class="d-flex justify-content-center col-12">
-             <div class="d-flex flex-column shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card">
-                 
-                 <div class="overflow-hidden">
-                     <img :src="imageUrl" class="card-img-top activity-img" />
-                 </div>
- 
-                 <div class="d-flex flex-column justify-content-between card-body">
- 
+<script setup>
+import Button from '@/components/btns/mainBtn.vue';
+</script>
+
+<template>
+    <!-- Cards for teacher and activities -->
+    <div v-if="type === 'vertical'" :id="id">
+        <div class="d-flex justify-content-center col-12">
+            <div
+                class="d-flex flex-column shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card clickable-card">
+
+                <div class="overflow-hidden">
+                    <img :src="imageUrl" class="card-img-top activity-img" />
+                </div>
+
+                <div class="d-flex flex-column justify-content-between card-body">
+
                     <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
                     <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
 
                     <p v-if="level" class="mb-2 text-muted">Suitable for <strong>{{ level }}</strong></p>
-                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by: 
-                        <a :href="`/teachers/${taughtBy}`" class="text-decoration-none text-dark fw-bold">{{ taughtBy }}</a>
+                    <p v-if="taughtBy" class="mb-2 text-muted">Taught by:
+                        <a @click.stop :href="`/teachers/${taughtBy}`" class="text-decoration-none text-dark fw-bold">{{
+                            taughtBy }}</a>
                     </p>
                     <p v-if="guest" class="mb-2 text-muted">Special guest: <strong>{{ guest }}</strong></p>
                     <p v-if="location" class="mb-2 text-muted">In <strong>{{ location }}</strong></p>
-                     
-                     <!-- ADD MORE HERE (remember to use v-if) -->
-             
-                     <div class="d-flex justify-content-center mt-auto">
-                         <Button :url="linkUrl" :text="buttonText" class="w-100" />
-                     </div>
- 
-                 </div>
-             </div>
-         </div>
-     </div>
- 
-     <!-- Cards for the home page -->
-     <div v-else-if="type === 'horizontal'">
-         <a :href="linkUrl" class="text-dark text-decoration-none">
-             <div class="d-flex justify-content-center col-12">
-                 <div class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card  "><!-- horicard -->
-                     <div class="flex-shrink-0 overflow-hidden">
-                         <img :src="imageUrl" class="card-img-top activity-img d-sm-none" />
-                         <img :src="imageUrl" class="d-sm-block card-img-left activity-img d-none" />
-                     </div>
-                     <div class="d-flex flex-column justify-content-between card-body">
-                         <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
-                         <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
-                         <div class="justify-content-center mt-auto row">
-                             <div class="col-4"></div>
-                             <div class="col-4"></div>
-                             <div class="d-flex justify-content-center mr-5 col-4">
-                                 <a :href="linkUrl" class="my-link">
-                                     {{ buttonText }} <i class="bi-arrow-right bi"></i>
-                                 </a>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </a>
-     </div>
- </template>
- 
- <script>
- // Props
- export default {
-     name: 'Card',
-     props: {
-         type: {
-             type: String,
-             default: 'vertical'
-         },
-         title: {
-             type: String,
-             required: true
-         },
-         description: {
-             type: String,
-             required: true
-         },
-         imageUrl: {
-             type: String,
-             required: true
-         },
-         buttonText: {
-             type: String,
-             default: 'Read more'
-         },
-         linkUrl: {
-             type: String,
-             required: true
-         },
-         // Optional
-         level: {
-             type: String,
-             required: false,
-             default: null
-         },
-         taughtBy: {
-             type: String,
-             required: false,
-             default: null
-         },
-         location: {
-             type: String,
-             required: false,
-             default: null
-         },
-         guest: {
-             type: String,
-             required: false,
-             default: null
-         },
-         id: {                   // for structural link
-             type: String,
-             required: false,
-             default: null
-         }
-         // ADD MORE HERE (remember to put required: false)
-     }
- }
- </script>
- 
- <style scoped>
- .mainCard {
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
-     height: 200px;
-     cursor: pointer;
- }
- 
- .my-link {
-     text-decoration: none; 
-     color: #20c997;
- }
- 
- 
- .vertiCard {
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
- }
- .vertiCard.activity-img {
-     width: auto;
-     height: 200px;
-     object-fit: cover;
- }
- .vertiCard:hover {
-     transform: translateY(-8px);
-     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
- }
- .vertiCard:hover .activity-img {
-     transform: scale(1.05);
- }
- 
- 
- .horiCard {
-     transition: transform 0.3s ease, box-shadow 0.3s ease;
- }
- .horiCard.activity-img {
-     width: auto;
-     height: 200px;
-     object-fit: cover;
- }
- .horiCard:hover {
-     transform: translateY(-8px);
-     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
- }
- .horiCard:hover .activity-img {
-     transform: scale(1.05);
- }
- 
- 
- .activity-img {
-     transition: transform 0.5s ease;
-     width: 100%;
-     height: 100%;
-     object-fit: cover;
- }
- 
- .card-img-left {
-     width: 300px;
-     height: auto;
-     /*max-width: 400px;  Increase this for larger image 
+
+                    <!-- ADD MORE HERE (remember to use v-if) -->
+
+                    <div class="d-flex justify-content-center mt-auto">
+                        <Button :url="linkUrl" :text="buttonText" class="w-100" @click.stop />
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards for the home page -->
+    <div v-else-if="type === 'horizontal'">
+        <a :href="linkUrl" class="text-dark text-decoration-none">
+            <div class="d-flex justify-content-center col-12">
+                <div
+                    class="d-flex flex-column flex-sm-row shadow-lg m-3 border-0 rounded-4 w-100 h-100 overflow-hidden card  ">
+                    <!-- horicard -->
+                    <div class="flex-shrink-0 overflow-hidden">
+                        <img :src="imageUrl" class="card-img-top activity-img d-sm-none" />
+                        <img :src="imageUrl" class="d-sm-block card-img-left activity-img d-none" />
+                    </div>
+                    <div class="d-flex flex-column justify-content-between card-body">
+                        <h5 class="card-title fs-4 fw-bold">{{ title }}</h5>
+                        <p class="card-text" style="font-size: 16px; line-height: 2em">{{ description }}</p>
+                        <div class="justify-content-center mt-auto row">
+                            <div class="col-4"></div>
+                            <div class="col-4"></div>
+                            <div class="d-flex justify-content-center mr-5 col-4">
+                                <a :href="linkUrl" class="my-link">
+                                    {{ buttonText }} <i class="bi-arrow-right bi"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+</template>
+
+<script>
+// Props
+export default {
+    name: 'Card',
+    components: {
+        Button
+    },
+    props: {
+        type: {
+            type: String,
+            default: 'vertical'
+        },
+        title: {
+            type: String,
+            required: true
+        },
+        description: {
+            type: String,
+            required: true
+        },
+        imageUrl: {
+            type: String,
+            required: true
+        },
+        buttonText: {
+            type: String,
+            default: 'Read more'
+        },
+        linkUrl: {
+            type: String,
+            required: true
+        },
+        // Optional
+        level: {
+            type: String,
+            required: false,
+            default: null
+        },
+        taughtBy: {
+            type: String,
+            required: false,
+            default: null
+        },
+        location: {
+            type: String,
+            required: false,
+            default: null
+        },
+        guest: {
+            type: String,
+            required: false,
+            default: null
+        },
+        id: {                   // for structural link
+            type: String,
+            required: false,
+            default: null
+        }
+        // ADD MORE HERE (remember to put required: false)
+    },
+    methods: {
+        navigateToLink() {
+            // Skip navigation if the user clicked on the teacher link or button
+            window.location.href = this.linkUrl;
+        }
+    }
+}
+</script>
+
+<style scoped>
+/* .clickable-card {
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+} */
+
+.clickable-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.mainCard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 200px;
+    cursor: pointer;
+}
+
+.my-link {
+    text-decoration: none;
+    color: #20c997;
+}
+
+
+.vertiCard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.vertiCard.activity-img {
+    width: auto;
+    height: 200px;
+    object-fit: cover;
+}
+
+.vertiCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.vertiCard:hover .activity-img {
+    transform: scale(1.05);
+}
+
+
+.horiCard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.horiCard.activity-img {
+    width: auto;
+    height: 200px;
+    object-fit: cover;
+}
+
+.horiCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.horiCard:hover .activity-img {
+    transform: scale(1.05);
+}
+
+
+.activity-img {
+    transition: transform 0.5s ease;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-img-left {
+    width: 300px;
+    height: auto;
+    /*max-width: 400px;  Increase this for larger image 
      height: auto;*/
-     object-fit: cover;
- }
- 
- .card:hover .activity-img {
-     transform: scale(1.05);
- }
- </style>
+    object-fit: cover;
+}
+
+.card:hover .activity-img {
+    transform: scale(1.05);
+}
+</style>

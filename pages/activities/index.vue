@@ -16,5 +16,3 @@ import Overview from '~/components/ActivitiesOverview.vue';
 
   </div>
 </template>
-
-
