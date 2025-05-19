@@ -1,6 +1,14 @@
 <script setup>
 import LeafletMap from '~/components/LeafletMap.vue'
 import InputMessage from '~/components/InputMessage.vue'
+import { useHead } from '#imports'
+
+useHead({
+  title: 'Contact YogaTella',
+  meta: [
+    { name: 'description', content: 'Contact YogaTella in Milan for bookings, questions, or more information about our yoga and meditation activities.' }
+  ]
+})
 </script>
 
 <template>
@@ -11,7 +19,7 @@ import InputMessage from '~/components/InputMessage.vue'
     <div class="mb-5 container">
         <h3 class="my-5 display-4">MEET US IN PERSON!</h3>
         <p class="my-3">Visit our center in Milan, the receptionist will be ready to answer all of your questions and enroll you in your favourite activity. </p>
-        <div class="mt-5 align-items-center text-center row">
+        <div class="align-items-center mt-5 text-center row">
             <div class="col-sm-4">
                 <p>Via Ponzio, 7<br />
                 20131, Milano MI<br />

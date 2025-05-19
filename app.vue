@@ -4,8 +4,14 @@ import './assets/css/custom-bootstrap.scss';
 import { useRouter } from 'vue-router';
 
 const routes = [
-  { path: '/', component: () => import('./pages/index.vue') },
-  { path: '/teachers', component: () => import('./pages/teachers/index.vue') },
+  {
+    path: '/',
+    component: () => import('./pages/index.vue')
+  },
+  {
+    path: '/teachers',
+    component: () => import('./pages/teachers/index.vue')
+  },
 
 ];
 
@@ -13,17 +19,6 @@ const routes = [
 
 <template>
   <div>
-
-    <Head>
-      <title>YogaTella</title>
-      <meta name="description" content="YogaTella - Your Yoga Journey Starts Here" />
-      <meta name="keywords" content="Yoga, Meditation, YogaTella" />
-
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-    </Head>
 
     <header>
       <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
@@ -70,7 +65,7 @@ const routes = [
     </main>
 
 
-    <footer class="bg-dark py-5 text-light mt-5">
+    <footer class="bg-dark mt-5 py-5 text-light">
       <div class="text-center container">
 
         <!-- Social Icons con Founder -->
@@ -100,7 +95,7 @@ const routes = [
 
         <!-- Copyright -->
         <div>
-          <p class="mb-1">&copy;  2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
+          <p class="mb-1">&copy; 2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
         </div>
 
       </div>
