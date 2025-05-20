@@ -17,7 +17,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     
     <div class="row">
-      <div class="col-md-4 mb-4" v-for="activity in activities" :key="activity.id">
+      <div class="mb-4 col-md-4" v-for="activity in activities" :key="activity.id">
 
         <Card 
           :type="'vertical'" 
@@ -59,7 +59,7 @@ const props = defineProps({
   },
   highlights: {
     type: Boolean,
-    default: null // accetta true, false o null
+    default: false
   }
 });
 

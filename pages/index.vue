@@ -82,7 +82,7 @@ useHead({
         <h2 class="my-5 text-center display-4">Highlights</h2>
         <div class="mx-auto border border-2 border-primary rounded-2" style="width: 95%;" >
             <div class="d-flex align-items-center mx-auto mt-4"style="width: 90%;">
-                <ActivitiesList highlights="true"/>
+                <ActivitiesList highlights/>
             </div>
         </div>
     </div>
