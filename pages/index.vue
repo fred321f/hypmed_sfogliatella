@@ -10,7 +10,46 @@ useHead({
   meta: [
     { name: 'description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
     { name: 'keywords', content: 'Yoga, Meditation, Milan, YogaTella, Retreats, Teachers' },
-    ],
+    
+    // Open Graph
+    { property: 'og:title', content: 'YogaTella' },
+    { property: 'og:description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
+    { property: 'og:type', content: 'website' },
+    { property: 'og:url', content: 'https://yogatella.com/' },
+    { property: 'og:image', content: 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg' },
+    
+    // Twitter Card
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:title', content: 'YogaTella' },
+    { name: 'twitter:description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
+    { name: 'twitter:image', content: 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg' }
+  ],
+  link: [
+    { rel: 'canonical', href: 'https://yogatella.com/' }
+  ],
+  script: [
+    {
+      type: 'application/ld+json',
+      children: `{
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "YogaTella",
+        "image": "https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg",
+        "@id": "https://yogatella.com/",
+        "url": "https://yogatella.com/",
+        "telephone": "+39 333 444 5555",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Via Ponzio, 7",
+          "addressLocality": "Milano",
+          "postalCode": "20131",
+          "addressCountry": "IT"
+        },
+        "description": "YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more."
+      }`
+
+    }
+  ]
 })
 </script>
 
