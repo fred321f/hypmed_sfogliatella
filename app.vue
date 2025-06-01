@@ -21,12 +21,19 @@ const routes = [
   <div>
 
     <header>
-      <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
+      <nav class="bg-transparent my-2 navbar navbar-expand-lg">
         <div class="container">
 
-          <span class="d-flex justify-content-lg-start justify-content-center mb-0 w-100 navbar-brand h1">
-            <NuxtLink to="/" class="d-flex align-items-center mx-auto mx-lg-0 navbar-brand">
-              YogaTella
+          <span class="d-flex justify-content-lg-start justify-content-center mr-0 mb-0 w-100 navbar-brand h1">
+            <NuxtLink to="/" class="d-flex flex-column flex-lg-row align-items-center mx-auto mx-lg-0 mr-0 p-0 navbar-brand">
+              <img
+                src="/favicon.ico"
+                alt="YogaTella Brand Logo"
+                class="d-block me-0 me-lg-2"
+                style="height:46px;width:46px;object-fit:contain;"
+              />
+              <span class="d-block mt-1 text-center small d-lg-none" style="font-size:0.85rem;">YogaTella</span>
+              <span class="d-lg-inline ms-2 d-none fw-normal">YogaTella</span>
             </NuxtLink>
           </span>
 
@@ -42,7 +49,7 @@ const routes = [
                 <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/highlights" class="left mx-3 hover-underline-animation nav-link">Highligths</NuxtLink>
+                <NuxtLink to="/highlights" class="left mx-3 hover-underline-animation nav-link">Highlights</NuxtLink>
               </li>
               <li class="nav-item">
                 <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
@@ -51,7 +58,7 @@ const routes = [
                 <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact Us</NuxtLink>
+                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact</NuxtLink>
               </li>
             </ul>
           </div>
