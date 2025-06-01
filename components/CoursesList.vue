@@ -43,9 +43,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 <script setup>
 import Card from "@/components/cards/Card.vue";
 import loadingSpinner from "@/components/loadingSpinner.vue";
-
 import { ref, onMounted } from 'vue';
-
 
 const props = defineProps({
   type: {
@@ -53,7 +51,6 @@ const props = defineProps({
     default: ''
   }
 });
-
 
 const courses = ref([]);
 const error = ref(null);
