@@ -4,6 +4,7 @@ import { useRoute } from 'vue-router';
 import loadingSpinner from '@/components/loadingSpinner.vue';
 import Card from '~/components/cards/Card.vue';
 import { getImage } from '../utility/getImage';  // <-- to load the image from the server
+import { useHead } from '#imports'
 
 const route = useRoute();
 const activity = ref(null);
@@ -27,6 +28,13 @@ onMounted(async () => {
     loading.value = false;
   }
 }); 
+
+useHead({
+  title: activity.value ? `${activity.value.name} - Activity | YogaTella` : 'Activity | YogaTella',
+  meta: [
+    { name: 'description', content: activity.value ? `Discover details about ${activity.value.name} at YogaTella.` : 'Explore our activities at YogaTella.' }
+  ]
+})
 </script>
 
 <template>
@@ -38,24 +46,24 @@ onMounted(async () => {
     <p>{{ error }}</p>
   </div>
 
-  <div v-else class="container my-5">
+  <div v-else class="my-5 container">
     <h1 class="my-5 text-center display-1">{{ activity.name }}</h1>
 
     <!-- ----- ACTIVITY Section ----- -->
-    <div class="row align-items-stretch p-0">
+    <div class="align-items-stretch p-0 row">
       <!-- IMAGE -->
-      <div class="col-md-6 p-0 mb-4 mb-md-0 d-flex p-3">
+      <div class="d-flex mb-4 mb-md-0 p-0 p-3 col-md-6">
         <img
           :src="getImage(activity)"
-          class="img-fluid w-100 h-100 shadow-lg"
+          class="shadow-lg w-100 h-100 img-fluid"
           style="object-fit: cover; border-radius: 15px;"
           alt="Activity Image"
         />
       </div>
 
       <!-- INFO -->
-      <div class="col-md-6 p-0 d-flex align-items-center">
-        <div class="p-4 fs-5 w-100"> <!-- remove fs-5 if text too big -->
+      <div class="d-flex align-items-center p-0 col-md-6">
+        <div class="p-4 w-100 fs-5"> <!-- remove fs-5 if text too big -->
           <p v-if="activity.description">{{ activity.description }}</p>
           <p v-if="activity.level">Level: <strong>{{ activity.level }}</strong></p>
           <p v-if="activity.day">Day: <strong>{{ activity.day }}</strong></p>
@@ -69,8 +77,8 @@ onMounted(async () => {
 
 
     <!-- ----- TEACHER Section ----- -->
-    <div v-if="activity.teacher" class="mt-5 ">
-      <h2 class="display-5 text-md-start">Meet The Teacher: </h2>
+    <div v-if="activity.teacher" class="mt-5">
+      <h2 class="text-md-start display-5">Meet The Teacher: </h2>
       <Card 
         type="horizontal" 
         :title="activity.teacher.name"
@@ -82,8 +90,8 @@ onMounted(async () => {
     </div>
 
     <!-- ----- Guest Section ----- -->
-    <div v-if="activity.guest" class="mt-5 ">
-      <h2 class="display-5 text-md-start">Special Guest:</h2>
+    <div v-if="activity.guest" class="mt-5">
+      <h2 class="text-md-start display-5">Special Guest:</h2>
       <Card 
         type="horizontal" 
         :title="activity.guest.name"
@@ -92,9 +100,9 @@ onMounted(async () => {
       />
     </div>
     
-    <!--  <div v-if="activity.teacher" class="mt-5 ">
-      <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
-        <div class="col-md-6 p-0 mb-4 mb-md-0">
+    <!--  <div v-if="activity.teacher" class="mt-5">
+      <div class="align-items-center bg-white shadow-lg mt-4 p-0 rounded-4 row">
+        <div class="mb-4 mb-md-0 p-0 col-md-6">
           <img
             :src="activity.teacher.imageUrl"
             class="img-fluid"
@@ -102,14 +110,14 @@ onMounted(async () => {
             alt="Teacher Image"
           />
         </div>
-        <div class="col-md-6 p-0">
+        <div class="p-0 col-md-6">
           <div class="p-4">
             <h2 class="fs-1">{{ activity.teacher.name }}</h2>
-            <p class="lead mb-0">{{ activity.teacher.overview }}</p>
+            <p class="mb-0 lead">{{ activity.teacher.overview }}</p>
             <a :href="`/teachers/${ activity.teacher.name }`" class="my-link">
                 Learn more <i class="bi-arrow-right bi"></i>
             </a>
-            <a :href="`/teachers/${ activity.teacher.name }`" class="text-decoration-none text-dark fw-bold"></a>
+            <a :href="`/teachers/${ activity.teacher.name }`" class="text-dark text-decoration-none fw-bold"></a>
           </div>
         </div>
       </div>
@@ -117,10 +125,10 @@ onMounted(async () => {
 
     <!-- Guest Section 
     <div v-if="activity.guest" class="mt-5">
-      <h2 class="display-5 text-center text-md-start">Special Guest:</h2>
+      <h2 class="text-md-start text-center display-5">Special Guest:</h2>
 
-      <div class="row align-items-center shadow-lg rounded-4 bg-white p-0">
-        <div class="col-md-6 p-0 mb-4 mb-md-0">
+      <div class="align-items-center bg-white shadow-lg p-0 rounded-4 row">
+        <div class="mb-4 mb-md-0 p-0 col-md-6">
           <img
             :src="activity.guest.imageURL"
             class="img-fluid"
@@ -129,7 +137,7 @@ onMounted(async () => {
           />
         </div>
 
-        <div class="col-md-6 p-0">
+        <div class="p-0 col-md-6">
           <div class="p-4">
             <h2 class="fs-1">{{ activity.guest.name }}</h2>
             <p class ="mb-0 lead">{{ activity.guest.description }}</p>

@@ -1,10 +1,15 @@
 <script setup>
 import ActivitiesList from '~/components/ActivitiesList.vue';
-
 import Overview from '~/components/ActivitiesOverview.vue';
+import { useHead } from '#imports';
+
+useHead({
+  title: 'Retreats | YogaTella',
+  meta: [
+    { name: 'description', content: 'Explore yoga and meditation retreats at YogaTella for all levels.' }
+  ]
+})
 </script>
-
-
 
 <template>
   <div class="container">

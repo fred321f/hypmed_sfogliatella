@@ -3,6 +3,15 @@ import Calendar from '~/components/coursesCalendar.vue';
 import ActivitiesList from '~/components/ActivitiesListFilters.vue';
 
 import Overview from '~/components/ActivitiesOverview.vue';
+
+import { useHead } from '#imports'
+
+useHead({
+  title: 'Courses | YogaTella',
+  meta: [
+    { name: 'description', content: 'Discover our yoga and meditation courses for all levels at YogaTella.' }
+  ]
+})
 </script>
 
 <template>

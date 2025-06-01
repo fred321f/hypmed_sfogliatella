@@ -4,3 +4,13 @@
         <p class="lead">This is awkward...</p>
     </div>
 </template>
+
+<script setup>
+import { useHead } from '#imports'
+useHead({
+  title: '404 - Page not found | YogaTella',
+  meta: [
+    { name: 'description', content: 'Sorry, the page you are looking for does not exist at YogaTella.' }
+  ]
+})
+</script>

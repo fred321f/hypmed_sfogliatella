@@ -17,7 +17,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     <div v-if="error" class="alert alert-danger">{{ error }}</div>
     
     <div class="row">
-      <div class="col-md-4 mb-4" v-for="activity in activities" :key="activity.id">
+      <div class="mb-4 col-md-4" v-for="activity in activities" :key="activity.id">
 
         <Card 
           :type="'vertical'" 
@@ -25,7 +25,8 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
           :description="activity.overview" 
           :imageUrl="getImage(activity)"
           :buttonText="'Read more'" 
-          :linkUrl="'/activities/' + activity.name" 
+          :linkUrl="'/activities/' + activity.name"
+          image_alt_text="Activity overview card image of {{ activity.title }}"
 
           :taughtBy="activity.teacher" 
           :guest="activity.guest"
@@ -44,8 +45,6 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
   </div>
 </template>
 
-
-
 <script setup>
 import Card from "@/components/cards/Card.vue";
 import { ref, onMounted } from 'vue';
@@ -59,7 +58,7 @@ const props = defineProps({
   },
   highlights: {
     type: Boolean,
-    default: null // accetta true, false o null
+    default: false
   }
 });
 
