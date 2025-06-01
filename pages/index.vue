@@ -51,6 +51,12 @@ useHead({
     }
   ]
 })
+
+// Images import
+import hero_image from '~/assets/img/hero_image.jpg'
+import activities_img from '~/assets/img/activities_img.jpg'
+import teachers_img from '~/assets/img/teachers_img.jpg'
+
 </script>
 
 <template>
@@ -72,7 +78,7 @@ useHead({
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <img src="https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg"
+                <img :src="hero_image"
                 class="rounded img-fluid" alt="People doing yoga">
             </div>
         </div>
@@ -91,11 +97,11 @@ useHead({
         
         <Card type="horizontal" title="Activities"
             description="We offer a wide variety of activities, ranging from yoga and meditation courses, retreats, seminars and workshops"
-            imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill,g_auto/v1745953332/ro147-scaled-1440x809-2_ygeojc.jpg"
+            :imageUrl="teachers_img"
             linkUrl="/activities" :buttonText="'See all'" />
         <Card type="horizontal" title="Teachers"
             description="Meet the team! They are all certified and ready to welcome you in the yoga community"
-            imageUrl="https://res.cloudinary.com/dpba22oef/image/upload/w_1500,ar_3:2,c_fill/v1745953300/Yoga-teacher-training-2_ryrg6y.jpg"
+            :imageUrl="activities_img"
             linkUrl="/teachers" :buttonText="'See all'" />
     </div>
     <!-- Join us -->

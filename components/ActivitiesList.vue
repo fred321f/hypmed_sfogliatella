@@ -25,7 +25,8 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
           :description="activity.overview" 
           :imageUrl="getImage(activity)"
           :buttonText="'Read more'" 
-          :linkUrl="'/activities/' + activity.name" 
+          :linkUrl="'/activities/' + activity.name"
+          image_alt_text="Activity overview card image of {{ activity.title }}"
 
           :taughtBy="activity.teacher" 
           :guest="activity.guest"
@@ -43,8 +44,6 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     </div>
   </div>
 </template>
-
-
 
 <script setup>
 import Card from "@/components/cards/Card.vue";
