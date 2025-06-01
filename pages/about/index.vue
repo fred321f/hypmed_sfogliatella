@@ -49,14 +49,20 @@ useHead({
 
 
         <h2 class="my-5 display-4">Booking and prices</h2>
-        <p class="my-5">As explained in <a href="/activities" class="lead">ACTIVITIES</a>, the center offers 
-            <a href="/courses" class="lead">courses</a>, 
+        <p class="fs-5">
+            Ready to explore our 
+            <a href="/courses" class="lead">yoga and meditation courses</a>, 
             <a href="/seminars" class="lead">seminars</a>, 
-            <a href="/seminars#workshops" class="lead">workshops</a> and 
-            <a href="/retreats" class="lead">retreats</a>.<br> 
-                Every activity can be booked in person in our facility in Milan, or you can <a href="/contact" class="lead">CONTACT US</a> via mail or cellphone.<br> 
-                Every yoga and meditation course is semestral and they cost 150 euros for each semester. <br> 
-                All other activities have a specific cost, <a href="/contact" class="lead">CONTACT US</a> to get more information.
+            <a href="/seminars#workshops" class="lead">workshops</a> or 
+            <a href="/retreats" class="lead">retreats</a>? 
+            <br>
+            We’ll help you find the best path for your goals, lifestyle, and level of experience.
+            <br>
+            You can <em>visit us in person</em> at our studio in Milan, or <em>get in touch</em> via phone or email. 
+            We’ll guide you through our current offerings 
+            and create a <strong>personalized plan</strong> that feels right for you.
+            <br>
+            No fixed prices here! Every journey is unique. <a href="/contact" class="lead">Contact us</a> today and let’s build something beautiful, together!
         </p>
     </div>
 </template>
