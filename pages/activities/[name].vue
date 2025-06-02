@@ -3,6 +3,8 @@ import { ref, onMounted, computed } from 'vue';
 import { useRoute } from 'vue-router';
 import { useHead } from '#app';
 import loadingSpinner from '@/components/loadingSpinner.vue';
+import Card from '~/components/cards/Card.vue';
+import { getImage } from '../utility/getImage';  // <-- to load the image from the server
 
 const route = useRoute();
 const activity = ref(null);
@@ -44,23 +46,7 @@ onMounted(async () => {
   } finally {
     loading.value = false;
   }
-});
-
-// Helper function to get activity image
-const getImage = (activity) => {
-  if (activity.imgURL) {
-    return `https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/${activity.imgURL}`;
-  }
-
-  switch (activity.type) {
-    case 'Yoga':
-      return 'https://cdn.yogaacademy.it/wp-content/uploads/2022/10/DSC00991-scaled.jpeg';
-    case 'Meditation':
-      return 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2202&auto=format&fit=crop';
-    default:
-      return 'https://cdn.yogaacademy.it/wp-content/uploads/2024/01/fless.png';
-  }
-};
+}); 
 </script>
 
 <template>
@@ -72,88 +58,76 @@ const getImage = (activity) => {
     <p>{{ error }}</p>
   </div>
 
-  <div v-else class="container my-5" role="main" aria-labelledby="activity-title">
-    <h1 id="activity-title" class="my-5 text-center display-1">{{ activity.name }}</h1>
+  <div v-else class="container my-5">
+    <h1 class="my-5 text-center display-1">{{ activity.name }}</h1>
 
     <!-- ----- ACTIVITY Section ----- -->
-    <section aria-labelledby="activity-details-heading" class="mb-5">
-      <h2 id="activity-details-heading" class="visually-hidden">Activity Details</h2>
-      <div class="row align-items-center p-0">
-        <!-- IMAGE -->
-        <div class="col-md-6 p-0 mb-4 mb-md-0">
-          <img :src="getImage(activity)" class="img-fluid shadow-lg"
-            style="object-fit: cover; width: 100%; max-height: 500px; border-radius: 15px;"
-            :alt="`${activity.name} - ${activity.type} activity`" aria-describedby="activity-title" />
-        </div>
-        <!-- INFO -->
-        <div class="col-md-6 p-0">
-          <div class="p-4">
-            <p v-if="activity.description">{{ activity.description }}</p>
-            <dl>
-              <div v-if="activity.level" class="mb-2">
-                <dt class="d-inline font-weight-bold">Level:</dt>
-                <dd class="d-inline ml-1">{{ activity.level }}</dd>
-              </div>
+    <div class="row align-items-stretch p-0">
+      <!-- IMAGE -->
+      <div class="col-md-6 p-0 mb-4 mb-md-0 d-flex p-3">
+        <img :src="getImage(activity)" class="img-fluid w-100 h-100 shadow-lg"
+          style="object-fit: cover; border-radius: 15px;" alt="Activity Image" />
+      </div>
 
-              <div v-if="activity.time" class="mb-2">
-                <dt class="d-inline font-weight-bold">Time:</dt>
-                <dd class="d-inline ml-1">{{ activity.time }}</dd>
-              </div>
-
-              <div v-if="activity.day" class="mb-2">
-                <dt class="d-inline font-weight-bold">Day:</dt>
-                <dd class="d-inline ml-1">{{ activity.day }}</dd>
-              </div>
-
-              <div v-if="activity.location" class="mb-2">
-                <dt class="d-inline font-weight-bold">Location:</dt>
-                <dd class="d-inline ml-1">{{ activity.location }}</dd>
-              </div>
-            </dl>
-          </div>
+      <!-- INFO -->
+      <div class="col-md-6 p-0 d-flex align-items-center">
+        <div class="p-4 fs-5 w-100"> <!-- remove fs-5 if text too big -->
+          <p v-if="activity.description">{{ activity.description }}</p>
+          <p v-if="activity.level">Level: <strong>{{ activity.level }}</strong></p>
+          <p v-if="activity.day">Day: <strong>{{ activity.day }}</strong></p>
+          <p v-if="activity.time">Time: <strong>{{ activity.time }}</strong></p>
+          <p v-if="activity.date">The retreat is <strong>{{ activity.date }}</strong></p>
+          <p v-if="activity.duration">For a total duration of <strong>{{ activity.duration }}</strong></p>
+          <p v-if="activity.location">In a beautifull location in <strong>{{ activity.location }}</strong></p>
         </div>
       </div>
-    </section>
+    </div>
+
 
     <!-- ----- TEACHER Section ----- -->
-    <section v-if="activity.teacher" class="mt-5" aria-labelledby="teacher-section-heading">
-      <h2 id="teacher-section-heading" class="display-5 text-md-start">Meet The Teacher: </h2>
+    <div v-if="activity.teacher" class="mt-5 ">
+      <h2 class="display-5 text-md-start">Meet The Teacher: </h2>
+      <Card type="horizontal" :title="activity.teacher.name" :description="activity.teacher.overview"
+        :imageUrl="activity.teacher.imageUrl" :linkUrl="`/teachers/${activity.teacher.name}`" buttonText="See more" />
+    </div>
 
+    <!-- ----- Guest Section ----- -->
+    <div v-if="activity.guest" class="mt-5 ">
+      <h2 class="display-5 text-md-start">Special Guest:</h2>
+      <Card type="horizontal" :title="activity.guest.name" :description="activity.guest.description"
+        :imageUrl="activity.guest.imageURL" />
+    </div>
+
+    <!--  <div v-if="activity.teacher" class="mt-5 ">
       <div class="row mt-4 align-items-center shadow-lg rounded-4 bg-white p-0">
-        <!-- Teacher Image on the left -->
         <div class="col-md-6 p-0 mb-4 mb-md-0">
           <img :src="activity.teacher.imageUrl" class="img-fluid"
             style="object-fit: cover; width: 100%; max-height: 400px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
             :alt="`Photo of ${activity.teacher.name}, yoga teacher`" />
         </div>
-
-        <!-- Teacher Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
-            <h3 class="fs-1">{{ activity.teacher.name }}</h3>
-            <p class="lead mb-0">{{ activity.teacher.description }}</p>
-            <a :href="`/teachers/${activity.teacher.name}`" class="my-link"
-              :aria-label="`Learn more about ${activity.teacher.name}`">
-              Learn more <i class="bi-arrow-right bi" aria-hidden="true"></i>
+            <h2 class="fs-1">{{ activity.teacher.name }}</h2>
+            <p class="lead mb-0">{{ activity.teacher.overview }}</p>
+            <a :href="`/teachers/${ activity.teacher.name }`" class="my-link">
+                Learn more <i class="bi-arrow-right bi"></i>
             </a>
           </div>
         </div>
       </div>
-    </section>
+    </div>-->
 
-    <!-- Guest Section -->
-    <section v-if="activity.guest" class="mt-5" aria-labelledby="guest-section-heading">
-      <h2 id="guest-section-heading" class="display-5 text-center text-md-start">Special Guest:</h2>
+    <!-- Guest Section 
+    <div v-if="activity.guest" class="mt-5">
+      <h2 class="display-5 text-center text-md-start">Special Guest:</h2>
 
       <div class="row align-items-center shadow-lg rounded-4 bg-white p-0">
-        <!-- Guest Image -->
         <div class="col-md-6 p-0 mb-4 mb-md-0">
           <img :src="activity.guest.imageURL" class="img-fluid"
             style="object-fit: cover; width: 100%; max-height: 400px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
             :alt="`Photo of ${activity.guest.name}, special guest`" />
         </div>
 
-        <!-- Guest Description on the right with border -->
         <div class="col-md-6 p-0">
           <div class="p-4">
             <h3 class="fs-1">{{ activity.guest.name }}</h3>
@@ -161,7 +135,8 @@ const getImage = (activity) => {
           </div>
         </div>
       </div>
-    </section>
+    </div>-->
+
   </div>
 </template>
 
