@@ -23,7 +23,7 @@ useHead({
             <div class="d-flex mb-4 mb-md-0 p-0 p-3 col-12 col-md-6">
                 <img
                 src="https://res.cloudinary.com/dpba22oef/image/upload/v1746785133/L11-0606FF-Eucalyptus_Window-Film_ROOM-1_jhqjpi.jpg"
-                class="shadow-lg rounded w-100 h-100 img-fluid"
+                class="shadow-lg w-100 h-100 img-fluid image-container"
                 style="object-fit: cover;"
                 alt="Image of yoga center"
                 />

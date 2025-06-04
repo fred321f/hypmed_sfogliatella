@@ -20,56 +20,59 @@ useHead({
 
     <!-- Call Us Section -->
     <div class="mb-5 container">
-        <h3 class="my-5 display-4">Call us</h3>
-        <div class=" ">
-            <p class="mb-3 fs-5">
-            If you have any questions about our activities, feel free to call us at <strong><a href="tel:+393334445555" class="text-decoration-none">+39 333 444 5555</a></strong>.  <br />
-            We will be happy to help you find the one that best suits you and your needs.
-            </p>
-            
-        </div>
+    <h3 class="my-5 display-4">Call us</h3>
+    <div class="card card-body rounded-4 shadow-sm p-4 text-center">
+        <p class="mb-3 fs-5">
+        If you have any questions about our activities, feel free to call us at <strong>+39 333 444 5555</strong>.  <br />
+        We will be happy to help you find the one that best suits you and your needs.
+        </p>
+        <Button url="tel:+393334445555" text="Call us now" class="w-auto mx-auto" />
+        
+    </div>
     </div>
 
 
     <!-- Email Us Section -->
     <div class="mb-5 container"> 
-        <div class="row    p-0 m-0">
-            
-            <!-- Left Text Section -->
-            <div class="col-sm-4 mb-3 mb-sm-0 p-4  ps-0">
-                <h3 class="mt-3 mb-5 display-4">Email us</h3>
+        <h3 class="my-5 display-4">Email us</h3>
+        <div class="card card-body rounded-4 shadow-sm p-0 mt-5">
+            <div class="row align-items-center text-center p-0 m-0">
+                
+                <!-- Left Text Section -->
+                <div class="col-sm-4 mb-3 mb-sm-0 p-4 text-start">
+                
                 <p class="mb-3">
-                    You can send an email to <strong><a href="mailto:yogatella@mail.it" class="text-decoration-none">yogatella@mail.it</a></strong> and we will reply as soon as possible.
+                    You can send an email to <strong>yogatella@mail.it</strong> and we will reply as soon as possible.
+                </p>
+                <p class="mb-3">
+                    You can call us at <strong>+39 333 444 5555</strong> during our opening hours:<br />
+                    <strong>Monday to Friday, 8:00 AM – 7:00 PM</strong>.
                 </p>
                 <p>
                     To make things easier, fill out the form next to this text with your name, email, and message,
                     and we’ll reply directly to your inbox.
                 </p>
-            </div>
-            <div class="col-sm-8 text-start border border-2 border-primary rounded-4 p-4 shadow-sm card">
-                <InputMessage />
-            </div>
+                </div>
+                <div class="col-sm-8  p-0">
+                    <InputMessage />
+                </div>
 
-
+            </div>
         </div>
     </div>
-    
+
     <!-- Meet Us Section -->
     <div class="mb-5 container">
         <h3 class="my-5 display-4">Meet us in person!</h3>
         <p class="my-3">Come visit us in our center in Milan, the receptionist will be ready to answer all your questions and sign you up for the activity that best suits you. </p>
-         
-            <div class="row align-items-center  ">
+        <div class="card card-body rounded-4 shadow-sm  p-0">
+            <div class="row align-items-center text-center ">
                 <div class="col-sm-4 mb-3 mb-sm-0 fs-5 p-3">
-                     
                 <p class="mb-3">
-                    <strong>Address of the center:</strong><br />
-                    <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" 
-                        class="text-decoration-none text-dark" >
-                        Via Ponzio, 7<br />
-                        20131 Milan MI<br />
-                        Italy  
-                    </a>
+                    <strong>Address:</strong><br />
+                    Via Ponzio, 7<br />
+                    20131 Milan MI<br />
+                    Italy
                 </p>
                 <p>
                     <strong>Opening Hours:</strong><br />
@@ -84,7 +87,7 @@ useHead({
                 </div>
                 </div>
             </div>
-         
+        </div>
     </div>
    
 </template>

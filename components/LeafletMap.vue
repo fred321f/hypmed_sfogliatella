@@ -1,6 +1,6 @@
 <template>
     <client-only>
-        <div class="border border-2 border-primary overflow-hidden ">
+        <div class="border border-2 border-primary overflow-hidden image-container">
           <LMap
             :zoom="13"
             :center="[45.4753931, 9.2298680]"

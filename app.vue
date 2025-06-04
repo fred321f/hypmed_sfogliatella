@@ -19,7 +19,7 @@ const routes = [
 
 <template>
   <div>
-
+    <!-- Header -->
     <header>
       <nav class="bg-transparent my-2 navbar navbar-expand-lg">
         <div class="container">
@@ -67,37 +67,57 @@ const routes = [
       </nav>
     </header>
 
-    <main class="radial-bg">
+    <!-- Main content -->
+    <main class="radial-bg pb-5">
       <NuxtPage />
     </main>
 
+    <!-- Footer -->
     <footer class="bg-dark mt-5 py-5 text-light">
-      <div class="text-center container">
-        <!-- Social Icons con Founder -->
-        <div class="mb-5">
-          <h5 class="mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
-          <div class="justify-content-center row">
-            <div class="my-4 col-md-2">
-              <div class="d-block ig-profile">Frederick Nielsen</div>
-            </div>
-            <div class="mt-4 mb-4 col-md-2">
-              <div class="d-block ig-profile">Sveva Zanetti</div>
-            </div>
-            <div class="mt-4 mb-4 col-md-2">
-              <div class="d-block ig-profile">Gianluca Bettoni</div>
-            </div>
-            <div class="mt-4 mb-4 col-md-2">
-              <div class="d-block ig-profile">Haipeng Zhu</div>
-            </div>
+      <div class="container text-center text-md-start">
+        <div class="row">
+          
+          <!-- Contact Info -->
+          <div class="col-md-4 mb-4 text-center">
+            <h5 class="text-uppercase fw-bold mb-3">Contact</h5>
+            <p class="mb-1"> 📍 <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" class="text-decoration-none text-light">
+              Via Ponzio, 7 — 20131 Milan, Italy </a>
+            </p> 
+            <p class="mb-1">📞 <a href="tel:+393334445555" class="text-light text-decoration-none">+39 333 444 5555</a></p>
+            <p class="mb-1">✉️ <a href="mailto:yogatella@mail.it" class="text-light text-decoration-none">yogatella@mail.it</a></p>
+          </div>
+
+          <!-- Quick Links -->
+          <div class="col-md-4 mb-4 text-center">
+            <h5 class="text-uppercase fw-bold mb-3">Quick Links</h5>
+            <ul class="list-unstyled">
+              <li><a href="/" class="text-light text-decoration-none">Home</a></li>
+              <li><a href="/teachers" class="text-light text-decoration-none">Teachers</a></li>
+              <li><a href="/about" class="text-light text-decoration-none">About Us</a></li>
+              <li><a href="/contact" class="text-light text-decoration-none">Contact Us</a></li>
+            </ul>
+          </div>
+
+          <!-- Social Media Links -->
+          <div class="col-md-4 mb-4 text-center"> 
+            <h5 class="mb-3">Developed by <strong>Sfogliatella Team:</strong></h5>
+            <ul class="list-unstyled"> <!-- add Social Media Links with: href="..." -->
+              <li><a   class="d-block ig-profile">Gianluca Bettoni</a></li>
+              <li><a   class="d-block ig-profile">Frederick Nielsen</a></li>
+              <li><a   class="d-block ig-profile">Sveva Zanetti</a></li>
+              <li><a   class="d-block ig-profile">Haipeng Zhu</a></li>
+            </ul>
           </div>
         </div>
-        <!-- Copyright -->
-        <div>
-          <p class="mb-1">&copy; 2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
-        </div>
+    
       </div>
-      <!-- Moved FontAwesome link to Nuxt head for best practices -->
+
+      <!-- Bottom Line -->
+      <div class="text-center mt-4 pt-3 border-top border-light small text-light">
+        © 2025 Yogatella — All rights reserved.
+      </div>
     </footer>
+
   </div>
 </template>
 

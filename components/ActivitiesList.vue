@@ -20,7 +20,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
     <div v-else>
       <div class="row">
-        <div class="mb-4 col-md-4" v-for="activity in activities" :key="activity.id">
+        <div class="mb-4 d-flex col-12 col-md-6 col-lg-4" v-for="activity in activities" :key="activity.id">
 
           <Card 
             :type="'vertical'" 

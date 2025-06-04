@@ -67,9 +67,11 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
         <h2 class="my-5 lead">Welcome to a space where mind, body, and soul come together. 
             Discover balance, strength, and serenity at our yoga center.
         </h2>
+    </div>    
+    <div class="my-5 container">
         <div class="align-items-center justify-content-around row">
             <div class="col-12 col-md-5">
-                <p class="my-5">Yogatella is a well-established yoga center that has been offering the highest
+                <p class="my-5 fs-5">Yogatella is a well-established yoga center that has been offering the highest
                 quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence,
                 we provide a welcoming space for all to explore the transformative power of yoga.
                 </p>
@@ -79,14 +81,14 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
             </div>
             <div class="col-12 col-md-5">
                 <img :src="hero_image"
-                class="rounded img-fluid" alt="People doing yoga">
+                class="img-fluid image-container" alt="People doing yoga">
             </div>
         </div>
     </div>
     <!-- Highlights -->
     <div class="my-5 container">
         <h2 class="my-5 text-center display-4">Highlights</h2>
-        <div class="mx-auto border border-2 border-primary rounded-2" style="width: 95%;" >
+        <div class="mx-auto border border-2 border-primary image-container" style="width: 95%;" >
             <div class="d-flex align-items-center mx-auto mt-4"style="width: 90%;">
                 <ActivitiesList highlights/>
             </div>
@@ -106,22 +108,29 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
     </div>
     <!-- Join us -->
     <div class="mb-5 container">
-        <h2 class="my-3 display-4">Join us!</h2>
-        <p class="my-3 lead">What are you waiting for?</p>
-        <p class="my-3">Come visit us at Via Ponzo 7, Milan, and experience the peaceful atmosphere of Yogatella.</p>
-        <div class="container">
-            <div class="align-items-center mt-5 text-center row">
-                <div class="mb-3 col-sm-4">
-                    <p>Via Ponzio, 7<br />
-                        20131, Milano MI<br />
-                        Italia</p>
-                    <Button :url="'/contact'" :text="'Contact us'" />
-                </div>
-                <div class="col-sm-8">
-                    <LeafletMap />
-                </div>
+        
+        <div class="align-items-center mt-5 row">
+            <div class="mb-3 col-sm-4">
+                <h2 class="my-3 display-4">Join us!</h2>
+                <p class="my-3 lead">What are you waiting for?</p>
+                <p class="my-3">Come visit us to experience the peaceful atmosphere of Yogatella.</p>
+
+                <p class="mb-3"> 
+                    <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" 
+                        class="text-decoration-none text-dark" >
+                        <strong>Address of the center:</strong><br />
+                        Via Ponzio, 7<br />
+                        20131 Milan MI<br />
+                        Italy  
+                    </a>
+                </p>
+                <Button :url="'/contact'" :text="'Contact us'" />
+            </div>
+            <div class="col-sm-8">
+                <LeafletMap />
             </div>
         </div>
+         
     </div>
 
 </template>

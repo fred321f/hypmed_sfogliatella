@@ -5,6 +5,7 @@ import loadingSpinner from '@/components/loadingSpinner.vue';
 import Card from '~/components/cards/Card.vue';
 import { getImage } from '../utility/getImage';  // <-- to load the image from the server
 import { useHead } from '#imports'
+import Button from '~/components/btns/mainBtn.vue'
 
 const route = useRoute();
 const activity = ref(null);
@@ -100,52 +101,20 @@ useHead({
       />
     </div>
     
-    <!--  <div v-if="activity.teacher" class="mt-5">
-      <div class="align-items-center bg-white shadow-lg mt-4 p-0 rounded-4 row">
-        <div class="mb-4 mb-md-0 p-0 col-md-6">
-          <img
-            :src="activity.teacher.imageUrl"
-            class="img-fluid"
-            style="object-fit: cover; width: 100%; max-height: 400px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
-            alt="Teacher Image"
-          />
-        </div>
-        <div class="p-0 col-md-6">
-          <div class="p-4">
-            <h2 class="fs-1">{{ activity.teacher.name }}</h2>
-            <p class="mb-0 lead">{{ activity.teacher.overview }}</p>
-            <a :href="`/teachers/${ activity.teacher.name }`" class="my-link">
-                Learn more <i class="bi-arrow-right bi"></i>
-            </a>
-            <a :href="`/teachers/${ activity.teacher.name }`" class="text-dark text-decoration-none fw-bold"></a>
-          </div>
-        </div>
-      </div>
-    </div>-->
+    <!-- Call Us Section -->
+    <div >
+      <h3 class="my-5 display-4">Book Now</h3>
+      
+      <p class="mb-3 fs-5">
+        Want to know more about this activity?
+        Call us at <strong><a href="tel:+393334445555" class="text-decoration-none">+39 333 444 5555</a></strong>, 
+        send us an <strong><a href="mailto:yogatella@mail.it" class="text-decoration-none">email</a></strong>, or visit our studio in Milan.
+        We’ll guide you through our current offerings and help you find the activity that best fits you and your needs.
+      </p>
 
-    <!-- Guest Section 
-    <div v-if="activity.guest" class="mt-5">
-      <h2 class="text-md-start text-center display-5">Special Guest:</h2>
-
-      <div class="align-items-center bg-white shadow-lg p-0 rounded-4 row">
-        <div class="mb-4 mb-md-0 p-0 col-md-6">
-          <img
-            :src="activity.guest.imageURL"
-            class="img-fluid"
-            style="object-fit: cover; width: 100%; max-height: 400px; border-top-left-radius: 15px; border-bottom-left-radius: 15px;"
-            alt="Guest Image"
-          />
-        </div>
-
-        <div class="p-0 col-md-6">
-          <div class="p-4">
-            <h2 class="fs-1">{{ activity.guest.name }}</h2>
-            <p class ="mb-0 lead">{{ activity.guest.description }}</p>
-          </div>
-        </div>
+      <Button :url="'/contact'" :text="'Contact us'" />
         
-      </div>
-    </div>-->
+    </div>
 
   </div>
 </template>

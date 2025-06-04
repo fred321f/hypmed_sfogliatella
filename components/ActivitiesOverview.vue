@@ -7,17 +7,15 @@
     </div>
     
     <div class="row g-4">
-      <div class="d-flex col-md-4" v-for="(card, index) in filteredCards" :key="index">
-        <div class="col">
-          <Card 
-            :title="card.title" 
-            :description="card.description" 
-            :imageUrl="card.image" 
-            :linkUrl="card.link" 
-            :buttonText="'Read more'" 
-            image_alt_text="Activity overview card image of {{ card.title }}"
-          />
-        </div>
+      <div class="d-flex col-12 col-md-6 col-lg-4" v-for="(card, index) in filteredCards" :key="index">
+        <Card 
+          :title="card.title" 
+          :description="card.description" 
+          :imageUrl="card.image" 
+          :linkUrl="card.link" 
+          :buttonText="'Read more'" 
+          image_alt_text="Activity overview card image of {{ card.title }}"
+        />
       </div>
     </div>
 
