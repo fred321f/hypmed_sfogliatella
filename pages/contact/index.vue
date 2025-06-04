@@ -59,7 +59,7 @@ useHead({
         <h3 class="my-5 display-4">Meet us in person!</h3>
         <p class="my-3">Come visit us in our center in Milan, the receptionist will be ready to answer all your questions and sign you up for the activity that best suits you. </p>
          
-            <div class="row align-items-center  ">
+            <div class="row align-items-center">
                 <div class="col-sm-4 mb-3 mb-sm-0 fs-5 p-3">
                      
                 <p class="mb-3">
@@ -79,9 +79,7 @@ useHead({
                 </div>
 
                 <div class="col-sm-8 ">
-                <div class="map-container rounded-3 overflow-hidden">
                     <LeafletMap />
-                </div>
                 </div>
             </div>
          
