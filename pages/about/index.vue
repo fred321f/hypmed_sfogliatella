@@ -51,10 +51,10 @@ useHead({
         <h2 class="my-5 display-4">Booking and prices</h2>
         <p class="fs-5">
             Ready to explore our 
-            <a href="/courses" class="lead">yoga and meditation courses</a>, 
-            <a href="/seminars" class="lead">seminars</a>, 
-            <a href="/seminars#workshops" class="lead">workshops</a> or 
-            <a href="/retreats" class="lead">retreats</a>? 
+            <a href="/courses" class="text-decoration-none">yoga and meditation courses</a>, 
+            <a href="/seminars" class="text-decoration-none">seminars</a>, 
+            <a href="/seminars#workshops" class="text-decoration-none">workshops</a> or 
+            <a href="/retreats" class="text-decoration-none">retreats</a>? 
             <br>
             We’ll help you find the best path for your goals, lifestyle, and level of experience.
             <br>
@@ -62,7 +62,7 @@ useHead({
             We’ll guide you through our current offerings 
             and create a <strong>personalized plan</strong> that feels right for you.
             <br>
-            No fixed prices here! Every journey is unique. <a href="/contact" class="lead">Contact us</a> today and let’s build something beautiful, together!
+            No fixed prices here! Every journey is unique. <a href="/contact" class="text-decoration-none">Contact us</a> today and let’s build something beautiful, together!
         </p>
     </div>
 </template>
