@@ -48,14 +48,23 @@ useHead({
     <div v-else class="container">
         <h1 class="my-5 text-center display-1">{{ teacher.name }}</h1>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <img :src="teacher.imageUrl" alt="{{ teacher.name }}" class="mb-4 img-fluid image-container" />
+        <div class="align-items-stretch p-0 row">
+            <!-- IMAGE -->
+            <div class="d-flex align-items-center justify-content-center mb-4 mb-md-0 p-0 p-3 col-12 col-md-6">
+                <img
+                    :src="teacher.imageUrl"
+                    :alt="teacher.name"
+                    class="shadow-lg w-100 h-100 img-fluid image-container"
+                    style="object-fit: cover; max-width: 400px; max-height: 400px;"
+                />
             </div>
-
-            <div class="col-12 col-md-6">
-                <p class="lead"><strong>{{ teacher.overview }}</strong></p>    <!-- Better to remove it? -->
-                <p class="lead">{{ teacher.description }}</p>
+            <!-- TEXT -->
+            <div class="d-flex align-items-center p-0 col-12 col-md-6">
+                <div class="p-4 w-100 text-center fs-5">
+                    <h2 class="mb-3">About {{ teacher.name }}</h2>
+                    <p class="lead"><strong>{{ teacher.overview }}</strong></p>
+                    <p class="lead">{{ teacher.description }}</p>
+                </div>
             </div>
         </div>
         <div class="row">

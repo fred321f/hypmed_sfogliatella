@@ -2,7 +2,7 @@ const { MongoClient } = require('mongodb');
 
 const uri = process.env.MONGO_URI;
 const dbName = 'yogatella'; // Replace with your database name
-const collectionName = 'teachers'; // Replace with your collection name
+const collectionName = 'seminars'; // Replace with your collection name
 
 async function removeFieldFromDb() {
   const client = new MongoClient(uri);
