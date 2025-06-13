@@ -14,32 +14,36 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 
 <template> 
   <div>
-    <div v-if="error" class="alert alert-danger">{{ error }}</div>
-    
-    <div class="row">
-      <div class="col-md-4 mb-4" v-for="activity in activities" :key="activity.id">
-
-        <Card 
-          :type="'vertical'" 
-          :title="activity.name" 
-          :description="activity.overview" 
-          :imageUrl="getImage(activity)"
-          :buttonText="'Read more'" 
-          :linkUrl="'/activities/' + activity.name" 
-
-          :taughtBy="activity.teacher" 
-          :guest="activity.guest"
-          :location="activity.location"
-          :id="activity.name.replace(/\s+/g, '-').toLowerCase()"
-          :level="activity.level"
-          :activityType="activity.type"
-        />
-        
-      </div>
+    <div v-if="loading" class="text-center">
+      <loadingSpinner label="Loading activities..." />
     </div>
+    <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
+    <div v-else>
+      <div class="row">
+        <div class="mb-4 col-md-4" v-for="activity in activities" :key="activity.id">
 
-    <div v-if="!activities.length && !error" class="text-center">
-      <p>No results found for your search. Try something else.</p>
+          <Card 
+            :type="'vertical'" 
+            :title="activity.name" 
+            :description="activity.overview" 
+            :imageUrl="getImage(activity)"
+            :buttonText="'Read more'" 
+            :linkUrl="'/activities/' + activity.name" 
+
+            :taughtBy="activity.teacher" 
+            :guest="activity.guest"
+            :location="activity.location"
+            :id="activity.name.replace(/\s+/g, '-').toLowerCase()"
+            :level="activity.level"
+            :activityType="activity.type"
+          />
+          
+        </div>
+      </div>
+
+      <div v-if="!activities.length" class="text-center">
+        <p>No results found for your search. Try something else.</p>
+      </div>
     </div>
   </div>
 </template>
@@ -48,6 +52,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 
 <script setup>
 import Card from "@/components/cards/Card.vue";
+import loadingSpinner from "@/components/loadingSpinner.vue";
 import { ref, watch, onMounted } from 'vue';
 import { getImage } from '../utility/getImage';  // <-- import the function
 
@@ -71,6 +76,7 @@ const props = defineProps({
 
 const activities = ref([]);
 const error = ref(null);
+const loading = ref(true);
 
 // Build dynamic query string from props
 const buildQuery = () => {
@@ -113,6 +119,8 @@ const fetchActivities = async () => {
     }
   } catch (err) {
     error.value = err.message;
+  } finally {
+    loading.value = false;
   }
 };
 

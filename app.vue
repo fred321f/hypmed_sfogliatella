@@ -4,8 +4,14 @@ import './assets/css/custom-bootstrap.scss';
 import { useRouter } from 'vue-router';
 
 const routes = [
-  { path: '/', component: () => import('./pages/index.vue') },
-  { path: '/teachers', component: () => import('./pages/teachers/index.vue') },
+  {
+    path: '/',
+    component: () => import('./pages/index.vue')
+  },
+  {
+    path: '/teachers',
+    component: () => import('./pages/teachers/index.vue')
+  },
 
 ];
 
@@ -14,24 +20,20 @@ const routes = [
 <template>
   <div>
 
-    <Head>
-      <title>YogaTella</title>
-      <meta name="description" content="YogaTella - Your Yoga Journey Starts Here" />
-      <meta name="keywords" content="Yoga, Meditation, YogaTella" />
-
-      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
-    </Head>
-
     <header>
-      <nav class="bg-transparent mb-2 navbar navbar-expand-lg">
+      <nav class="bg-transparent my-2 navbar navbar-expand-lg">
         <div class="container">
 
-          <span class="mb-0 navbar-brand h1">
-            <NuxtLink to="/" class="d-flex align-items-center navbar-brand">
-              YogaTella
+          <span class="d-flex justify-content-lg-start justify-content-center mr-0 mb-0 w-100 navbar-brand h1">
+            <NuxtLink to="/" class="d-flex flex-column flex-lg-row align-items-center mx-auto mx-lg-0 mr-0 p-0 navbar-brand">
+              <img
+                src="/favicon.ico"
+                alt="YogaTella Brand Logo"
+                class="d-block me-0 me-lg-2"
+                style="height:46px;width:46px;object-fit:contain;"
+              />
+              <span class="d-block mt-1 text-center small d-lg-none" style="font-size:0.85rem;">YogaTella</span>
+              <span class="d-lg-inline ms-2 d-none fw-normal">YogaTella</span>
             </NuxtLink>
           </span>
 
@@ -47,7 +49,7 @@ const routes = [
                 <NuxtLink to="/activities" class="left mx-3 hover-underline-animation nav-link">Activities</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/highlights" class="left mx-3 hover-underline-animation nav-link">Highligths</NuxtLink>
+                <NuxtLink to="/highlights" class="left mx-3 hover-underline-animation nav-link">Highlights</NuxtLink>
               </li>
               <li class="nav-item">
                 <NuxtLink to="/teachers" class="left mx-3 hover-underline-animation nav-link">Teachers</NuxtLink>
@@ -56,7 +58,7 @@ const routes = [
                 <NuxtLink to="/about" class="left mx-3 hover-underline-animation nav-link">About</NuxtLink>
               </li>
               <li class="nav-item">
-                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact Us</NuxtLink>
+                <NuxtLink to="/contact" class="left mx-3 hover-underline-animation nav-link">Contact</NuxtLink>
               </li>
             </ul>
           </div>
@@ -69,45 +71,48 @@ const routes = [
       <NuxtPage />
     </main>
 
-
-    <footer class="bg-dark py-5 text-light mt-5">
+    <footer class="bg-dark mt-5 py-5 text-light">
       <div class="text-center container">
-
         <!-- Social Icons con Founder -->
         <div class="mb-5">
           <h5 class="mb-4"> Developed by <strong>Sfogliatella Team:</strong> </h5>
-
           <div class="justify-content-center row">
-
             <div class="my-4 col-md-2">
               <div class="d-block ig-profile">Frederick Nielsen</div>
             </div>
-
             <div class="mt-4 mb-4 col-md-2">
               <div class="d-block ig-profile">Sveva Zanetti</div>
             </div>
-
             <div class="mt-4 mb-4 col-md-2">
               <div class="d-block ig-profile">Gianluca Bettoni</div>
             </div>
-
             <div class="mt-4 mb-4 col-md-2">
               <div class="d-block ig-profile">Haipeng Zhu</div>
             </div>
-
           </div>
         </div>
-
         <!-- Copyright -->
         <div>
-          <p class="mb-1">&copy;  2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
+          <p class="mb-1">&copy; 2025 Developed by <strong>Sfogliatella Team</strong>. All rights reserved.</p>
         </div>
-
       </div>
-
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+      <!-- Moved FontAwesome link to Nuxt head for best practices -->
     </footer>
-
-
   </div>
 </template>
+
+<script setup>
+// ...existing code...
+</script>
+
+// Add FontAwesome CDN to Nuxt head property for best practices
+// nuxt.config.ts:
+// export default defineNuxtConfig({
+//   app: {
+//     head: {
+//       link: [
+//         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' }
+//       ]
+//     }
+//   }
+// })

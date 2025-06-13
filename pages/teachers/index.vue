@@ -1,5 +1,13 @@
 <script setup>
 import Teachers from '~/components/TeachersList.vue';
+import { useHead } from '#imports'
+
+useHead({
+  title: 'Teachers | YogaTella',
+  meta: [
+    { name: 'description', content: 'Meet our dedicated and experienced yoga teachers at YogaTella.' }
+  ]
+})
 </script>
 
 <template>

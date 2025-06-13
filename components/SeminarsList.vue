@@ -28,7 +28,7 @@
             <div class="card-body">
               <h5 class="card-title">{{ seminar.name }}</h5>
               <p class="card-text">{{ seminar.description }}</p> 
-              <h6 class="text-muted">Led by: <strong>{{ seminar.heldBy }}</strong></h6> <!-- ADD RELATED LINK!!!!!!!! -->
+              <h6 class="text-muted">Led by: <strong>{{ seminar.heldBy }}</strong></h6>
               <div class="gap-2 d-grid">
                 <button class="btn btn-primary">Read more</button>
               </div>
@@ -45,6 +45,7 @@
 
 <script setup>
 import { ref, onMounted } from 'vue';
+import loadingSpinner from '@/components/loadingSpinner.vue';
 
 const seminars = ref([]);
 const error = ref(null);

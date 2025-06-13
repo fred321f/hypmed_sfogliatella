@@ -1,15 +1,13 @@
 <script setup>
 import Overview from '~/components/ActivitiesOverview.vue';
-import { useHead } from '#app';
-import Chatbot from '~/components/Chatbot.vue'; // Make sure this import path is correct
+import { useHead } from '#imports'
 
-// Set SEO metadata
 useHead({
   title: 'Activities | YogaTella',
   meta: [
-    { name: 'description', content: 'Explore our wide range of yoga, meditation and wellness activities at YogaTella Yoga Center' },
+    { name: 'description', content: 'Explore all yoga, meditation, and wellness activities at YogaTella.' }
   ]
-});
+})
 </script>
 
 <template>

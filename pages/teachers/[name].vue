@@ -1,10 +1,9 @@
 <script setup>
 import ActivitiesList from '~/components/ActivitiesListFilters.vue';
-
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
-
 import loadingSpinner from '@/components/loadingSpinner.vue';
+import { useHead } from '#imports';
 
 const route = useRoute();
 const teacher = ref(null);
@@ -30,6 +29,13 @@ onMounted(async () => {
         loading.value = false; // Set loading to false after fetching
     }
 });
+
+useHead({
+  title: teacher.value ? `${teacher.value.name} - Yoga Teacher | YogaTella` : 'Yoga Teacher | YogaTella',
+  meta: [
+    { name: 'description', content: teacher.value ? `Learn more about ${teacher.value.name}, one of our expert yoga teachers at YogaTella.` : 'Meet our expert yoga teachers at YogaTella.' }
+  ]
+})
 </script>
 
 <template>

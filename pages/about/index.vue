@@ -1,29 +1,37 @@
 <script setup>
 import Button from '~/components/btns/mainBtn.vue'
+import { useHead } from '#imports'
+
+useHead({
+  title: 'About YogaTella',
+  meta: [
+    { name: 'description', content: 'Learn about the story, values, and pricing of YogaTella, your yoga center in Milan.' }
+  ]
+})
 </script>
 
 <template>
-    <div class="mb-5 container ">
+    <div class="mb-5 container">
         <div class="text-center container">
-            <h1 class="my-5  display-1">About YogaTella</h1>
-            <h2 class="my-5  lead">On this page, you can learn more about our story and values, and explore our prices policy. Whether you're new to yoga or deepening an existing practice, Yogatella offers a supportive environment led by experienced teachers.</h2>
+            <h1 class="my-5 display-1">About YogaTella</h1>
+            <h2 class="my-5 lead">On this page, you can learn more about our story and values, and explore our prices policy. Whether you're new to yoga or deepening an existing practice, Yogatella offers a supportive environment led by experienced teachers.</h2>
         </div>
 
         <h2 class="my-5 display-4">A bit of history</h2>
-        <div class="row align-items-stretch p-0">
+        <div class="align-items-stretch p-0 row">
             <!-- IMAGE -->
-            <div class="col-12 col-md-6 p-0 mb-4 mb-md-0 d-flex p-3">
+            <div class="d-flex mb-4 mb-md-0 p-0 p-3 col-12 col-md-6">
                 <img
                 src="https://res.cloudinary.com/dpba22oef/image/upload/v1746785133/L11-0606FF-Eucalyptus_Window-Film_ROOM-1_jhqjpi.jpg"
-                class="img-fluid w-100 h-100 shadow-lg rounded"
+                class="shadow-lg rounded w-100 h-100 img-fluid"
                 style="object-fit: cover;"
                 alt="Image of yoga center"
                 />
             </div>
 
             <!-- TEXT -->
-            <div class="col-12 col-md-6 p-0 d-flex align-items-center">
-                <div class="p-4 fs-5 w-100">
+            <div class="d-flex align-items-center p-0 col-12 col-md-6">
+                <div class="p-4 w-100 fs-5">
                 <p>
                     Founded in 1968, Yogatella has been a cornerstone of the yoga community
                     for over five decades. From the very beginning, the center has focused
