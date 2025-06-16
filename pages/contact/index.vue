@@ -62,20 +62,21 @@ useHead({
             <div class="row align-items-center">
                 <div class="col-sm-4 mb-3 mb-sm-0 fs-5 p-3">
                      
-                <p class="mb-3">
-                    <strong>Address of the center:</strong><br />
-                    <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" 
-                        class="text-decoration-none text-dark" >
-                        Via Ponzio, 7<br />
-                        20131 Milan MI<br />
-                        Italy  
-                    </a>
-                </p>
-                <p>
-                    <strong>Opening Hours:</strong><br />
-                    Monday – Friday<br />
-                    8:00 AM – 7:00 PM
-                </p>
+                    <p class="mb-3">
+                        <strong>Address of the center:</strong><br />
+                        <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" 
+                            class="text-decoration-none text-dark" >
+                            Via Ponzio, 7<br />
+                            20131 Milan MI<br />
+                            Italy  
+                        </a>
+                    </p>
+                    <p>
+                        <strong>Opening Hours:</strong><br />
+                        Monday to Friday: 8:30 – 19:30 <br />
+                        Saturday and Sunday: 8:30 – 12:30
+                    </p>
+
                 </div>
 
                 <div class="col-sm-8 ">
