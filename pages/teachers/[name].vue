@@ -48,16 +48,24 @@ useHead({
     <div v-else class="container">
         <h1 class="my-5 text-center display-1">{{ teacher.name }}</h1>
 
-        <div class="row">
-            <div class="col-12 col-md-6">
-                <img :src="teacher.imageUrl" alt="{{ teacher.name }}" class="mb-4 img-fluid image-container" />
+        <div class="align-items-stretch p-0 row">
+            <div class="d-flex mb-4 mb-md-0 p-0 p-3 col-md-6">
+                <img
+                :src="teacher.imageUrl" alt="{{ teacher.name }}" 
+                class="shadow-lg w-100 h-100 img-fluid"
+                style="object-fit: cover; border-radius: 15px;"
+                />
             </div>
-
-            <div class="col-12 col-md-6">
-                <p class="lead"><strong>{{ teacher.overview }}</strong></p>    <!-- Better to remove it? -->
-                <p class="lead">{{ teacher.description }}</p>
+            
+            <div class="d-flex align-items-center p-0 col-md-6">
+                <div class="p-4 w-100 fs-5">
+                    <p><strong>{{ teacher.overview }}</strong> with <strong>{{ teacher.years_experience }}</strong> years of experience!</p> 
+                    <p>{{ teacher.description }}</p>
+                </div>
             </div>
         </div>
+
+
         <div class="row">
             <h2 class="my-3 display-4">Join my classes</h2>
             <!-- Classes list -->
@@ -69,5 +77,6 @@ useHead({
             <!-- List of other activities -->
             <ActivitiesList :teacherID="teacher._id" types="Seminar Workshop Retreat" />
         </div>
+        
     </div>
 </template>
