@@ -50,7 +50,7 @@ const imageLoaded = ref(false);
 function handleImageLoad() {
     imageLoaded.value = true;
 }
-// ✅ Verifica se l'immagine è già caricata da cache
+
 onMounted(() => {
     const img = new Image();
     img.src = props.imageUrl;
