@@ -64,12 +64,11 @@ useHead({
                      
                     <p class="mb-3">
                         <strong>Address of the center:</strong><br />
-                        <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" 
-                            class="text-decoration-none text-dark" >
+                        
                             Via Ponzio, 7<br />
                             20131 Milan MI<br />
                             Italy  
-                        </a>
+                        
                     </p>
                     <p>
                         <strong>Opening Hours:</strong><br />

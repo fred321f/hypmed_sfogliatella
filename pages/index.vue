@@ -116,13 +116,12 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
                 <p class="my-3">Come visit us to experience the peaceful atmosphere of Yogatella.</p>
 
                 <p class="mb-3"> 
-                    <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" 
-                        class="text-decoration-none text-dark" >
+                    
                         <strong>Address of the center:</strong><br />
                         Via Ponzio, 7<br />
                         20131 Milan MI<br />
                         Italy  
-                    </a>
+                    
                 </p>
                 <Button :url="'/contact'" :text="'Contact us'" />
             </div>
