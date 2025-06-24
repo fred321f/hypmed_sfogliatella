@@ -1,5 +1,5 @@
 <script setup>
-import ActivitiesListFilters from '~/components/ActivitiesListFilters.vue';
+import ActivitiesList from '~/components/ActivitiesListFilters.vue';
 import Overview from '~/components/ActivitiesOverview.vue';
 import { useHead } from '#imports';
 
@@ -21,10 +21,10 @@ useHead({
     </p>
 
     <h2 class="my-5 text-center display-4" id="seminars">Seminars</h2>
-    <ActivitiesListFilters type="Seminar"/>
+    <ActivitiesList type="Seminar"/>
 
     <h2 class="my-5 text-center display-4" id="workshops">Workshops</h2>
-    <ActivitiesListFilters type="Workshop"/>
+    <ActivitiesList type="Workshop"/>
 
     
     <h1 class="my-5 text-center display-1">Other activities</h1>
