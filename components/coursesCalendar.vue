@@ -86,10 +86,38 @@ const showTypes = computed(() =>
 );
 
 
-const courses = ref([]);
-const error = ref(null);
-const daysOfWeek = ref([]);
-const availableTimes = ref([]);
+const { data: courses, error } = await useLazyFetch('/api/activitiesFilters', {
+  query: computed(() => {
+    const params = {};
+    Object.entries(props).forEach(([key, value]) => {
+      if (value) params[key] = value;
+    });
+    return params;
+  }),
+  transform: (result) => {
+    if (result.success) {
+      return result.data;
+    } else {
+      throw createError({
+        statusCode: 500,
+        statusMessage: result.message || 'Failed to fetch courses'
+      });
+    }
+  },
+  default: () => []
+});
+
+// Computed properties for days and times
+const daysOfWeek = computed(() => {
+  const weekOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const uniqueDays = [...new Set(courses.value.map(course => course.day))];
+  return weekOrder.filter(day => uniqueDays.includes(day));
+});
+
+const availableTimes = computed(() => {
+  return [...new Set(courses.value.map(course => course.time))]
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+});
 
 const filteredTimes = computed(() => {
   return availableTimes.value.filter(time =>
@@ -101,49 +129,9 @@ const filteredTimes = computed(() => {
   );
 });
 
-
 // Funzione per filtrare corsi in base a giorno e orario
 const getCoursesForSlot = (day, time) =>
   courses.value.filter(course => course.day === day && course.time === time);
-
-  onMounted(async () => {
-  try {
-    let url = '/api/activitiesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
-    const params = new URLSearchParams();
-
-    // Costruisce dinamicamente i filtri dalla props (tipo, livello, etc.)
-    Object.entries(props).forEach(([key, value]) => {
-      if (value) params.append(key, value); // Aggiungi solo i parametri che non sono vuoti
-    });
-
-    if (params.toString()) {
-      url += `?${params.toString()}`; // Aggiungi i filtri all'URL della richiesta
-    }
-
-    const response = await fetch(url); // Effettua la richiesta al server
-    const result = await response.json(); // Converte la risposta in JSON
-
-    if (result.success) {
-      courses.value = result.data; // Memorizza i corsi ricevuti
-
-      // Estrae i giorni unici dai corsi ricevuti
-      const weekOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']; // Ordine predefinito dei giorni
-      const uniqueDays = [...new Set(result.data.map(course => course.day))]; // Estrae i giorni unici dai corsi ricevuti
-
-      // Ordina i giorni secondo l'ordine canonico (Lunedì - Domenica)
-      daysOfWeek.value = weekOrder.filter(day => uniqueDays.includes(day)); // Filtra solo i giorni che esistono nei corsi ricevuti
-
-      // Estrae e ordina gli orari unici
-      availableTimes.value = [...new Set(result.data.map(course => course.time))] // Estrae gli orari unici
-        .sort((a, b) => a.localeCompare(b, 'en', { numeric: true })); // Ordina gli orari in ordine crescente (alfabetico e numerico)
-
-    } else {
-      throw new Error(result.message || 'Unknown error'); // Se la risposta non è di successo, lancia un errore
-    }
-  } catch (err) {
-    error.value = err.message; // Se si verifica un errore, memorizza il messaggio di errore
-  }
-});
 </script>
 
 

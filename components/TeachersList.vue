@@ -1,39 +1,20 @@
 <!-- Fetching from the db -->
 <script setup>
 import loadingSpinner from './loadingSpinner.vue';
-
 import Card from "~/components/cards/Card.vue";
-</script>
-
-<script>
-export default {
-    data() {
-        return {
-            teachers: [],
-            error: null, // Add an error state
-            loading: true // Add a loading state
-        };
-    },
-    async created() {
-        try {
-            const response = await fetch('/api/teachers');
-            if (!response.ok) {
-                throw new Error('Failed to fetch teachers');
-            }
-            const result = await response.json();
-            if (result.success) {
-                this.teachers = result.data;
-            } else {
-                throw new Error(result.message || 'Unknown error occurred');
-            }
-        } catch (error) {
-            console.error(error);
-            this.error = error.message; // Set the error state
-        } finally {
-            this.loading = false; // Set loading to false after fetching
-        }
+const { data: teachers, error, pending: loading } = await useLazyFetch('/api/teachers', {
+  transform: (result) => {
+    if (result.success) {
+      return result.data;
+    } else {
+      throw createError({
+        statusCode: 500,
+        statusMessage: result.message || 'Failed to fetch teachers'
+      });
     }
-};
+  },
+  default: () => []
+});
 </script>
 
 <template>

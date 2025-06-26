@@ -17,7 +17,7 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     <div v-if="loading" class="text-center">
       <loadingSpinner label="Loading activities..." />
     </div>
-    <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
+    <div v-else-if="error" class="alert alert-danger">{{ error.message || error }}</div>
     <div v-else>
       <div class="row g-4">
         <div class="d-flex mb-4 col-12 col-md-6 col-lg-4" v-for="activity in activities" :key="activity.id">
@@ -52,8 +52,6 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 <script setup>
 import Card from "@/components/cards/Card.vue";
 import loadingSpinner from "@/components/loadingSpinner.vue";
-import { ref, onMounted } from 'vue';
-
 import { getImage } from '../utility/getImage';  // <-- to load the image from the server
 
 const props = defineProps({
@@ -67,39 +65,21 @@ const props = defineProps({
   }
 });
 
-const activities = ref([]);
-const error = ref(null);
-const loading = ref(true);
-
-onMounted(async () => {
-  try {
-    let url = '/api/activities';
-    const params = [];
-
-    if (props.type) {
-      params.push(`type=${encodeURIComponent(props.type)}`);
-    }
-
-    if (props.highlights !== null) {
-      params.push(`highlights=${props.highlights}`);
-    }
-
-    if (params.length) {
-      url += `?${params.join('&')}`;
-    }
-
-    const response = await fetch(url);
-    const result = await response.json();
-
+const { data: activities, error, pending: loading } = await useLazyFetch('/api/activities', {
+  query: {
+    ...(props.type && { type: props.type }),
+    ...(props.highlights !== null && { highlights: props.highlights })
+  },
+  transform: (result) => {
     if (result.success) {
-      activities.value = result.data;
+      return result.data;
     } else {
-      throw new Error(result.message || 'Unknown error');
+      throw createError({
+        statusCode: 500,
+        statusMessage: result.message || 'Unknown error'
+      });
     }
-  } catch (err) {
-    error.value = err.message;
-  } finally {
-    loading.value = false;
-  }
+  },
+  default: () => []
 });
 </script>

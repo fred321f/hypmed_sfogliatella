@@ -28,8 +28,6 @@
 
 <script setup>
 import Button from '@/components/btns/mainBtn.vue';
-import { ref } from 'vue';
-import placeholderImg from '~/assets/img/placeholder.svg';
 
 const props = defineProps({
     type: { type: String, default: 'vertical' },
@@ -45,19 +43,6 @@ const props = defineProps({
     id: { type: String, required: false, default: null },
     image_alt_text: { type: String, required: false, default: 'Image of content card header' },
 });
-
-const imageLoaded = ref(false);
-function handleImageLoad() {
-    imageLoaded.value = true;
-}
-// ✅ Verifica se l'immagine è già caricata da cache
-onMounted(() => {
-    const img = new Image();
-    img.src = props.imageUrl;
-    if (img.complete && img.naturalWidth !== 0) {
-        imageLoaded.value = true;
-    }
-});
 </script>
 <template>
     <!-- Cards for teacher and activities -->
@@ -65,12 +50,8 @@ onMounted(() => {
         <div class="h-100">
             <div class="shadow-lg border-0 rounded-4 h-100 overflow-hidden card">
                 <div class="position-relative overflow-hidden">
-                    <img v-if="!imageLoaded" :src="placeholderImg"
-                        class="card-img-top top-0 position-absolute w-100 h-100 activity-img start-0"
-                        :alt="'Placeholder'" style="z-index:1;" format="webp" />
-                    <img :src="imageUrl" class="card-img-top activity-img" loading="lazy" alt="Image of {{ title }}"
-                        @load="handleImageLoad" :style="!imageLoaded ? 'opacity:0;' : 'opacity:1; z-index:2;'"
-                        format="webp" />
+                    <img :src="imageUrl" class="card-img-top activity-img" loading="lazy" 
+                         :alt="`Image of ${title}`" format="webp" />
                 </div>
                 <div class="d-flex flex-column flex-grow-1 card-body">
                     <h1 class="card-title fs-4 fw-bold">{{ title }}</h1>
@@ -96,20 +77,12 @@ onMounted(() => {
                 <div
                     class="d-flex flex-column flex-md-row align-items-stretch shadow-lg m-3 border-0 rounded-4 w-100 overflow-hidden card">
                     <div class="position-relative flex-shrink-0 overflow-hidden">
-                        <!-- Mobile/tablet -->
-                        <img v-if="!imageLoaded" :src="placeholderImg"
-                            class="card-img-top top-0 position-absolute w-100 h-100 d-md-none activity-img start-0"
-                            :alt="'Placeholder'" style="z-index:1;" format="webp" />
+                        <!-- Mobile/tablet image -->
                         <img :src="imageUrl" class="card-img-top d-md-none activity-img" loading="lazy"
-                            alt="Image of {{ title }}" @load="handleImageLoad"
-                            :style="!imageLoaded ? 'opacity:0;' : 'opacity:1; z-index:2;'" format="webp" />
-                        <!-- Desktop -->
-                        <img v-if="!imageLoaded" :src="placeholderImg"
-                            class="d-md-block top-0 card-img-left position-absolute w-100 h-100 h-100 d-none activity-img start-0"
-                            :alt="'Placeholder'" style="z-index:1;" format="webp" />
+                            :alt="`Image of ${title}`" format="webp" />
+                        <!-- Desktop image -->
                         <img :src="imageUrl" class="d-md-block card-img-left h-100 d-none activity-img" loading="lazy"
-                            alt="Image of {{ title }}" @load="handleImageLoad"
-                            :style="!imageLoaded ? 'opacity:0;' : 'opacity:1; z-index:2;'" format="webp" />
+                            :alt="`Image of ${title}`" format="webp" />
                     </div>
                     <div class="d-flex flex-column justify-content-between h-100 card-body">
                         <h1 class="card-title fs-4 fw-bold">{{ title }}</h1>

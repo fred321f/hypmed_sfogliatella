@@ -1,33 +1,25 @@
 <script setup>
 import ActivitiesList from '~/components/ActivitiesListFilters.vue';
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
 import loadingSpinner from '@/components/loadingSpinner.vue';
 import { useHead } from '#imports';
 
 const route = useRoute();
-const teacher = ref(null);
-const error = ref(null);
-const loading = ref(true); // Add a loading state
 
-onMounted(async () => {
-    try {
-        const response = await fetch(`/api/teachers?name=${route.params.name}`);
-        if (!response.ok) {
-            throw new Error('Failed to fetch teacher details');
-        }
-        const result = await response.json();
-        if (result.success) {
-            teacher.value = result.data;
-        } else {
-            throw new Error(result.message || 'Unknown error occurred');
-        }
-    } catch (err) {
-        console.error(err);
-        error.value = err.message;
-    } finally {
-        loading.value = false; // Set loading to false after fetching
+
+const { data: teacher, error, pending: loading } = await useLazyFetch('/api/teachers', {
+  query: {
+    name: route.params.name
+  },
+  transform: (result) => {
+    if (result.success) {
+      return result.data;
+    } else {
+      throw createError({
+        statusCode: 404,
+        statusMessage: result.message || 'Teacher not found'
+      });
     }
+  }
 });
 
 useHead({
