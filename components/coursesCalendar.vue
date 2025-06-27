@@ -86,10 +86,38 @@ const showTypes = computed(() =>
 );
 
 
-const courses = ref([]);
-const error = ref(null);
-const daysOfWeek = ref([]);
-const availableTimes = ref([]);
+const { data: courses, error } = await useLazyFetch('/api/activitiesFilters', {
+  query: computed(() => {
+    const params = {};
+    Object.entries(props).forEach(([key, value]) => {
+      if (value) params[key] = value;
+    });
+    return params;
+  }),
+  transform: (result) => {
+    if (result.success) {
+      return result.data;
+    } else {
+      throw createError({
+        statusCode: 500,
+        statusMessage: result.message || 'Failed to fetch courses'
+      });
+    }
+  },
+  default: () => []
+});
+
+// Computed properties for days and times
+const daysOfWeek = computed(() => {
+  const weekOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const uniqueDays = [...new Set(courses.value.map(course => course.day))];
+  return weekOrder.filter(day => uniqueDays.includes(day));
+});
+
+const availableTimes = computed(() => {
+  return [...new Set(courses.value.map(course => course.time))]
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+});
 
 const filteredTimes = computed(() => {
   return availableTimes.value.filter(time =>

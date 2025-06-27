@@ -17,10 +17,10 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
     <div v-if="loading" class="text-center">
       <loadingSpinner label="Loading activities..." />
     </div>
-    <div v-else-if="error" class="alert alert-danger">{{ error }}</div>
+    <div v-else-if="error" class="alert alert-danger">{{ error.message || error }}</div>
     <div v-else>
       <div class="row">
-        <div class="mb-4 d-flex col-12 col-md-6 col-lg-4" v-for="activity in activities" :key="activity.id">
+        <div class="d-flex mb-4 col-12 col-md-6 col-lg-4" v-for="activity in activities" :key="activity.id">
 
           <Card 
             :type="'vertical'" 
@@ -53,7 +53,6 @@ N.B. Remember also to change the realated server/api/courses.ts if needed
 <script setup>
 import Card from "@/components/cards/Card.vue";
 import loadingSpinner from "@/components/loadingSpinner.vue";
-import { ref, watch, onMounted } from 'vue';
 import { getImage } from '../utility/getImage';  // <-- import the function
 
 // Accept various filters as props
@@ -74,62 +73,44 @@ const props = defineProps({
   }
 });
 
-const activities = ref([]);
-const error = ref(null);
-const loading = ref(true);
-
-// Build dynamic query string from props
-const buildQuery = () => {
-  const params = new URLSearchParams();
-
-  if (props.name) params.append('name', props.name);
-  if (props.type) params.append('type', props.type);
-  if (props.teacher) params.append('teacher', props.teacher);
-  if (props.teacherID) params.append('teacherID', props.teacherID);
-  if (props.level) params.append('level', props.level);
-  if (props.description) params.append('description', props.description);
-  if (props.day) params.append('day', props.day);
-  if (props.time) params.append('time', props.time);
-  if (props.sort) params.append('sort', 'true');
-
-  if (props.types) {
-    props.types.split(' ').forEach(t => {
-      if (t.trim()) params.append('type', t.trim());
-    });
-  }
-  
-  return params.toString();
-};
-
-const fetchActivities = async () => {
-  try {
-    let url = '/api/activitiesFilters'; // API endpoint for fetching activities
-    const query = buildQuery();
-    if (query) {
-      url += `?${query}`;
+const { data: activities, error, pending: loading } = await useLazyFetch('/api/activitiesFilters', {
+  query: computed(() => {
+    const params = {};
+    if (props.name) params.name = props.name;
+    if (props.type) params.type = props.type;
+    if (props.teacher) params.teacher = props.teacher;
+    if (props.teacherID) params.teacherID = props.teacherID;
+    if (props.level) params.level = props.level;
+    if (props.description) params.description = props.description;
+    if (props.day) params.day = props.day;
+    if (props.time) params.time = props.time;
+    if (props.sort) params.sort = 'true';
+    
+    if (props.types) {
+      const types = props.types.split(' ').filter(t => t.trim());
+      if (types.length === 1) {
+        params.type = types[0];
+      } else if (types.length > 1) {
+        types.forEach((t, index) => {
+          params[`type${index === 0 ? '' : index}`] = t;
+        });
+      }
     }
-
-    const response = await fetch(url);
-    const result = await response.json();
-
+    
+    return params;
+  }),
+  transform: (result) => {
     if (result.success) {
-      activities.value = result.data;
+      return result.data;
     } else {
-      throw new Error(result.message || 'Unknown error');
+      throw createError({
+        statusCode: 500,
+        statusMessage: result.message || 'Failed to fetch activities'
+      });
     }
-  } catch (err) {
-    error.value = err.message;
-  } finally {
-    loading.value = false;
-  }
-};
-
-// Fetch on initial load
-onMounted(fetchActivities);
-
-// Reactively refetch when any prop changes
-watch(() => ({ ...props }), fetchActivities, { deep: true });
-
+  },
+  default: () => []
+});
 </script>
 
 

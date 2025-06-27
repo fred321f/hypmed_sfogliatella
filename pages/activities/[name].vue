@@ -1,6 +1,4 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { useRoute } from 'vue-router';
 import loadingSpinner from '@/components/loadingSpinner.vue';
 import Card from '~/components/cards/Card.vue';
 import { getImage } from '../utility/getImage';  // <-- to load the image from the server
@@ -8,27 +6,23 @@ import { useHead } from '#imports'
 import Button from '~/components/btns/mainBtn.vue'
 
 const route = useRoute();
-const activity = ref(null);
-const error = ref(null);
-const loading = ref(true);
 
-onMounted(async () => {
-  try {
-    const response = await fetch(`/api/activitiesTeacher?name=${route.params.name}`);
-    const result = await response.json();
 
+const { data: activity, error, pending: loading } = await useLazyFetch('/api/activitiesTeacher', {
+  query: {
+    name: route.params.name
+  },
+  transform: (result) => {
     if (result.success) {
-      activity.value = result.data;
+      return result.data;
     } else {
-      throw new Error(result.message);
+      throw createError({
+        statusCode: 404,
+        statusMessage: result.message || 'Activity not found'
+      });
     }
-  } catch (err) {
-    console.error(err);
-    error.value = err.message;
-  } finally {
-    loading.value = false;
   }
-}); 
+});
 
 useHead({
   title: activity.value ? `${activity.value.name} - Activity | YogaTella` : 'Activity | YogaTella',
