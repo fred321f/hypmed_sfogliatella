@@ -87,6 +87,35 @@ h1.display-1 {
     font-size: 1.8rem !important;
 }
 
+@media (max-width: 991.98px) { /* Bootstrap lg breakpoint */
+  .navbar-brand {
+    font-size: 1.1rem !important;
+    gap: 0.25rem;
+  }
+  .navbar-nav .nav-link {
+    margin-left: 0.25rem !important;
+    margin-right: 0.25rem !important;
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}
+
+@media (max-width: 575.98px) { /* Bootstrap sm breakpoint */
+  .navbar-brand {
+    font-size: 1rem !important;
+  }
+  .navbar-nav .nav-link {
+    font-size: 0.95rem;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+  }
+}
+
+.navbar-nav {
+  flex-wrap: wrap;
+}
+
 /* Animated hovering */
 .hover-underline-animation {
     display: inline-block;

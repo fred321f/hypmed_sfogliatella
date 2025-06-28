@@ -6,31 +6,31 @@ import ActivitiesList from '~/components/ActivitiesList.vue';
 import { useHead } from '#imports'
 
 useHead({
-  title: 'YogaTella',
-  meta: [
-    { name: 'description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
-    { name: 'keywords', content: 'Yoga, Meditation, Milan, YogaTella, Retreats, Teachers' },
-    
-    // Open Graph
-    { property: 'og:title', content: 'YogaTella' },
-    { property: 'og:description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://yogatella.com/' },
-    { property: 'og:image', content: 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg' },
-    
-    // Twitter Card
-    { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'YogaTella' },
-    { name: 'twitter:description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
-    { name: 'twitter:image', content: 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg' }
-  ],
-  link: [
-    { rel: 'canonical', href: 'https://yogatella.com/' }
-  ],
-  script: [
-    {
-      type: 'application/ld+json',
-      children: `{
+    title: 'YogaTella',
+    meta: [
+        { name: 'description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
+        { name: 'keywords', content: 'Yoga, Meditation, Milan, YogaTella, Retreats, Teachers' },
+
+        // Open Graph
+        { property: 'og:title', content: 'YogaTella' },
+        { property: 'og:description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://yogatella.com/' },
+        { property: 'og:image', content: 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg' },
+
+        // Twitter Card
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'YogaTella' },
+        { name: 'twitter:description', content: 'YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more.' },
+        { name: 'twitter:image', content: 'https://res.cloudinary.com/dpba22oef/image/upload/w_1000,ar_3:2,c_fill,g_auto/v1745954116/header-yoga-business-in-a-nutshell-considerations-on-opening-your-own-yoga-studio_z7ymxo.jpg' }
+    ],
+    link: [
+        { rel: 'canonical', href: 'https://yogatella.com/' }
+    ],
+    script: [
+        {
+            type: 'application/ld+json',
+            children: `{
         "@context": "https://schema.org",
         "@type": "LocalBusiness",
         "name": "YogaTella",
@@ -48,8 +48,8 @@ useHead({
         "description": "YogaTella is a well-established yoga center in Milan offering yoga, meditation, retreats, and more."
       }`
 
-    }
-  ]
+        }
+    ]
 })
 
 // Images import
@@ -64,64 +64,62 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
     <div class="my-5 text-center container">
 
         <h1 class="my-5 display-1">YogaTella</h1>
-        <h2 class="my-5 lead">Welcome to a space where mind, body, and soul come together. 
+        <h2 class="mt-5 lead">Welcome to a space where mind, body, and soul come together.
             Discover balance, strength, and serenity at our yoga center.
         </h2>
-    </div>    
+    </div>
     <div class="my-5 container">
         <div class="align-items-center justify-content-around row">
-            <div class="col-12 col-md-5">
-                <p class="my-5 fs-5">Yogatella is a well-established yoga center that has been offering the highest
-                quality services in Milan for many years. With a deep passion for well-being and a commitment to excellence,
-                we provide a welcoming space for all to explore the transformative power of yoga.
+            <div class="d-md-block col-12 col-md-5 d-none">
+                <p class="mt-5 fs-5">Yogatella is a well-established yoga center that has been offering the highest
+                    quality services in Milan for many years. With a deep passion for well-being and a commitment to
+                    excellence,
+                    we provide a welcoming space for all to explore the transformative power of yoga.
                 </p>
-                <div class="my-5">
+                <div class="d-flex justify-content-md-start justify-content-center my-5">
                     <Button :url="'/about'" :text="'About YogaTella'" />
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <img :src="hero_image"
-                class="img-fluid image-container" alt="People doing yoga">
+                <img :src="hero_image" class="d-md-block img-fluid d-none image-container" alt="People doing yoga">
             </div>
         </div>
     </div>
     <!-- Highlights -->
     <div class="my-5 container">
-        <h2 class="my-5 text-center display-4">Highlights</h2>
-        <div class="mx-auto border border-2 border-primary image-container" style="width: 95%;" >
-            <div class="d-flex align-items-center mx-auto mt-4"style="width: 95%;">
-                <ActivitiesList highlights/>
+        <h2 class="my-3 my-md-5 text-center display-4">Highlights</h2>
+        <div class="mx-auto border border-2 border-primary image-container" style="width: 95%;">
+            <div class="d-flex align-items-center mx-auto mt-4" style="width: 95%;">
+                <ActivitiesList highlights />
             </div>
         </div>
     </div>
     <!-- Horizontal cards -->
     <div class="my-5 container">
-        
+
         <Card type="horizontal" title="Activities"
             description="We offer a wide variety of activities, ranging from yoga and meditation courses, retreats, seminars and workshops"
-            :imageUrl="teachers_img"
-            linkUrl="/activities" :buttonText="'See all'" />
+            :imageUrl="teachers_img" linkUrl="/activities" :buttonText="'See all'" />
         <Card type="horizontal" title="Teachers"
             description="Meet the team! They are all certified and ready to welcome you in the yoga community"
-            :imageUrl="activities_img"
-            linkUrl="/teachers" :buttonText="'See all'" />
+            :imageUrl="activities_img" linkUrl="/teachers" :buttonText="'See all'" />
     </div>
     <!-- Join us -->
     <div class="mb-5 container">
-        
+
         <div class="align-items-center mt-5 row">
             <div class="mb-3 col-sm-4">
                 <h2 class="my-3 display-4">Join us!</h2>
                 <p class="my-3 lead">What are you waiting for?</p>
                 <p class="my-3">Come visit us to experience the peaceful atmosphere of Yogatella.</p>
 
-                <p class="mb-3"> 
-                    
-                        <strong>Address of the center:</strong><br />
-                        Via Ponzio, 7<br />
-                        20131 Milan MI<br />
-                        Italy  
-                    
+                <p class="mb-3">
+
+                    <strong>Address of the center:</strong><br />
+                    Via Ponzio, 7<br />
+                    20131 Milan MI<br />
+                    Italy
+
                 </p>
                 <Button :url="'/contact'" :text="'Contact us'" />
             </div>
@@ -129,7 +127,7 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
                 <LeafletMap />
             </div>
         </div>
-         
+
     </div>
 
 </template>
