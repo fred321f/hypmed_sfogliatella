@@ -62,7 +62,7 @@
 <script setup>
 import { ref, onMounted } from 'vue';
 
-// Props accettate per filtrare i corsi dinamicamente
+// dinamic filters
 const props = defineProps({
   name: String,
   type: String,
@@ -86,10 +86,38 @@ const showTypes = computed(() =>
 );
 
 
-const courses = ref([]);
-const error = ref(null);
-const daysOfWeek = ref([]);
-const availableTimes = ref([]);
+const { data: courses, error } = await useLazyFetch('/api/activitiesFilters', {
+  query: computed(() => {
+    const params = {};
+    Object.entries(props).forEach(([key, value]) => {
+      if (value) params[key] = value;
+    });
+    return params;
+  }),
+  transform: (result) => {
+    if (result.success) {
+      return result.data;
+    } else {
+      throw createError({
+        statusCode: 500,
+        statusMessage: result.message || 'Failed to fetch courses'
+      });
+    }
+  },
+  default: () => []
+});
+
+// Computed properties for days and times
+const daysOfWeek = computed(() => {
+  const weekOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+  const uniqueDays = [...new Set(courses.value.map(course => course.day))];
+  return weekOrder.filter(day => uniqueDays.includes(day));
+});
+
+const availableTimes = computed(() => {
+  return [...new Set(courses.value.map(course => course.time))]
+    .sort((a, b) => a.localeCompare(b, 'en', { numeric: true }));
+});
 
 const filteredTimes = computed(() => {
   return availableTimes.value.filter(time =>
@@ -102,46 +130,46 @@ const filteredTimes = computed(() => {
 });
 
 
-// Funzione per filtrare corsi in base a giorno e orario
+// day time filter
 const getCoursesForSlot = (day, time) =>
   courses.value.filter(course => course.day === day && course.time === time);
 
   onMounted(async () => {
   try {
-    let url = '/api/activitiesFilters';            // ------------------------------> URL dell'API per ottenere i corsi filtrati
+    let url = '/api/activitiesFilters';            // ---> API URL for filtering courses
     const params = new URLSearchParams();
 
-    // Costruisce dinamicamente i filtri dalla props (tipo, livello, etc.)
+    // build dinamic filters
     Object.entries(props).forEach(([key, value]) => {
-      if (value) params.append(key, value); // Aggiungi solo i parametri che non sono vuoti
+      if (value) params.append(key, value); // add only if the value is not empty
     });
 
     if (params.toString()) {
-      url += `?${params.toString()}`; // Aggiungi i filtri all'URL della richiesta
+      url += `?${params.toString()}`; // add query parameters if any
     }
 
-    const response = await fetch(url); // Effettua la richiesta al server
-    const result = await response.json(); // Converte la risposta in JSON
+    const response = await fetch(url); // request to the API
+    const result = await response.json(); // JSON response conversion
 
     if (result.success) {
-      courses.value = result.data; // Memorizza i corsi ricevuti
+      courses.value = result.data; // save the courses data
 
-      // Estrae i giorni unici dai corsi ricevuti
-      const weekOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']; // Ordine predefinito dei giorni
-      const uniqueDays = [...new Set(result.data.map(course => course.day))]; // Estrae i giorni unici dai corsi ricevuti
+      // extract unique days and order them
+      const weekOrder = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']; // day canonical order
+      const uniqueDays = [...new Set(result.data.map(course => course.day))]; // extract unique days from the courses data
 
-      // Ordina i giorni secondo l'ordine canonico (Lunedì - Domenica)
-      daysOfWeek.value = weekOrder.filter(day => uniqueDays.includes(day)); // Filtra solo i giorni che esistono nei corsi ricevuti
+      // order them according to the canonical order (Monday - Sunday)
+      daysOfWeek.value = weekOrder.filter(day => uniqueDays.includes(day)); //filter the unique days to keep only those in the canonical order
 
-      // Estrae e ordina gli orari unici
-      availableTimes.value = [...new Set(result.data.map(course => course.time))] // Estrae gli orari unici
-        .sort((a, b) => a.localeCompare(b, 'en', { numeric: true })); // Ordina gli orari in ordine crescente (alfabetico e numerico)
+      // extract and order unique times
+      availableTimes.value = [...new Set(result.data.map(course => course.time))] // extract unique times
+        .sort((a, b) => a.localeCompare(b, 'en', { numeric: true })); // orders the times in ascending order (alphabetical and numeric)
 
     } else {
-      throw new Error(result.message || 'Unknown error'); // Se la risposta non è di successo, lancia un errore
+      throw new Error(result.message || 'Unknown error'); 
     }
   } catch (err) {
-    error.value = err.message; // Se si verifica un errore, memorizza il messaggio di errore
+    error.value = err.message; 
   }
 });
 </script>
@@ -206,9 +234,9 @@ const getCoursesForSlot = (day, time) =>
 
 
 
-/* Scrollbar su WebKit (Chrome, Edge, Safari) */
+/* Scrollbar WebKit (Chrome, Edge, Safari) */
 .schedule-table-wrapper::-webkit-scrollbar {
-  height: 15px; /* Aumenta l'altezza della barra orizzontale */
+  height: 15px; /* increese horizontal scrollbar */
 }
 
 .schedule-table-wrapper::-webkit-scrollbar-track {
@@ -219,7 +247,7 @@ const getCoursesForSlot = (day, time) =>
 .schedule-table-wrapper::-webkit-scrollbar-thumb {
   background-color: #999;
   border-radius: 10px;
-  border: 3px solid #ffffff; /* Spazio attorno al thumb */
+  border: 3px solid #ffffff; /* Space near thumb */
 }
 
 </style>

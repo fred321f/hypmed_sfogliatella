@@ -18,7 +18,7 @@ const routes = [
 </script>
 
 <template>
-  <div>
+  <div class="d-flex flex-column min-vh-100">
     <!-- Header -->
     <header>
       <nav class="bg-transparent my-2 navbar navbar-expand-lg">
@@ -68,7 +68,7 @@ const routes = [
     </header>
 
     <!-- Main content -->
-    <main class="radial-bg pb-5">
+    <main class="flex-fill radial-bg pb-5">
       <NuxtPage />
     </main>
 

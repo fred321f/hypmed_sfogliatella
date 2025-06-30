@@ -10,8 +10,6 @@ useHead({
 })
 </script>
 
-
-
 <template>
   <div class="container">
     <h1 class="my-5 text-center display-1">Activities</h1>
@@ -24,5 +22,3 @@ useHead({
 
   </div>
 </template>
-
-
