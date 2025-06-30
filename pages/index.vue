@@ -61,17 +61,29 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
 
 <template>
     <!-- Main page for YogaTella -->
-    <div class="my-5 text-center container">
+    <!-- <div class="my-5 text-center container">
 
-        <h1 class="my-5 display-1">YogaTella</h1>
-        <h2 class="mt-5 lead">Welcome to a space where mind, body, and soul come together.
-            Discover balance, strength, and serenity at our yoga center.
-        </h2>
+        <h1 class="my-5 highlight-heading">YogaTella</h1>
+    
+    </div> -->
+
+    <div class="my-4 text-center container hero-full-vh">
+        <div class="row"></div>
+        <div class="row hero-container">
+            <div class="col-sm-6">
+                <h1 class="mx-4 font-bold display-4 hero-header">At <span class="inline-brand">YogaTella</span>, we specialize in all types of yoga where you're in focus.</h1>
+            </div>
+            <div class="d-sm-block sm-display--block col-sm-6 d-none">
+                <img src="../assets/img/hero_image.jpg" class="rounded img-fluid hero-img"
+                    alt="People doing yoga">
+            </div>
+        </div>
+        <div class="row"></div>
     </div>
-    <div class="my-5 container">
+    <!-- <div class="my-5 container">
         <div class="align-items-center justify-content-around row">
             <div class="d-md-block col-12 col-md-5 d-none">
-                <p class="mt-5 fs-5">Yogatella is a well-established yoga center that has been offering the highest
+                <p class="mt-5 fs-5 lead">Yogatella is a well-established yoga center that has been offering the highest
                     quality services in Milan for many years. With a deep passion for well-being and a commitment to
                     excellence,
                     we provide a welcoming space for all to explore the transformative power of yoga.
@@ -81,16 +93,16 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
                 </div>
             </div>
             <div class="col-12 col-md-5">
-                <img :src="hero_image" class="d-md-block img-fluid d-none image-container" alt="People doing yoga">
+                <img :src="hero_image" class="d-md-block img-fluid hero-img d-none image-container" alt="People doing yoga">
             </div>
 
-            <!-- SHOW ONLY ON PHONES -->
+            
             <Button class="d-md-none col-4" :url="'/about'" :text="'Learn more'" />
         </div>
-    </div>
+    </div> -->
     <!-- Highlights -->
     <div class="my-5 container">
-        <h2 class="my-3 my-md-5 text-center display-4">Highlights</h2>
+        <h2 class="my-4 my-md-5 text-center display-4 highlight-heading">Highlights</h2>
         <div class="mx-auto border border-2 border-primary image-container" style="width: 95%;">
             <div class="d-flex align-items-center mx-auto mt-4" style="width: 95%;">
                 <ActivitiesList highlights />

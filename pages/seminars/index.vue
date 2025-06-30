@@ -13,7 +13,7 @@ useHead({
 
 <template>
   <div class="container">
-    <h1 class="my-5 text-center display-1">Seminars and Workshops</h1>
+    <h1 class="my-5 text-center highlight-heading">Seminars and Workshops</h1>
     <p class="mb-5 text-center lead">
       Expand your knowledge and skills with our seminars and workshops, led by experts in yoga, wellness, and holistic health. 
       Topics range from anatomy and alignment to nutrition and personal development.
@@ -27,7 +27,7 @@ useHead({
     <ActivitiesList type="Workshop"/>
 
     
-    <h1 class="my-5 text-center display-1">Other activities</h1>
+    <h1 class="my-5 text-center highlight-heading">Other activities</h1>
     <Overview hide="Seminars and workshops"/>
 
   </div>

@@ -13,7 +13,7 @@ useHead({
 <template>
     <div class="mb-5 container">
         <div class="text-center container">
-            <h1 class="my-5 display-1">About YogaTella</h1>
+            <h1 class="my-5 highlight-heading">About YogaTella</h1>
             <h2 class="my-5 lead">On this page, you can learn more about our story and values, and explore our prices policy. Whether you're new to yoga or deepening an existing practice, Yogatella offers a supportive environment led by experienced teachers.</h2>
         </div>
 

@@ -14,7 +14,7 @@ useHead({
 
 <template>
     <div class="text-center container">
-        <h1 class="my-5 display-1">Contact us</h1>
+        <h1 class="my-5 highlight-heading">Contact us</h1>
         <h2 class="my-5 lead">Here are all the ways in which you can contact us to book your class, or just to get more information about the center or the activities we offer.</h2>
     </div>
 
@@ -33,10 +33,10 @@ useHead({
 
     <!-- Email Us Section -->
     <div class="mb-5 container"> 
-        <div class="row    p-0 m-0">
+        <div class="m-0 p-0 row">
             
             <!-- Left Text Section -->
-            <div class="col-sm-4 mb-3 mb-sm-0 p-4  ps-0">
+            <div class="mb-3 mb-sm-0 p-4 ps-0 col-sm-4">
                 <h3 class="mt-3 mb-5 display-4">Email us</h3>
                 <p class="mb-3">
                     You can send an email to <strong><a href="mailto:yogatella@mail.it" class="text-decoration-none">yogatella@mail.it</a></strong> and we will reply as soon as possible.
@@ -46,7 +46,7 @@ useHead({
                     and we’ll reply directly to your inbox.
                 </p>
             </div>
-            <div class="col-sm-8 text-start border border-2 border-primary rounded-4 p-4 shadow-sm card">
+            <div class="shadow-sm p-4 border border-2 border-primary rounded-4 text-start col-sm-8 card">
                 <InputMessage />
             </div>
 
@@ -59,8 +59,8 @@ useHead({
         <h3 class="my-5 display-4">Meet us in person!</h3>
         <p class="my-3">Come visit us in our center in Milan, the receptionist will be ready to answer all your questions and sign you up for the activity that best suits you. </p>
          
-            <div class="row align-items-center">
-                <div class="col-sm-4 mb-3 mb-sm-0 fs-5 p-3">
+            <div class="align-items-center row">
+                <div class="mb-3 mb-sm-0 p-3 col-sm-4 fs-5">
                      
                     <p class="mb-3">
                         <strong>Address of the center:</strong><br />
@@ -78,7 +78,7 @@ useHead({
 
                 </div>
 
-                <div class="col-sm-8 ">
+                <div class="col-sm-8">
                     <LeafletMap />
                 </div>
             </div>

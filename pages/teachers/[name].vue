@@ -38,7 +38,7 @@ useHead({
         <p class="text-danger">{{ error }}</p>
     </div>
     <div v-else class="container">
-        <h1 class="my-5 text-center display-1">{{ teacher.name }}</h1>
+        <h1 class="my-5 text-center highlight-heading">{{ teacher.name }}</h1>
 
         <div class="align-items-stretch p-0 row">
             <div class="d-flex mb-4 mb-md-0 p-0 p-3 col-md-6">

@@ -42,7 +42,7 @@ useHead({
   </div>
 
   <div v-else class="my-5 container">
-    <h1 class="my-5 text-center display-1">{{ activity.name }}</h1>
+    <h1 class="my-5 text-center highlight-heading">{{ activity.name }}</h1>
 
     <!-- ----- ACTIVITY Section ----- -->
     <div class="align-items-stretch p-0 row">

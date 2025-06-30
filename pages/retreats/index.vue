@@ -13,7 +13,7 @@ useHead({
 
 <template>
   <div class="container">
-    <h1 class="my-5 text-center display-1">Retreats</h1>
+    <h1 class="my-5 text-center highlight-heading">Retreats</h1>
     <p class="mb-5 text-center lead">
       Our retreats offer a wide range of yoga and meditation experiences suitable for all levels, from complete beginners to experienced practitioners. 
       Each session is led by knowledgeable, compassionate instructors dedicated to supporting your journey. <br/>
@@ -24,7 +24,7 @@ useHead({
     <h2 class="my-5 text-center display-4">Retreats</h2>
     <ActivitiesList type="Retreat"/>
 
-    <h1 class="my-5 text-center display-1">Other activities</h1>
+    <h1 class="my-5 text-center highlight-heading">Other activities</h1>
     <Overview hide="Retreats"/>
 
   </div>

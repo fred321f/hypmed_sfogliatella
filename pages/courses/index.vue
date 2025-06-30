@@ -16,7 +16,7 @@ useHead({
 
 <template>
   <div class="container">
-    <h1 class="my-5 text-center display-1">Courses</h1>
+    <h1 class="my-5 text-center highlight-heading">Courses</h1>
     <p class="mb-5 text-center lead">
       Our offering include a variety of yoga and meditation courses suitable for all levels:
       from complete beginners to seasoned practitioners. Each class is guided by experienced instructors.
@@ -33,7 +33,7 @@ useHead({
     <h2 class="my-5 text-center display-4">Meditation Courses</h2>
     <ActivitiesList type="Meditation" />
 
-    <h1 class="my-5 text-center display-1">Other activities</h1>
+    <h1 class="my-5 text-center highlight-heading">Other activities</h1>
     <Overview hide="Yoga and meditation courses"/>
 
   </div>
