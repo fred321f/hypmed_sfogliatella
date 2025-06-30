@@ -83,6 +83,9 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
             <div class="col-12 col-md-5">
                 <img :src="hero_image" class="d-md-block img-fluid d-none image-container" alt="People doing yoga">
             </div>
+
+            <!-- SHOW ONLY ON PHONES -->
+            <Button class="d-md-none col-4" :url="'/about'" :text="'Learn more'" />
         </div>
     </div>
     <!-- Highlights -->
