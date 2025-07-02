@@ -21,14 +21,15 @@
             <li><a href="/contact" class="text-light text-decoration-none">Contact Us</a></li>
           </ul>
         </div>
+        
         <!-- Social Media Links -->
         <div class="mb-4 text-center col-md-4"> 
           <h5 class="mb-3">Developed by <strong>Sfogliatella Team:</strong></h5>
           <ul class="list-unstyled">
-            <li><a class="d-block ig-profile">Gianluca Bettoni</a></li>
-            <li><a class="d-block ig-profile">Frederick Nielsen</a></li>
-            <li><a class="d-block ig-profile">Sveva Zanetti</a></li>
-            <li><a class="d-block ig-profile">Haipeng Zhu</a></li>
+            <li><p class="d-block ig-profile">Gianluca Bettoni</p></li>
+            <li><p class="d-block ig-profile">Frederick Nielsen</p></li>
+            <li><p class="d-block ig-profile">Sveva Zanetti</p></li>
+            <li><p class="d-block ig-profile">Haipeng Zhu</p></li>
           </ul>
         </div>
       </div>
