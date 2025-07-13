@@ -102,7 +102,7 @@ onMounted(() => {
                         <p class="card-text" style="font-size: 16px; margin-bottom: 0; line-height: 2em;">{{ description
                             }}</p>
                         <div class="d-flex justify-content-end mt-auto">
-                            <a v-if="linkUrl" :href="linkUrl" class="my-link">
+                            <a v-if="linkUrl" :href="linkUrl" class="card-link">
                                 {{ buttonText }} <i class="bi-arrow-right me-3 bi"></i>
                             </a>
                         </div>
@@ -185,9 +185,9 @@ export default {
     cursor: pointer;
 }
 
-.my-link {
+.card-link {
     text-decoration: none;
-    color: #20c997;
+    color: #0F855C;
 }
 
 

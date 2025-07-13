@@ -4,7 +4,7 @@
       <div class="row">
         <!-- Contact Info -->
         <div class="mb-4 text-center col-md-4">
-          <h5 class="mb-3 text-uppercase fw-bold">Contact</h5>
+          <p class="mb-3 text-uppercase fw-bold">Contact</p>
           <p class="mb-1"> 📍 <a href="https://www.google.com/maps?q=Via+Ponzio,+7,+20131+Milan,+Italy" target="_blank" rel="noopener noreferrer" class="text-light text-decoration-none">
             Via Ponzio, 7 — 20131 Milan, Italy </a>
           </p> 
@@ -13,7 +13,7 @@
         </div>
         <!-- Quick Links -->
         <div class="mb-4 text-center col-md-4">
-          <h5 class="mb-3 text-uppercase fw-bold">Quick Links</h5>
+          <p class="mb-3 text-uppercase fw-bold">Quick Links</p>
           <ul class="list-unstyled">
             <li><a href="/" class="text-light text-decoration-none">Home</a></li>
             <li><a href="/teachers" class="text-light text-decoration-none">Teachers</a></li>
@@ -24,7 +24,7 @@
         
         <!-- Social Media Links -->
         <div class="mb-4 text-center col-md-4"> 
-          <h5 class="mb-3">Developed by <strong>Sfogliatella Team:</strong></h5>
+          <p class="mb-3">Developed by <strong>Sfogliatella Team:</strong></p>
           <ul class="list-unstyled">
             <li><p class="d-block ig-profile">Gianluca Bettoni</p></li>
             <li><p class="d-block ig-profile">Frederick Nielsen</p></li>

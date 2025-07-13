@@ -1,10 +1,4 @@
 body {
-
-    /* background: linear-gradient(-45deg, #55b5d874, #ffffff, #48d8b73b, #e0e0e09a);
-	background-size: 400% 400%;     
-	animation: gradient 15s ease infinite;
-	height: 100vh; */
-
     background: #ffffff;
     background: linear-gradient(324deg, rgba(255, 255, 255, 0) 0%, rgba(143, 255, 221, 0.02) 62%, rgba(32, 201, 151, 0.1) 100%);
     background-repeat: no-repeat;
@@ -13,16 +7,19 @@ body {
 
 /* Buttons */
 .btn-main {
-    background-color: #20c997;
+    background-color: #0F855C;
     color: #ffffff;
-
     padding: 0.5rem 1rem;
-
     border: none;
     border-radius: 0.5rem;
     border-color: #20c997;
-    font-weight: 700;
-    /* box-shadow: 0 0 10px rgba(32, 201, 151, 0.5); */
+    font-weight:900;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    -webkit-text-stroke: 0.5px #00000044;
+}
+
+.btn-main:hover {
+    background-color: #0F7550;
 }
 
 .btn-second {
@@ -33,14 +30,6 @@ body {
     border-radius: 0.5rem;
     font-weight: 700;
 }
-
-/* h1.display-1 {
-    text-decoration: underline;
-    text-decoration-color: #20c997;
-    text-underline-offset: 15px;
-    text-decoration-thickness: 2px;
-    text-decoration-skip-ink: auto;
-} */
 
 .highlight-heading {
     text-decoration: underline;
@@ -56,8 +45,6 @@ body {
         text-decoration-thickness: 1.5px;
     }
 }
-
-
 
 .inline-brand {
     text-decoration: underline;
