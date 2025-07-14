@@ -22,8 +22,10 @@ const navItems = [
             <span class="d-md-block w-100 text-center d-none fw-normal">YogaTella</span>
           </NuxtLink>
 
-          <button class="mx-4 navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          <button class="mx-4 navbar-toggler" 
+            type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" 
+            aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
