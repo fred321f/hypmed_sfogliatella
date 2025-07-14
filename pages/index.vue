@@ -61,11 +61,6 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
 
 <template>
     <!-- Main page for YogaTella -->
-    <!-- <div class="my-5 text-center container">
-
-        <h1 class="my-5 highlight-heading">YogaTella</h1>
-    
-    </div> -->
 
     <div class="my-4 text-center container hero-full-vh">
         <div class="row"></div>
@@ -80,26 +75,6 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
         </div>
         <div class="row"></div>
     </div>
-    <!-- <div class="my-5 container">
-        <div class="align-items-center justify-content-around row">
-            <div class="d-md-block col-12 col-md-5 d-none">
-                <p class="mt-5 fs-5 lead">Yogatella is a well-established yoga center that has been offering the highest
-                    quality services in Milan for many years. With a deep passion for well-being and a commitment to
-                    excellence,
-                    we provide a welcoming space for all to explore the transformative power of yoga.
-                </p>
-                <div class="d-flex justify-content-md-start justify-content-center my-5">
-                    <Button :url="'/about'" :text="'About YogaTella'" />
-                </div>
-            </div>
-            <div class="col-12 col-md-5">
-                <img :src="hero_image" class="d-md-block img-fluid hero-img d-none image-container" alt="People doing yoga">
-            </div>
-
-            
-            <Button class="d-md-none col-4" :url="'/about'" :text="'Learn more'" />
-        </div>
-    </div> -->
     <!-- Highlights -->
     <div class="my-5 container">
         <h2 class="my-4 my-md-5 text-center display-4 highlight-heading">Highlights</h2>

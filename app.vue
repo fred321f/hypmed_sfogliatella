@@ -37,14 +37,3 @@ import Footer from '@/components/Footer.vue'
 /* ...existing global styles... */
 </style>
 
-// Add FontAwesome CDN to Nuxt head property for best practices
-// nuxt.config.ts:
-// export default defineNuxtConfig({
-//   app: {
-//     head: {
-//       link: [
-//         { rel: 'stylesheet', href: 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' }
-//       ]
-//     }
-//   }
-// })
