@@ -66,11 +66,11 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
         <div class="row"></div>
         <div class="row hero-container">
             <div class="col-sm-6">
-                <h1 class="mx-4 font-bold display-4 hero-header">At <span class="inline-brand">YogaTella</span>, we specialize in all types of yoga where you're in focus.</h1>
+                <h1 class="mx-4 font-bold display-4 hero-header">At <span class="inline-brand">YogaTella</span>, we
+                    specialize in all types of yoga where you're in focus.</h1>
             </div>
             <div class="d-sm-block sm-display--block col-sm-6 d-none">
-                <img src="../assets/img/hero_image.jpg" class="rounded img-fluid hero-img"
-                    alt="People doing yoga">
+                <img src="../assets/img/hero_image.jpg" class="rounded img-fluid hero-img" alt="People doing yoga">
             </div>
         </div>
         <div class="row"></div>
@@ -79,7 +79,7 @@ import teachers_img from '~/assets/img/teachers_img.jpg'
     <div class="my-5 container">
         <h2 class="my-4 my-md-5 text-center display-4 highlight-heading">Highlights</h2>
         <div class="mx-auto border border-2 border-primary image-container" style="width: 95%;">
-            <div class="d-flex align-items-center mx-auto mt-4" style="width: 95%;">
+            <div class="d-flex align-items-center justify-content-center mx-auto mt-4" style="width: 95%;">
                 <ActivitiesList highlights />
             </div>
         </div>
